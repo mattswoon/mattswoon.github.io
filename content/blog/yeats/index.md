@@ -2,6 +2,7 @@
 layout: post
 title:  "Playing parlour games on discord during lockdown"
 date:   2020-04-04 12:28 +1100
+description: My circle of friends call this game irish, and seeing as we can't see each other during the lockdown, I wrote a discord bot so we can play it OL
 categories: code
 ---
 
@@ -21,7 +22,7 @@ You can invent more rounds if you want, the point is that successful performance
 describe the clue precisely but you can use in-jokes and throw backs to the previous rounds to help the person guessing. Some suggestions
 for playing this on discord include
  * Sound effects only (I guess this is the radio drama version of charades?)
- * Emojis only :man: :skull: :burrito: :arrow_right: :hand: (["He Died with Felafel in His Hand"](https://www.imdb.com/title/tt0172543/?ref_=fn_al_tt_1) ??)
+ * Emojis only 👨💀🌯➡️✋ (["He Died with Felafel in His Hand"](https://www.imdb.com/title/tt0172543/?ref_=fn_al_tt_1) ??)
 
 ### Quarantine
 With the global pandemic in full swing and all this talk of flattening the curve, 
@@ -103,9 +104,9 @@ Creating a discord bot is pretty straightforward, just follow the instructions o
 All we need is the  secret token, which I've saved to a file in my repository called `.profile` (which is in the `.gitignore` so I don't 
  commit it for all the world to see), which I can `source` to as an environment variable.
 
-{% highlight bash %}
+```shell
 export YEATS_TOKEN="SoMeChArAcTeRsAnDPuNcTuaTioNandStuFf"
-{% endhighlight %}
+```
 
 ### Bot basics
 
@@ -119,7 +120,7 @@ I'd not really done any javascript programming before but some discord bot tutor
 The basics of yeats is to connect using the above secret token, then listen for messages and update the game state accordingly. 
 So it all started off looking something like
 
-{% highlight js %}
+```javascript
 const Discord = require('discord.js');
 token = process.env.YEATS_TOKEN;
 console.log(`Connecting with token=${token}`);
@@ -136,14 +137,14 @@ client.on('message', (message) => {
 });
 
 client.connect(token);
-{% endhighlight %}
+```
 
 ### Adding commands
 To add commands to yeats's repertoire, we just need to add more `if` statements in the `'message'` event listener. 
 I have three main blocks - one for commands (they start with `!`) DM'd to yeats, one for commands in the text channel, and one for the performer asking for a new clue. 
 So the `'message'` listener looks more like 
 
-{% highlight js %}
+```js
 client.on('message', (message) => {
   if (message.channel.type === 'text' & message.content.startsWith('!')) {
     command = message.content.split(' ')[0];
@@ -179,7 +180,7 @@ client.on('message', (message) => {
     // give next clue as a DM
   };
 });
-{% endhighlight %}
+```
 
 ## Thanks for reading
 I won't go into detail about how I've coded all the game state transitions, but if you're interested you can check out all the code on [GitHub](https://github.com/mattswoon/yeats).

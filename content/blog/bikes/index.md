@@ -2,15 +2,15 @@
 layout: post
 title:  "A brief history of (my) bikes"
 date:   2020-02-08 22:12:08 +1100
+description: An almost complete chronical of the bikes that me the cyclist I am today
 categories: bikes
 ---
 
 Here lies an almost complete chronical of the bikes that made me the cyclist I am today.
 
 ## The birth of tinkering, 2012-2015ish
-  ![](/assets/blue_eagle.jpg)
-  *The blue eagle, with left bank handlebars. If you look closely you can
-  just make out the crappy smartphone filter. 2012*
+  ![The blue eagle, with left bank handlebars. If you look closely you can 
+just make out the crappy smartphone filter. 2012](./blue_eagle.jpg)
 
   I originally bought the blue eagle for $20 because I needed a seatpost, 
   but decided I liked it more than whatever other thing I was tinkering on.
@@ -19,20 +19,19 @@ Here lies an almost complete chronical of the bikes that made me the cyclist I a
   I doubled downed and bought handlebars, long reach brakes and bar end brake
   levers from velo-orange.
 
-  ![](/assets/blue_eagle_20141221.jpg)
-  *After a trip to kmart to buy some coat hangers, 2014. I was, perhaps, a little
-  conservative with the amount of brake cable needed.*
-
+  ![After a trip to kmart to buy some coat hangers, 2014. I was, perhaps, a little
+  conservative with the amount of brake cable needed.](./blue_eagle_20141221.jpg)
+  
   The blue eagle lasted a few years, an upgrade to a 6 speed cassette harvested from 
   a bike left on a friends porch, which was donated to me and converted to a fixed gear.
 
-  ![](/assets/blue_eagle_20141126.jpg)
-  *I used linseed oil on the stem to protect against rust, it just made it a gross
-  yellow*
+  ![I used linseed oil on the stem to protect against rust, it just made it a gross
+  yellow](./blue_eagle_20141126.jpg)
+  
 
 ## A succumbening to hipster-dom, the fixed gear, 2012-2015ish
-  ![](/assets/clament_20120324.jpg)
-  *Did you even ride a bike if you don't photograph it near a bridge? 2012*
+  ![Did you even ride a bike if you don't photograph it near a bridge? 2012](./clament_20120324.jpg)
+  
 
   Fixed gears are dumb. I hated them. Don't be such a twat and just
   get some gears. 
@@ -50,8 +49,8 @@ Here lies an almost complete chronical of the bikes that made me the cyclist I a
   are. And maybe the watermelon thing has some merit.
 
 ## Actually this one is quite old, 2013-current
-  ![](/assets/speedwell_20130512_100554.jpg)
-  *As it arrived, sturmey archer aw, wright's saddle, steel rims*
+  ![As it arrived, sturmey archer aw, wright's saddle, steel rims](./speedwell_20130512_100554.jpg)
+  
 
   I had two bikes by now, and had bored my family enough with this new found interest
   that I was becoming a "bike guy". My grandparents' neighbour was getting rid of his
@@ -59,39 +58,39 @@ Here lies an almost complete chronical of the bikes that made me the cyclist I a
   put me in touch and I went to have a look - I don't need a new bike, but I can have a look
   right.
 
-  ![](/assets/speedwell_20130512_100606.jpg)
-  *A pretty cool shifter*
+  ![A pretty cool shifter](./speedwell_20130512_100606.jpg)
+  
 
   When he said the bike had been sitting in the shed for a while, he meant since the mid-70s.
   He bought it brand new in in 1952. At this time, this bike was more than twice my age
   and I would be its second owner.
 
-  ![](/assets/speedwell_20130512_101429.jpg)
-  *Wrights saddles was taken [over by Brooks some time around 1960](https://www.brooksengland.com/en_row/blog/wrights-saddles.html).
+  ![Wrights saddles was taken [over by Brooks some time around 1960](https://www.brooksengland.com/en_row/blog/wrights-saddles.html).
   I still have this saddle, but the leather has stretched and the rivets poke uncomfortably into your bum.
-  Also, the bike must have leaned against a pole for a long time, as the leather had stretched unevenly*
+  Also, the bike must have leaned against a pole for a long time, as the leather had stretched unevenly](./speedwell_20130512_101429.jpg)
+  
 
-  ![](/assets/speedwell_20130512_100722.jpg)
-  *Frame serial number shows the frame was made in Englad. I read somewhere that the serial number means this was the 75th frame made
-  in Feb of 1948 (which fits with the 1952 purchase timeline), but I'm not sure if that's accurate.*
+  ![Frame serial number shows the frame was made in Englad. I read somewhere that the serial number means this was the 75th frame made
+  in Feb of 1948 (which fits with the 1952 purchase timeline), but I'm not sure if that's accurate.](./speedwell_20130512_100722.jpg)
+  
 
   Originally I did very little to this bike, and just got it running. When I almost crashed in the rain because steel rims are a
   joke, I decided to the get the wheels re-built with aluminium rims. I added some flair with some velo-orange hammered fenders 
   and porteur handlebars as well as a soma porteur rack.
 
-  ![](/assets/speedwell_20130702.jpg)
-  *I really liked those bar-end brake levers.*
+  ![I really liked those bar-end brake levers.](./speedwell_20130702.jpg)
+  
 
   This setup lasted a few months until the old sturmey archer AW shat itself. My trusted bike mechanic told me they could open it up
   but were unsure what they'd be able to do once they did. So I replaced it with a shimano nexus 8. I left the 3 speed shifter on though
   because it was so cool.
 
-  ![](/assets/speedwell_20131014.jpg)
-  *The soma porteur rack can carry quite a good amount, oh and after much frustration I found out that the shifter didn't
-  fit the porteur handlebars... so I bought new handlebars*
+  ![The soma porteur rack can carry quite a good amount, oh and after much frustration I found out that the shifter didn't
+  fit the porteur handlebars... so I bought new handlebars](./speedwell_20131014.jpg)
+  
 
 #### A 2018 refresh: Speedwell and the hottest its from the 50s, 70s and now
-  ![](/assets/speedwell_20180526_full.jpg)
+  ![](./speedwell_20180526_full.jpg)
 
   My main bike shifted to a touring bike in 2016 and the speedwell returned to a shed to await its rebirth. That came in 2018.
 
@@ -100,13 +99,13 @@ Here lies an almost complete chronical of the bikes that made me the cyclist I a
   trip through history itself - a frame imported from England in the 50s, some wheels from the 70s that weren't properly 
   secured at university, some handlebars from the 2010s mimicing a style from Paris in 30s. Now it's just a nice bike.
 
-  ![](/assets/speedwell_20180526_shifter.jpg)
-  ![](/assets/speedwell_20180526_hub.jpg)
-  ![](/assets/speedwell_20180526_security.jpg)
+  ![](./speedwell_20180526_shifter.jpg)
+  ![](./speedwell_20180526_hub.jpg)
+  ![](./speedwell_20180526_security.jpg)
 
 ## My knees can sleep when they're dead, ~2015-current
-  ![](/assets/khs_20180216.jpg)
-  *New tyres + wald basket. Still see no reason for matching handlebar grips though*
+  ![New tyres + wald basket. Still see no reason for matching handlebar grips though](./khs_20180216.jpg)
+  
 
   A former housemate of mine was pivotal in my descent into bike tinkerdom. Ironically, he 
   was also why I hated fixed gears so much, that is until I rode one.
@@ -116,18 +115,18 @@ Here lies an almost complete chronical of the bikes that made me the cyclist I a
   gave it to me - he was no longer riding it and didn't want to see it rust on the balcony
   of his coastal apartment.
 
-  ![](/assets/khs_20170108.jpg)
-  *Backpacks do NOT belong on your back*
+  ![Backpacks do NOT belong on your back](./khs_20170108.jpg)
+  
 
   I've not done much to it, except change the handlebars to something more
   my preferred style (VO porteur bars from the speedwell) and give it some
   luggage options depending on what was lying around at the time.
 
-  ![](/assets/khs_20171012.jpg)
-  *Night time, urban style*
+  ![Night time, urban style](./khs_20171012.jpg)
+  
 
 ## Baby's first tour, 2016-2017
-  ![](/assets/touring_20161104.jpg)
+  ![](./touring_20161104.jpg)
 
   I'd long wanted to go on a bike tour, but it took a good excuse, like a 30th birthday, 
   for me to actually do it. 
@@ -142,18 +141,18 @@ Here lies an almost complete chronical of the bikes that made me the cyclist I a
   of a hacksaw and a lack of emotional attachment to the fork, and the bottom bracket with wd40, a pipe wrench and eventually
   by clamping the bottom bracket in a bench vice and turning the whole frame.
 
-  ![](/assets/touring_20160820.jpg)
-  *Stripped and ready for paint... which I did with a roller*
+  ![Stripped and ready for paint... which I did with a roller](./touring_20160820.jpg)
+  
 
-  ![](/assets/touring_20160828.jpg)
-  *The grey was supposed to be white, but I guess some black got in there*
+  ![The grey was supposed to be white, but I guess some black got in there](./touring_20160828.jpg)
+  
 
   I planned the tour conservatively. I scheduled 40km a day, and took a fortnight off work.
   It took something like 5 days. 10/10 would do again.
 
 #### The hunge
-  ![](/assets/touring_20170714.jpg)
-  *West of the Olney State Forest*
+  ![West of the Olney State Forest](./touring_20170714.jpg)
+  
 
   A weekend away with friends in the Hunter Valley was organised and I decided to make my own way there.
   I caught the train to Morrisset and rode the rest of the way through the Olney state forest, meeting
@@ -162,12 +161,12 @@ Here lies an almost complete chronical of the bikes that made me the cyclist I a
   This was my longest ride ever and took me all day. I got on the train around 4am and arrived at the airbnb
   just before dark at about 5pm. The whole ride was about 100km, and I only shared about 10 of those with cars.
 
-  ![](/assets/touring_20170714_train.jpg)
-  ![](/assets/touring_20170714_forest.jpg)
+  ![](./touring_20170714_train.jpg)
+  ![](./touring_20170714_forest.jpg)
 
 ## My most expensive bike to date, 2018-current
 
-  ![](/assets/surly_20190630.jpg)
+  ![](./surly_20190630.jpg)
 
   The cost of a bike is a nebulous concept for me, because I've not really gone to shop and bought one
   that was sitting there ready to go. The surly holds the record for most expensive bike mostly because
@@ -202,5 +201,5 @@ Here lies an almost complete chronical of the bikes that made me the cyclist I a
 #### Edit
   This is me rectifying the lack of picture mentioned above.
 
-  ![](/assets/folding_20200213.jpg)
-  *Catching the light rail, my second favourite mode of transport*
+  ![Catching the light rail, my second favourite mode of transport](./folding_20200213.jpg)
+  
