@@ -166,25 +166,25 @@ put me in touch and I went to have a look - I don't need a new bike, but I can h
 right.""" ]
     , image Natural [] [ img
         [ src "content/blog/bikes/speedwell_20130512_100606.jpg"
-        , alt "" 
+        , alt "Original Sturmey Archer shifter, mounted to the top tube." 
         ] []]
     , p [] [ text """When he said the bike had been sitting in the shed for a while, he meant since the mid-70s.
 He bought it brand new in in 1952. At this time, this bike was more than twice my age
 and I would be its second owner.""" ]
     , image Natural [] [ img 
         [ src "content/blog/bikes/speedwell_20130512_101429.jpg"
-        , alt ""
+        , alt "Original Wrights saddle, worn and with rusty rivets."
         ] []]
     , image Natural [] [ img
         [ src "content/blog/bikes/speedwell_20130512_100722.jpg"
-        , alt ""
+        , alt "Serial number of the Speedwell frame. Number reads 24875 which apparently indicates this was the 75th frame built in Feb, 1948."
         ] []]
     , p [] [ text """Originally I did very little to this bike, and just got it running. When I almost crashed in the rain because steel rims are a
 joke, I decided to the get the wheels re-built with aluminium rims. I added some flair with some velo-orange hammered fenders 
 and porteur handlebars as well as a soma porteur rack.""" ]
     , image Natural [] [ img
         [ src "content/blog/bikes/speedwell_20130702.jpg"
-        , alt ""
+        , alt "The Speedwell with the wheels re-built into aluminium rims, VO porteur handlebars and Soma porteur front rack."
         ] [] ]
     , p [] [ text """This setup lasted a few months until the old sturmey archer AW shat itself. My trusted bike mechanic told me they could open it up
 but were unsure what they'd be able to do once they did. So I replaced it with a shimano nexus 8. I left the 3 speed shifter on though
@@ -197,15 +197,15 @@ trip through history itself - a frame imported from England in the 50s, some whe
 secured at university, some handlebars from the 2010s mimicing a style from Paris in 30s. Now it's just a nice bike.""" ]
     , image Natural [] [ img
         [ src "content/blog/bikes/speedwell_20180526_shifter.jpg"
-        , alt ""
+        , alt "A more modern Sturmey Archer AW shifter to match the hub from the 70s."
         ] []]
     , image Natural [] [ img
         [ src "content/blog/bikes/speedwell_20180526_hub.jpg"
-        , alt ""
+        , alt "A Sturmey Archer AW 3-speed hub built in 1977."
         ] []]
     , image Natural [] [ img
         [ src "content/blog/bikes/speedwell_20180526_security.jpg"
-        , alt ""
+        , alt "A spoke card from University Security warning that the bike hadn't been secured in an approved rack."
         ] []]
     ]
 
@@ -214,7 +214,9 @@ noNameTouringArticle = article []
     [ Bulma.Elements.title H1 [] [ text "Baby's first tour, 2016-2017" ]
     , image Natural [] [ img
         [ src "content/blog/bikes/touring_20161104.jpg"
-        , alt "" 
+        , alt """A no-name touring bike, fully loaded while on tour. 
+ Features a rear rack with two panniers and gear on top, a handlebar bag, and three stainless
+ steel water bottles - two on the handlebars and one on the seat tube."""
         ] []]
     , p [] [ text """I'd long wanted to go on a bike tour, but it took a good excuse, like a 30th birthday, 
 for me to actually do it.""" ]
@@ -228,18 +230,19 @@ of a hacksaw and a lack of emotional attachment to the fork, and the bottom brac
 by clamping the bottom bracket in a bench vice and turning the whole frame."""]
     , image Natural [] [ img
         [ src "content/blog/bikes/touring_20160820.jpg"
-        , alt ""
+        , alt "A bare frame hanging in a tree in my back yard, ready to painted."
         ] []]
     , image Natural [] [ img 
         [ src "content/blog/bikes/touring_20160828.jpg"
-        , alt ""
+        , alt "A partially built no-name touring bike with wheels and handlebars attached."
         ] []]
     , p [] [ text """I planned the tour conservatively. I scheduled 40km a day, and took a fortnight off work.
 It took something like 5 days. 10/10 would do again.""" ]
     , Bulma.Elements.title H2 [] [ text "The hunge" ]
     , image Natural [] [ img
         [ src "content/blog/bikes/touring_20170714.jpg"
-        , alt ""
+        , alt """The no-name touring bike leans against a cattle paddock gate. The handlebar bag has been replaced with a
+ Soma porteur front rack with a Swift Industries Sugarloaf bag on top."""
         ] []]
     , p [] [ text """A weekend away with friends in the Hunter Valley was organised and I decided to make my own way there.
 I caught the train to Morrisset and rode the rest of the way through the Olney state forest, meeting
@@ -248,11 +251,11 @@ them at the Wollembi Tavern for lunch along the way.""" ]
   just before dark at about 5pm. The whole ride was about 100km, and I only shared about 10 of those with cars."""]
     , image Natural [] [ img 
         [ src "content/blog/bikes/touring_20170714_train.jpg"
-        , alt ""
+        , alt """The no-name touring bike hanging from a bike rack on a NSW Intercity train."""
         ] []]
     , image Natural [] [ img
         [ src "content/blog/bikes/touring_20170714_forest.jpg"
-        , alt ""
+        , alt """The no-name touring bike leaning against a felled tree in the Olney State Forest."""
         ] []]
     ]
 
@@ -283,7 +286,7 @@ korean3SixtyArticle = article []
     [ Bulma.Elements.title H1 [] [ text "Into the fold, 2019-current" ]
     , image Natural [] [ img
         [ src "content/blog/bikes/folding_20200213.jpg"
-        , alt ""
+        , alt """A 3Sixty folding bike leans against a post at the Glebe Light Rail station at dusk. In the background the historic Glebe rail tunnel is illuminated"""
         ] []]
     , p [] [ text """My new year's resolution for 2019 was to not buy a new bike. I failed.""" ]
     , p [] [ text """I'd been curious as to whether I wanted to a Brompton for quite some time. Come October, during one of
