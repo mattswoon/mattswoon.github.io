@@ -1871,7 +1871,7 @@ var _Platform_worker = F4(function(impl, flagDecoder, debugMetadata, args)
 	return _Platform_initialize(
 		flagDecoder,
 		args,
-		impl.a7,
+		impl.a6,
 		impl.be,
 		impl.bd,
 		function() { return function() {} }
@@ -3942,7 +3942,7 @@ var _Browser_element = _Debugger_element || F4(function(impl, flagDecoder, debug
 	return _Platform_initialize(
 		flagDecoder,
 		args,
-		impl.a7,
+		impl.a6,
 		impl.be,
 		impl.bd,
 		function(sendToApp, initialModel) {
@@ -3978,7 +3978,7 @@ var _Browser_document = _Debugger_document || F4(function(impl, flagDecoder, deb
 	return _Platform_initialize(
 		flagDecoder,
 		args,
-		impl.a7,
+		impl.a6,
 		impl.be,
 		impl.bd,
 		function(sendToApp, initialModel) {
@@ -3996,7 +3996,7 @@ var _Browser_document = _Debugger_document || F4(function(impl, flagDecoder, deb
 				bodyNode = _VirtualDom_applyPatches(bodyNode, currNode, patches, sendToApp);
 				currNode = nextNode;
 				_VirtualDom_divertHrefToApp = 0;
-				(title !== doc.aU) && (_VirtualDom_doc.title = title = doc.aU);
+				(title !== doc.aS) && (_VirtualDom_doc.title = title = doc.aS);
 			});
 		}
 	);
@@ -4052,8 +4052,8 @@ function _Browser_makeAnimator(model, draw)
 
 function _Browser_application(impl)
 {
-	var onUrlChange = impl.a9;
-	var onUrlRequest = impl.ba;
+	var onUrlChange = impl.a8;
+	var onUrlRequest = impl.a9;
 	var key = function() { key.a(onUrlChange(_Browser_getUrl())); };
 
 	return _Browser_document({
@@ -4073,9 +4073,9 @@ function _Browser_application(impl)
 					var next = $elm$url$Url$fromString(href).a;
 					sendToApp(onUrlRequest(
 						(next
-							&& curr.aN === next.aN
-							&& curr.aD === next.aD
-							&& curr.aK.a === next.aK.a
+							&& curr.aL === next.aL
+							&& curr.aC === next.aC
+							&& curr.aI.a === next.aI.a
 						)
 							? $elm$browser$Browser$Internal(next)
 							: $elm$browser$Browser$External(href)
@@ -4083,9 +4083,9 @@ function _Browser_application(impl)
 				}
 			});
 		},
-		a7: function(flags)
+		a6: function(flags)
 		{
-			return A3(impl.a7, flags, _Browser_getUrl(), key);
+			return A3(impl.a6, flags, _Browser_getUrl(), key);
 		},
 		bf: impl.bf,
 		be: impl.be,
@@ -4155,17 +4155,17 @@ var _Browser_decodeEvent = F2(function(decoder, event)
 function _Browser_visibilityInfo()
 {
 	return (typeof _VirtualDom_doc.hidden !== 'undefined')
-		? { a5: 'hidden', a$: 'visibilitychange' }
+		? { a4: 'hidden', aZ: 'visibilitychange' }
 		:
 	(typeof _VirtualDom_doc.mozHidden !== 'undefined')
-		? { a5: 'mozHidden', a$: 'mozvisibilitychange' }
+		? { a4: 'mozHidden', aZ: 'mozvisibilitychange' }
 		:
 	(typeof _VirtualDom_doc.msHidden !== 'undefined')
-		? { a5: 'msHidden', a$: 'msvisibilitychange' }
+		? { a4: 'msHidden', aZ: 'msvisibilitychange' }
 		:
 	(typeof _VirtualDom_doc.webkitHidden !== 'undefined')
-		? { a5: 'webkitHidden', a$: 'webkitvisibilitychange' }
-		: { a5: 'hidden', a$: 'visibilitychange' };
+		? { a4: 'webkitHidden', aZ: 'webkitvisibilitychange' }
+		: { a4: 'hidden', aZ: 'visibilitychange' };
 }
 
 
@@ -4246,12 +4246,12 @@ var _Browser_call = F2(function(functionName, id)
 function _Browser_getViewport()
 {
 	return {
-		aR: _Browser_getScene(),
-		aV: {
-			aX: _Browser_window.pageXOffset,
-			aY: _Browser_window.pageYOffset,
-			aW: _Browser_doc.documentElement.clientWidth,
-			aC: _Browser_doc.documentElement.clientHeight
+		aP: _Browser_getScene(),
+		aT: {
+			aV: _Browser_window.pageXOffset,
+			aW: _Browser_window.pageYOffset,
+			aU: _Browser_doc.documentElement.clientWidth,
+			aB: _Browser_doc.documentElement.clientHeight
 		}
 	};
 }
@@ -4261,8 +4261,8 @@ function _Browser_getScene()
 	var body = _Browser_doc.body;
 	var elem = _Browser_doc.documentElement;
 	return {
-		aW: Math.max(body.scrollWidth, body.offsetWidth, elem.scrollWidth, elem.offsetWidth, elem.clientWidth),
-		aC: Math.max(body.scrollHeight, body.offsetHeight, elem.scrollHeight, elem.offsetHeight, elem.clientHeight)
+		aU: Math.max(body.scrollWidth, body.offsetWidth, elem.scrollWidth, elem.offsetWidth, elem.clientWidth),
+		aB: Math.max(body.scrollHeight, body.offsetHeight, elem.scrollHeight, elem.offsetHeight, elem.clientHeight)
 	};
 }
 
@@ -4285,15 +4285,15 @@ function _Browser_getViewportOf(id)
 	return _Browser_withNode(id, function(node)
 	{
 		return {
-			aR: {
-				aW: node.scrollWidth,
-				aC: node.scrollHeight
+			aP: {
+				aU: node.scrollWidth,
+				aB: node.scrollHeight
 			},
-			aV: {
-				aX: node.scrollLeft,
-				aY: node.scrollTop,
-				aW: node.clientWidth,
-				aC: node.clientHeight
+			aT: {
+				aV: node.scrollLeft,
+				aW: node.scrollTop,
+				aU: node.clientWidth,
+				aB: node.clientHeight
 			}
 		};
 	});
@@ -4323,18 +4323,18 @@ function _Browser_getElement(id)
 		var x = _Browser_window.pageXOffset;
 		var y = _Browser_window.pageYOffset;
 		return {
-			aR: _Browser_getScene(),
-			aV: {
-				aX: x,
-				aY: y,
-				aW: _Browser_doc.documentElement.clientWidth,
-				aC: _Browser_doc.documentElement.clientHeight
+			aP: _Browser_getScene(),
+			aT: {
+				aV: x,
+				aW: y,
+				aU: _Browser_doc.documentElement.clientWidth,
+				aB: _Browser_doc.documentElement.clientHeight
 			},
-			a1: {
-				aX: x + rect.left,
-				aY: y + rect.top,
-				aW: rect.width,
-				aC: rect.height
+			a$: {
+				aV: x + rect.left,
+				aW: y + rect.top,
+				aU: rect.width,
+				aB: rect.height
 			}
 		};
 	});
@@ -4896,7 +4896,7 @@ var $elm$url$Url$Http = 0;
 var $elm$url$Url$Https = 1;
 var $elm$url$Url$Url = F6(
 	function (protocol, host, port_, path, query, fragment) {
-		return {aB: fragment, aD: host, aI: path, aK: port_, aN: protocol, aO: query};
+		return {a2: fragment, aC: host, bb: path, aI: port_, aL: protocol, aM: query};
 	});
 var $elm$core$String$contains = _String_contains;
 var $elm$core$String$length = _String_length;
@@ -5222,6 +5222,22 @@ var $author$project$Main$BikesMsg = function (a) {
 };
 var $author$project$Main$BikesPage = function (a) {
 	return {$: 1, a: a};
+};
+var $elm$core$Maybe$withDefault = F2(
+	function (_default, maybe) {
+		if (!maybe.$) {
+			var value = maybe.a;
+			return value;
+		} else {
+			return _default;
+		}
+	});
+var $author$project$Main$hashUrltoUrl = function (url) {
+	return _Utils_update(
+		url,
+		{
+			bb: A2($elm$core$Maybe$withDefault, '', url.a2)
+		});
 };
 var $author$project$Page$Bikes$BlueEagle = 0;
 var $author$project$Page$Bikes$Viewing = $elm$core$Basics$identity;
@@ -5858,9 +5874,9 @@ var $elm$url$Url$Parser$parse = F2(
 				A5(
 					$elm$url$Url$Parser$State,
 					_List_Nil,
-					$elm$url$Url$Parser$preparePath(url.aI),
-					$elm$url$Url$Parser$prepareQuery(url.aO),
-					url.aB,
+					$elm$url$Url$Parser$preparePath(url.bb),
+					$elm$url$Url$Parser$prepareQuery(url.aM),
+					url.a2,
 					$elm$core$Basics$identity)));
 	});
 var $elm$browser$Browser$Navigation$pushUrl = _Browser_pushUrl;
@@ -5985,7 +6001,7 @@ var $elm$url$Url$addPrefixed = F3(
 	});
 var $elm$url$Url$toString = function (url) {
 	var http = function () {
-		var _v0 = url.aN;
+		var _v0 = url.aL;
 		if (!_v0) {
 			return 'http://';
 		} else {
@@ -5995,17 +6011,17 @@ var $elm$url$Url$toString = function (url) {
 	return A3(
 		$elm$url$Url$addPrefixed,
 		'#',
-		url.aB,
+		url.a2,
 		A3(
 			$elm$url$Url$addPrefixed,
 			'?',
-			url.aO,
+			url.aM,
 			_Utils_ap(
 				A2(
 					$elm$url$Url$addPort,
-					url.aK,
-					_Utils_ap(http, url.aD)),
-				url.aI)));
+					url.aI,
+					_Utils_ap(http, url.aC)),
+				url.bb)));
 };
 var $author$project$Page$Bikes$update = F2(
 	function (msg, model) {
@@ -6070,7 +6086,10 @@ var $author$project$Main$update = F2(
 					}
 				case 1:
 					var url = _v0.a.a;
-					var _v2 = A2($elm$url$Url$Parser$parse, $author$project$Main$routeParser, url);
+					var _v2 = A2(
+						$elm$url$Url$Parser$parse,
+						$author$project$Main$routeParser,
+						$author$project$Main$hashUrltoUrl(url));
 					if (!_v2.$) {
 						if (!_v2.a) {
 							var _v3 = _v2.a;
@@ -6155,7 +6174,7 @@ var $author$project$Main$docMap = F2(
 				$elm$core$List$map,
 				$elm$html$Html$map(toMsg),
 				doc.aw),
-			aU: doc.aU
+			aS: doc.aS
 		};
 	});
 var $surprisetalk$elm_bulma$Bulma$Modifiers$Auto = 0;
@@ -7361,7 +7380,8 @@ var $author$project$Page$Bikes$viewMenu = function (bike) {
 					!bike,
 					_List_fromArray(
 						[
-							$elm$html$Html$Events$onClick(0)
+							$elm$html$Html$Events$onClick(0),
+							$elm$html$Html$Attributes$href('#/bikes')
 						]),
 					_List_fromArray(
 						[
@@ -7372,7 +7392,8 @@ var $author$project$Page$Bikes$viewMenu = function (bike) {
 					bike === 1,
 					_List_fromArray(
 						[
-							$elm$html$Html$Events$onClick(1)
+							$elm$html$Html$Events$onClick(1),
+							$elm$html$Html$Attributes$href('#/bikes')
 						]),
 					_List_fromArray(
 						[
@@ -7383,7 +7404,8 @@ var $author$project$Page$Bikes$viewMenu = function (bike) {
 					bike === 2,
 					_List_fromArray(
 						[
-							$elm$html$Html$Events$onClick(2)
+							$elm$html$Html$Events$onClick(2),
+							$elm$html$Html$Attributes$href('#/bikes')
 						]),
 					_List_fromArray(
 						[
@@ -7394,7 +7416,8 @@ var $author$project$Page$Bikes$viewMenu = function (bike) {
 					bike === 3,
 					_List_fromArray(
 						[
-							$elm$html$Html$Events$onClick(3)
+							$elm$html$Html$Events$onClick(3),
+							$elm$html$Html$Attributes$href('#/bikes')
 						]),
 					_List_fromArray(
 						[
@@ -7405,7 +7428,8 @@ var $author$project$Page$Bikes$viewMenu = function (bike) {
 					bike === 4,
 					_List_fromArray(
 						[
-							$elm$html$Html$Events$onClick(4)
+							$elm$html$Html$Events$onClick(4),
+							$elm$html$Html$Attributes$href('#/bikes')
 						]),
 					_List_fromArray(
 						[
@@ -7416,7 +7440,8 @@ var $author$project$Page$Bikes$viewMenu = function (bike) {
 					bike === 5,
 					_List_fromArray(
 						[
-							$elm$html$Html$Events$onClick(5)
+							$elm$html$Html$Events$onClick(5),
+							$elm$html$Html$Attributes$href('#/bikes')
 						]),
 					_List_fromArray(
 						[
@@ -7427,7 +7452,8 @@ var $author$project$Page$Bikes$viewMenu = function (bike) {
 					bike === 6,
 					_List_fromArray(
 						[
-							$elm$html$Html$Events$onClick(6)
+							$elm$html$Html$Events$onClick(6),
+							$elm$html$Html$Attributes$href('#/bikes')
 						]),
 					_List_fromArray(
 						[
@@ -7533,7 +7559,7 @@ var $author$project$Page$Bikes$viewBike = function (bike) {
 							]))
 					]))
 			]),
-		aU: 'My bikes'
+		aS: 'My bikes'
 	};
 };
 var $author$project$Page$Bikes$view = function (model) {
@@ -7662,7 +7688,7 @@ var $author$project$Page$Welcome$viewBikesTile = function (attrs) {
 										$surprisetalk$elm_bulma$Bulma$Components$cardFooterItemLink,
 										_List_fromArray(
 											[
-												$elm$html$Html$Attributes$href('bikes')
+												$elm$html$Html$Attributes$href('#/bikes')
 											]),
 										_List_fromArray(
 											[
@@ -7736,7 +7762,7 @@ var $author$project$Page$Welcome$viewTitle = 'mattswoon';
 var $author$project$Page$Welcome$view = function (model) {
 	return {
 		aw: $author$project$Page$Welcome$viewBody(model),
-		aU: $author$project$Page$Welcome$viewTitle
+		aS: $author$project$Page$Welcome$viewTitle
 	};
 };
 var $author$project$Main$view = function (model) {
@@ -7757,9 +7783,9 @@ var $author$project$Main$view = function (model) {
 };
 var $author$project$Main$main = $elm$browser$Browser$application(
 	{
-		a7: $author$project$Main$init,
-		a9: $author$project$Main$UrlChanged,
-		ba: $author$project$Main$LinkClicked,
+		a6: $author$project$Main$init,
+		a8: $author$project$Main$UrlChanged,
+		a9: $author$project$Main$LinkClicked,
 		bd: function (_v0) {
 			return $elm$core$Platform$Sub$none;
 		},

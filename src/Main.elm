@@ -26,6 +26,12 @@ routeParser =
         , P.map Bikes (P.s "bikes")
         ]
 
+hashUrltoUrl : Url.Url -> Url.Url
+hashUrltoUrl url =
+    { url
+        | path = url.fragment |> Maybe.withDefault ""
+    }
+
 type alias Model = 
     { key: Nav.Key
     , url: Url.Url
@@ -70,7 +76,7 @@ update msg model =
                     ( model, Nav.load href )
 
         (UrlChanged url, _) -> 
-            case P.parse routeParser url of
+            case P.parse routeParser (hashUrltoUrl url) of
                 Just Home -> pageMap WelcomePage WelcomeMsg (Welcome.init ()) |>
                     \(p, c) -> (Model model.key url p, c)
                 Just Bikes -> pageMap BikesPage BikesMsg (Bikes.init ()) |>
