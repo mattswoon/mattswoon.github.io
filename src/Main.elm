@@ -5,12 +5,26 @@ import Browser.Navigation as Nav
 import Html exposing (..)
 import Html.Attributes exposing (..)
 import Url
+import Url.Parser as P -- exposing((</>))
 import Bulma.CDN exposing (..)
 
 import Page.Welcome as Welcome
+import Page.Bikes as Bikes
 
-type Page =
-    WelcomePage Welcome.Model
+type Page
+    = WelcomePage Welcome.Model
+    | BikesPage Bikes.Model
+
+type Route
+    = Home
+    | Bikes
+
+routeParser : P.Parser (Route -> a) a
+routeParser =
+    P.oneOf
+        [ P.map Home (P.top)
+        , P.map Bikes (P.s "bikes")
+        ]
 
 type alias Model = 
     { key: Nav.Key
@@ -22,74 +36,62 @@ type Msg
     = LinkClicked Browser.UrlRequest
     | UrlChanged Url.Url
     | WelcomeMsg Welcome.Msg
-
+    | BikesMsg Bikes.Msg
 
 init : () -> Url.Url -> Nav.Key -> (Model, Cmd Msg)
 init flags url key =
-    ( Model key url (WelcomePage Welcome.init), Cmd.none )
+    pageMap WelcomePage WelcomeMsg (Welcome.init flags) |>
+    \(p, c) -> (Model key url p, c)
 
-
-viewTitle : Model -> String
-viewTitle model =
-    case model.page of
-        WelcomePage m -> Welcome.viewTitle
-
-
-viewBody : Model -> List (Html Msg)
-viewBody model =
-    case model.page of
-        WelcomePage m -> List.map (Html.map WelcomeMsg) (Welcome.viewBody m)
-
+pageMap : (m -> Page) -> (c -> Msg) -> (m, Cmd c) -> (Page, Cmd Msg)
+pageMap toPage toMsg (m, c) =
+    (toPage m, Cmd.map toMsg c)
 
 view : Model -> Browser.Document Msg
 view model =
-    { title = viewTitle model
-    , body = List.append [stylesheet] (viewBody model)
+    case model.page of
+        WelcomePage p -> docMap WelcomeMsg (Welcome.view p)
+        BikesPage p -> docMap BikesMsg (Bikes.view p)
+
+docMap : (msg -> Msg) -> Browser.Document msg -> Browser.Document Msg
+docMap toMsg doc =
+    { title = doc.title
+    , body = List.map (Html.map toMsg) doc.body 
     }
 
 update : Msg -> Model -> ( Model, Cmd Msg )
 update msg model = 
-    case msg of
-        LinkClicked urlRequest ->
+    case (msg, model.page) of
+        (LinkClicked urlRequest, _) ->
             case urlRequest of
                 Browser.Internal url ->
                     ( model, Nav.pushUrl model.key (Url.toString url) )
-
                 Browser.External href ->
                     ( model, Nav.load href )
 
-        UrlChanged url -> 
-            ( { model | url = url }
-            , Cmd.none
-            )
-        _ -> updatePage msg model
+        (UrlChanged url, _) -> 
+            case P.parse routeParser url of
+                Just Home -> pageMap WelcomePage WelcomeMsg (Welcome.init ()) |>
+                    \(p, c) -> (Model model.key url p, c)
+                Just Bikes -> pageMap BikesPage BikesMsg (Bikes.init ()) |>
+                    \(p, c) -> (Model model.key url p, c)
+                Nothing -> ( model, Cmd.none )
 
-updatePage : Msg -> Model -> ( Model, Cmd Msg )
-updatePage msg model =
-    case (msg, model.page) of  
-        (WelcomeMsg m, WelcomePage p) -> Welcome.update m p
-            |> updateWith WelcomePage WelcomeMsg model
-        _ -> ( model, Cmd.none)
+        (WelcomeMsg m, WelcomePage p) -> pageMap WelcomePage WelcomeMsg (Welcome.update m p) |>
+            \(x, c) -> (Model model.key model.url x, c)
 
-updateWith : (subpage -> Page) -> (submsg -> Msg) -> Model -> (subpage, Cmd submsg) -> (Model, Cmd Msg)
-updateWith toPage toMsg model (subpage, subcmd) =
-    ( Model model.key model.url (toPage subpage)
-    , Cmd.map toMsg subcmd
-    )
+        (BikesMsg m, BikesPage p) -> pageMap BikesPage BikesMsg (Bikes.update m p) |>
+            \(x, c) -> (Model model.key model.url x, c)
 
+        _ -> ( model, Cmd.none )
 
-subscriptions : Model -> Sub Msg
-subscriptions _ =
-    Sub.none
 
 main : Program () Model Msg
 main = Browser.application
     { init = init
     , view = view
     , update = update
-    , subscriptions = subscriptions
+    , subscriptions = \_ -> Sub.none
     , onUrlRequest = LinkClicked
     , onUrlChange = UrlChanged
     }
-
-

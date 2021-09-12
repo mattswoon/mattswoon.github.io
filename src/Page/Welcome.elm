@@ -1,9 +1,10 @@
-module Page.Welcome exposing (viewTitle, viewBody, Msg, Model, init, update)
+module Page.Welcome exposing (view, Msg, Model, init, update)
 
 import Browser
 import Html exposing (..)
 import Html.Attributes exposing (..)
 import Html.Events exposing (..)
+import Bulma.CDN exposing (..)
 import Bulma.Layout exposing (..)
 import Bulma.Elements exposing (..)
 import Bulma.Components exposing (..)
@@ -17,15 +18,37 @@ type Msg
     = MouseOver MenuTile
     | MouseOut MenuTile
 
-init : Model
-init = Init
+init : () -> (Model, Cmd Msg)
+init _ = ( Init, Cmd.none )
+
+view : Model -> Browser.Document Msg
+view model =
+    { title = viewTitle
+    , body = viewBody model }
+
+update : Msg -> Model -> ( Model, Cmd Msg )
+update msg model =
+    case (msg, model) of 
+        (MouseOver Bikes, Init) -> (Hover Bikes, Cmd.none)
+        (MouseOver Bikes, Hover Bikes) -> (Hover Bikes, Cmd.none)
+        (MouseOut Bikes, Init) -> (Init, Cmd.none)
+        (MouseOut Bikes, Hover Bikes) -> (Init, Cmd.none)
+
+main : Program () Model Msg
+main = Browser.document
+    { init = init
+    , view = view
+    , update = update
+    , subscriptions = \_ -> Sub.none 
+    }
 
 viewTitle : String
 viewTitle = "mattswoon"
 
 viewBody : Model -> List (Html Msg)
 viewBody model = 
-    [ Bulma.Layout.section NotSpaced [] 
+    [ stylesheet
+    , Bulma.Layout.section NotSpaced [] 
         [ container []
             [ Bulma.Elements.title H1 [] [ text "mattswoon"] ]
         ]
@@ -54,6 +77,9 @@ viewBikesTile attrs =
                 , cardContent [] 
                     [ text "I'm all about bikes"
                     ]
+                , cardFooter []
+                    [ cardFooterItemLink [ href "bikes" ] [ text "Read more..." ]
+                    ]
                 ]
             ]
         ]
@@ -63,14 +89,6 @@ viewTile t model =
     case (t, model) of
         (Bikes, Init) -> viewBikesTile [ style "transition" "0.3s ease-in-out"]
         (Bikes, Hover Bikes) -> viewBikesTile cardShadow
-
-update : Msg -> Model -> ( Model, Cmd Msg )
-update msg model =
-    case (msg, model) of 
-        (MouseOver Bikes, Init) -> (Hover Bikes, Cmd.none)
-        (MouseOver Bikes, Hover Bikes) -> (Hover Bikes, Cmd.none)
-        (MouseOut Bikes, Init) -> (Init, Cmd.none)
-        (MouseOut Bikes, Hover Bikes) -> (Init, Cmd.none)
 
 
 cardShadow : List (Attribute msg)
