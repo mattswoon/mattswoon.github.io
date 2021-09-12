@@ -15,6 +15,7 @@ type Bike
     = BlueEagle
     | Clament
     | Speedwell
+    | KHSFixie
     | NoNameTouring
     | Surly
     | Korean3Sixty
@@ -73,6 +74,7 @@ viewMenu bike =
         , panelLink (bike == BlueEagle) [ onClick (ChangeTo BlueEagle), href "#/bikes"] [ text "The Blue eagle (2012-2015ish)" ]
         , panelLink (bike == Clament) [ onClick (ChangeTo Clament), href "#/bikes"] [ text "Clament fixed gear (2012-2015ish)" ]
         , panelLink (bike == Speedwell) [ onClick (ChangeTo Speedwell), href "#/bikes"] [ text "1948 Speedwell (2013-current)" ]
+        , panelLink (bike == KHSFixie) [ onClick (ChangeTo KHSFixie), href "#/bikes"] [ text "KHS Fixed Gear (~2015-current)" ]
         , panelLink (bike == NoNameTouring) [ onClick (ChangeTo NoNameTouring), href "#/bikes"] [ text "No-name touring bike (2016-2017)" ]
         , panelLink (bike == Surly) [ onClick (ChangeTo Surly), href "#/bikes" ] [ text "Surly Disc Trucker (2018-current)" ]
         , panelLink (bike == Korean3Sixty) [ onClick (ChangeTo Korean3Sixty), href "#/bikes" ] [ text "3Sixty (2019-current)"]
@@ -86,6 +88,7 @@ viewMainPanel bike =
         BlueEagle -> [ content M.Standard [] [blueEagleArticle] ]
         Clament -> [ content M.Standard [] [clamentArticle] ]
         Speedwell -> [ content M.Standard [] [speedwellArticle] ]
+        KHSFixie -> [ content M.Standard [] [khsArticle] ]
         NoNameTouring -> [ content M.Standard [] [noNameTouringArticle] ]
         Surly -> [ content M.Standard [] [surlyArticle] ]
         Korean3Sixty -> [ content M.Standard [] [korean3SixtyArticle] ]
@@ -299,9 +302,54 @@ folding bikes, and yes it's probably  worth the cash to get a Brompton. They're 
 of transit. I can now also ride to the pub, and not have to leave my bike there overnight!""" ]
     ]
 
+khsArticle : Html Msg
+khsArticle = article []
+    [ Bulma.Elements.title H1 [] [ text "My knees can sleep when they're dead, ~2015-current" ]
+    , image Natural [] [ img 
+        [ src "content/blog/bikes/khs_20180216.jpg"
+        , alt "A KHS track bike frame with a Wald 137 basket on front and VO porteur handlebars" 
+        ] []]
+    , p [] [ text """A former housemate of mine was pivotal in my descent into bike tinkerdom. Ironically, he 
+ was also why I hated fixed gears so much, that is until I rode one.""" ]
+    , p [] [ text """This bike started out as his, and I watched him replace every. single. part. on it, except
+ the seat post. Some time around 2014/2015, after we'd both moved, he
+ gave it to me - he was no longer riding it and didn't want to see it rust on the balcony
+ of his coastal apartment.""" ]
+    , image Natural [] [ img
+        [ src "content/blog/bikes/khs_20170108.jpg"
+        , alt """The KHS fixed gear bike without the Walk basket, instead there's an old knapsack strapped to the seatpost"""
+        ] []]
+    , p [] [ text """I've not done much to it, except change the handlebars to something more
+ my preferred style (VO porteur bars from the speedwell) and give it some
+ luggage options depending on what was lying around at the time."""]
+    , image Natural [] [ img
+        [ src "content/blog/bikes/khs_20171012.jpg"
+        , alt """The KHS at night, very "urban". """
+        ] []]
+    ]
+
 carrerraArticle : Html Msg
 carrerraArticle = article []
-    [
+    [ Bulma.Elements.title H1 [] [ text "My first big kid's bike"]
+    , image Natural [] 
+        [ img
+            [ src "content/blog/bikes/carrera_and_me.jpg"
+            , alt "Me and the Carrera after a ride in the Royal National Park. The hills there inspired me to replace the crankset with one with fewer teeth."
+            ] []
+        , figcaption [] 
+            [ text "Photo care of"  
+            , a [href "https://www.instagram.com/generalben/"] [ text " @generalben" ]
+            ]
+
+        ]
+    , p [] [ text """Mid 2021 I started joining some friends on some longer road rides and was a bit scared I wouldn't be able to keep up on a 14kg touring bike.
+ I had a 90s road bike in the shed which weighed about 11kg so I thought I should look around for some more contemporary parts and bring it into the 21st century.
+ However, due to the Covid pandemic bike parts were hard to come buy (for a price that I wanted to spend), so I was searching on eBay/gumtree/facebook marketplace
+ for second hand parts when I came across a rather garish listing of a yellow Carrera. It was an aluminium frame, carbon wheels, decent drivetrain (Ultegra cranks
+ with microShift shifters and mechs) for $760.""" ]
+    , p [] [ text """I thought I'll just put in a bid, surely it will go up a bit and I'll miss out, but whatever hey? Everything else I'd looked at that was remotely similar was about $1 200
+     and a groupset alone was looking at $750-$900. Sure enough, no one else was particularly interested in frame brand that had fallen out of fashion and non-Shimano shifters.""" ]
+    , p [] [ text """Picking up the bike was a wild experience in itself, the seller lived in what can only be described as a Bianchi museum.""" ]
     ]
 
 cargoArticle : Html Msg
