@@ -6182,6 +6182,14 @@ var $surprisetalk$elm_bulma$Bulma$Modifiers$Typography$Grey = 5;
 var $surprisetalk$elm_bulma$Bulma$Elements$H1 = 0;
 var $surprisetalk$elm_bulma$Bulma$Layout$Spaced = 1;
 var $surprisetalk$elm_bulma$Bulma$Modifiers$Width4 = 4;
+var $elm$virtual_dom$VirtualDom$attribute = F2(
+	function (key, value) {
+		return A2(
+			_VirtualDom_attribute,
+			_VirtualDom_noOnOrFormAction(key),
+			_VirtualDom_noJavaScriptOrHtmlUri(value));
+	});
+var $elm$html$Html$Attributes$attribute = $elm$virtual_dom$VirtualDom$attribute;
 var $elm$json$Json$Encode$string = _Json_wrap;
 var $elm$html$Html$Attributes$stringProperty = F2(
 	function (key, string) {
@@ -6191,7 +6199,25 @@ var $elm$html$Html$Attributes$stringProperty = F2(
 			$elm$json$Json$Encode$string(string));
 	});
 var $elm$html$Html$Attributes$class = $elm$html$Html$Attributes$stringProperty('className');
-var $surprisetalk$elm_bulma$Bulma$Classes$container = $elm$html$Html$Attributes$class('container');
+var $surprisetalk$elm_bulma$Bulma$Classes$breadcrumb = $elm$html$Html$Attributes$class('breadcrumb');
+var $elm$core$Basics$composeL = F3(
+	function (g, f, x) {
+		return g(
+			f(x));
+	});
+var $surprisetalk$elm_bulma$Bulma$Classes$hasArrowSeparator = $elm$html$Html$Attributes$class('has-arrow-separator');
+var $surprisetalk$elm_bulma$Bulma$Classes$hasBulletSeparator = $elm$html$Html$Attributes$class('has-bullet-separator');
+var $surprisetalk$elm_bulma$Bulma$Classes$hasDotSeparator = $elm$html$Html$Attributes$class('has-dot-separator');
+var $surprisetalk$elm_bulma$Bulma$Classes$hasSucceedsSeparator = $elm$html$Html$Attributes$class('has-succeeds-separator');
+var $surprisetalk$elm_bulma$Bulma$Classes$isCentered = $elm$html$Html$Attributes$class('is-centered');
+var $surprisetalk$elm_bulma$Bulma$Classes$isLarge = $elm$html$Html$Attributes$class('is-large');
+var $surprisetalk$elm_bulma$Bulma$Classes$isMedium = $elm$html$Html$Attributes$class('is-medium');
+var $surprisetalk$elm_bulma$Bulma$Classes$isRight = $elm$html$Html$Attributes$class('is-right');
+var $surprisetalk$elm_bulma$Bulma$Classes$isSmall = $elm$html$Html$Attributes$class('is-small');
+var $surprisetalk$elm_bulma$Helpers$ls = function (x) {
+	return _List_fromArray(
+		[x]);
+};
 var $elm$virtual_dom$VirtualDom$node = function (tag) {
 	return _VirtualDom_node(
 		_VirtualDom_noScript(tag));
@@ -6204,11 +6230,91 @@ var $surprisetalk$elm_bulma$Helpers$node = F3(
 			tag,
 			_Utils_ap(attrs, attrs_));
 	});
+var $surprisetalk$elm_bulma$Bulma$Classes$none = $elm$html$Html$Attributes$class('');
+var $elm$html$Html$ul = _VirtualDom_node('ul');
+var $surprisetalk$elm_bulma$Bulma$Components$breadcrumb = F3(
+	function (_v0, attrs, attrs_) {
+		var separator = _v0.ak;
+		var alignment = _v0.x;
+		var size = _v0.n;
+		return A2(
+			$elm$core$Basics$composeL,
+			A2(
+				$elm$core$Basics$composeL,
+				A3(
+					$surprisetalk$elm_bulma$Helpers$node,
+					'nav',
+					_List_fromArray(
+						[
+							A2($elm$html$Html$Attributes$attribute, 'aria-label', 'breadcrumb'),
+							$surprisetalk$elm_bulma$Bulma$Classes$breadcrumb,
+							function () {
+							switch (separator) {
+								case 0:
+									return $surprisetalk$elm_bulma$Bulma$Classes$none;
+								case 1:
+									return $surprisetalk$elm_bulma$Bulma$Classes$hasArrowSeparator;
+								case 2:
+									return $surprisetalk$elm_bulma$Bulma$Classes$hasBulletSeparator;
+								case 3:
+									return $surprisetalk$elm_bulma$Bulma$Classes$hasDotSeparator;
+								default:
+									return $surprisetalk$elm_bulma$Bulma$Classes$hasSucceedsSeparator;
+							}
+						}(),
+							function () {
+							switch (size) {
+								case 0:
+									return $surprisetalk$elm_bulma$Bulma$Classes$isSmall;
+								case 1:
+									return $surprisetalk$elm_bulma$Bulma$Classes$none;
+								case 2:
+									return $surprisetalk$elm_bulma$Bulma$Classes$isMedium;
+								default:
+									return $surprisetalk$elm_bulma$Bulma$Classes$isLarge;
+							}
+						}(),
+							function () {
+							switch (alignment) {
+								case 0:
+									return $surprisetalk$elm_bulma$Bulma$Classes$none;
+								case 1:
+									return $surprisetalk$elm_bulma$Bulma$Classes$isCentered;
+								default:
+									return $surprisetalk$elm_bulma$Bulma$Classes$isRight;
+							}
+						}()
+						]),
+					attrs),
+				$surprisetalk$elm_bulma$Helpers$ls),
+			$elm$html$Html$ul(attrs_));
+	});
+var $surprisetalk$elm_bulma$Bulma$Modifiers$Left = 0;
+var $surprisetalk$elm_bulma$Bulma$Components$Slash = 0;
+var $surprisetalk$elm_bulma$Bulma$Modifiers$Standard = 1;
+var $surprisetalk$elm_bulma$Bulma$Components$breadcrumbModifiers = {x: 0, ak: 0, n: 1};
+var $surprisetalk$elm_bulma$Bulma$Classes$container = $elm$html$Html$Attributes$class('container');
 var $surprisetalk$elm_bulma$Bulma$Layout$container = A2(
 	$surprisetalk$elm_bulma$Helpers$node,
 	'div',
 	_List_fromArray(
 		[$surprisetalk$elm_bulma$Bulma$Classes$container]));
+var $elm$html$Html$a = _VirtualDom_node('a');
+var $elm$html$Html$li = _VirtualDom_node('li');
+var $surprisetalk$elm_bulma$Bulma$Components$crumblet = F3(
+	function (isActive, attrs, attrs_) {
+		return A2(
+			$elm$core$Basics$composeL,
+			A2(
+				$elm$core$Basics$composeL,
+				$elm$html$Html$li(
+					isActive ? A2(
+						$elm$core$List$cons,
+						$elm$html$Html$Attributes$class('is-active'),
+						attrs) : attrs),
+				$surprisetalk$elm_bulma$Helpers$ls),
+			$elm$html$Html$a(attrs_));
+	});
 var $elm$html$Html$em = _VirtualDom_node('em');
 var $surprisetalk$elm_bulma$Bulma$Classes$hero = $elm$html$Html$Attributes$class('hero');
 var $surprisetalk$elm_bulma$Bulma$Classes$isBlack = $elm$html$Html$Attributes$class('is-black');
@@ -6217,15 +6323,12 @@ var $surprisetalk$elm_bulma$Bulma$Classes$isDanger = $elm$html$Html$Attributes$c
 var $surprisetalk$elm_bulma$Bulma$Classes$isDark = $elm$html$Html$Attributes$class('is-dark');
 var $surprisetalk$elm_bulma$Bulma$Classes$isFullHeight = $elm$html$Html$Attributes$class('is-fullheight');
 var $surprisetalk$elm_bulma$Bulma$Classes$isInfo = $elm$html$Html$Attributes$class('is-info');
-var $surprisetalk$elm_bulma$Bulma$Classes$isLarge = $elm$html$Html$Attributes$class('is-large');
 var $surprisetalk$elm_bulma$Bulma$Classes$isLight = $elm$html$Html$Attributes$class('is-light');
 var $surprisetalk$elm_bulma$Bulma$Classes$isLink = $elm$html$Html$Attributes$class('is-link');
-var $surprisetalk$elm_bulma$Bulma$Classes$isMedium = $elm$html$Html$Attributes$class('is-medium');
 var $surprisetalk$elm_bulma$Bulma$Classes$isPrimary = $elm$html$Html$Attributes$class('is-primary');
 var $surprisetalk$elm_bulma$Bulma$Classes$isSuccess = $elm$html$Html$Attributes$class('is-success');
 var $surprisetalk$elm_bulma$Bulma$Classes$isWarning = $elm$html$Html$Attributes$class('is-warning');
 var $surprisetalk$elm_bulma$Bulma$Classes$isWhite = $elm$html$Html$Attributes$class('is-white');
-var $surprisetalk$elm_bulma$Bulma$Classes$none = $elm$html$Html$Attributes$class('');
 var $surprisetalk$elm_bulma$Bulma$Layout$hero = function (_v0) {
 	var bold = _v0.O;
 	var size = _v0.n;
@@ -6292,6 +6395,12 @@ var $surprisetalk$elm_bulma$Bulma$Layout$heroBody = A2(
 var $surprisetalk$elm_bulma$Bulma$Modifiers$Default = 0;
 var $surprisetalk$elm_bulma$Bulma$Modifiers$Small = 0;
 var $surprisetalk$elm_bulma$Bulma$Layout$heroModifiers = {O: false, y: 0, n: 0};
+var $elm$html$Html$Attributes$href = function (url) {
+	return A2(
+		$elm$html$Html$Attributes$stringProperty,
+		'href',
+		_VirtualDom_noJavaScriptUri(url));
+};
 var $elm$html$Html$p = _VirtualDom_node('p');
 var $surprisetalk$elm_bulma$Bulma$Classes$section = $elm$html$Html$Attributes$class('section');
 var $surprisetalk$elm_bulma$Bulma$Layout$section = function (spacing) {
@@ -6312,12 +6421,6 @@ var $surprisetalk$elm_bulma$Bulma$Layout$section = function (spacing) {
 				}
 			}()
 			]));
-};
-var $elm$html$Html$Attributes$href = function (url) {
-	return A2(
-		$elm$html$Html$Attributes$stringProperty,
-		'href',
-		_VirtualDom_noJavaScriptUri(url));
 };
 var $elm$html$Html$Attributes$rel = _VirtualDom_attribute('rel');
 var $surprisetalk$elm_bulma$Bulma$CDN$stylesheet = A3(
@@ -6540,7 +6643,6 @@ var $surprisetalk$elm_bulma$Bulma$Elements$title = function (size) {
 			}()
 			]));
 };
-var $surprisetalk$elm_bulma$Bulma$Modifiers$Standard = 1;
 var $surprisetalk$elm_bulma$Bulma$Elements$Natural = {$: 0};
 var $elm$html$Html$Attributes$alt = $elm$html$Html$Attributes$stringProperty('alt');
 var $elm$html$Html$article = _VirtualDom_node('article');
@@ -6695,7 +6797,6 @@ var $author$project$Page$Bikes$blueEagleArticle = A2(
 				]))
 		]));
 var $author$project$Page$Bikes$cargoArticle = A2($elm$html$Html$article, _List_Nil, _List_Nil);
-var $elm$html$Html$a = _VirtualDom_node('a');
 var $elm$html$Html$figcaption = _VirtualDom_node('figcaption');
 var $author$project$Page$Bikes$carrerraArticle = A2(
 	$elm$html$Html$article,
@@ -6822,7 +6923,6 @@ var $author$project$Page$Bikes$clamentArticle = A2(
 				]))
 		]));
 var $surprisetalk$elm_bulma$Bulma$Classes$content = $elm$html$Html$Attributes$class('content');
-var $surprisetalk$elm_bulma$Bulma$Classes$isSmall = $elm$html$Html$Attributes$class('is-small');
 var $surprisetalk$elm_bulma$Bulma$Elements$content = function (size) {
 	return A2(
 		$surprisetalk$elm_bulma$Helpers$node,
@@ -7665,6 +7765,38 @@ var $author$project$Page$Bikes$viewBike = function (bike) {
 												_List_Nil,
 												_List_fromArray(
 													[
+														A4(
+														$surprisetalk$elm_bulma$Bulma$Components$breadcrumb,
+														$surprisetalk$elm_bulma$Bulma$Components$breadcrumbModifiers,
+														_List_Nil,
+														_List_Nil,
+														_List_fromArray(
+															[
+																A4(
+																$surprisetalk$elm_bulma$Bulma$Components$crumblet,
+																false,
+																_List_Nil,
+																_List_fromArray(
+																	[
+																		$elm$html$Html$Attributes$href('/')
+																	]),
+																_List_fromArray(
+																	[
+																		$elm$html$Html$text('Home')
+																	])),
+																A4(
+																$surprisetalk$elm_bulma$Bulma$Components$crumblet,
+																true,
+																_List_Nil,
+																_List_fromArray(
+																	[
+																		$elm$html$Html$Attributes$href('/#/bikes')
+																	]),
+																_List_fromArray(
+																	[
+																		$elm$html$Html$text('Bikes')
+																	]))
+															])),
 														A3(
 														$surprisetalk$elm_bulma$Bulma$Elements$title,
 														0,
