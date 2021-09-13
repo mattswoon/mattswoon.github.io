@@ -784,11 +784,11 @@ function _Debug_crash_UNUSED(identifier, fact1, fact2, fact3, fact4)
 
 function _Debug_regionToString(region)
 {
-	if (region.am.F === region.ay.F)
+	if (region.am.G === region.az.G)
 	{
-		return 'on line ' + region.am.F;
+		return 'on line ' + region.am.G;
 	}
-	return 'on lines ' + region.am.F + ' through ' + region.ay.F;
+	return 'on lines ' + region.am.G + ' through ' + region.az.G;
 }
 
 
@@ -1859,7 +1859,7 @@ var _Platform_worker = F4(function(impl, flagDecoder, debugMetadata, args)
 		args,
 		impl.a6,
 		impl.be,
-		impl.bc,
+		impl.bd,
 		function() { return function() {} }
 	);
 });
@@ -3930,7 +3930,7 @@ var _Browser_element = _Debugger_element || F4(function(impl, flagDecoder, debug
 		args,
 		impl.a6,
 		impl.be,
-		impl.bc,
+		impl.bd,
 		function(sendToApp, initialModel) {
 			var view = impl.bf;
 			/**/
@@ -3966,7 +3966,7 @@ var _Browser_document = _Debugger_document || F4(function(impl, flagDecoder, deb
 		args,
 		impl.a6,
 		impl.be,
-		impl.bc,
+		impl.bd,
 		function(sendToApp, initialModel) {
 			var divertHrefToApp = impl.al && impl.al(sendToApp)
 			var view = impl.bf;
@@ -3977,12 +3977,12 @@ var _Browser_document = _Debugger_document || F4(function(impl, flagDecoder, deb
 			{
 				_VirtualDom_divertHrefToApp = divertHrefToApp;
 				var doc = view(model);
-				var nextNode = _VirtualDom_node('body')(_List_Nil)(doc.aZ);
+				var nextNode = _VirtualDom_node('body')(_List_Nil)(doc.aw);
 				var patches = _VirtualDom_diff(currNode, nextNode);
 				bodyNode = _VirtualDom_applyPatches(bodyNode, currNode, patches, sendToApp);
 				currNode = nextNode;
 				_VirtualDom_divertHrefToApp = 0;
-				(title !== doc.bd) && (_VirtualDom_doc.title = title = doc.bd);
+				(title !== doc.aS) && (_VirtualDom_doc.title = title = doc.aS);
 			});
 		}
 	);
@@ -4059,9 +4059,9 @@ function _Browser_application(impl)
 					var next = $elm$url$Url$fromString(href).a;
 					sendToApp(onUrlRequest(
 						(next
-							&& curr.aM === next.aM
+							&& curr.aL === next.aL
 							&& curr.aC === next.aC
-							&& curr.aJ.a === next.aJ.a
+							&& curr.aI.a === next.aI.a
 						)
 							? $elm$browser$Browser$Internal(next)
 							: $elm$browser$Browser$External(href)
@@ -4075,7 +4075,7 @@ function _Browser_application(impl)
 		},
 		bf: impl.bf,
 		be: impl.be,
-		bc: impl.bc
+		bd: impl.bd
 	});
 }
 
@@ -4141,17 +4141,17 @@ var _Browser_decodeEvent = F2(function(decoder, event)
 function _Browser_visibilityInfo()
 {
 	return (typeof _VirtualDom_doc.hidden !== 'undefined')
-		? { a4: 'hidden', a_: 'visibilitychange' }
+		? { a4: 'hidden', aZ: 'visibilitychange' }
 		:
 	(typeof _VirtualDom_doc.mozHidden !== 'undefined')
-		? { a4: 'mozHidden', a_: 'mozvisibilitychange' }
+		? { a4: 'mozHidden', aZ: 'mozvisibilitychange' }
 		:
 	(typeof _VirtualDom_doc.msHidden !== 'undefined')
-		? { a4: 'msHidden', a_: 'msvisibilitychange' }
+		? { a4: 'msHidden', aZ: 'msvisibilitychange' }
 		:
 	(typeof _VirtualDom_doc.webkitHidden !== 'undefined')
-		? { a4: 'webkitHidden', a_: 'webkitvisibilitychange' }
-		: { a4: 'hidden', a_: 'visibilitychange' };
+		? { a4: 'webkitHidden', aZ: 'webkitvisibilitychange' }
+		: { a4: 'hidden', aZ: 'visibilitychange' };
 }
 
 
@@ -4232,7 +4232,7 @@ var _Browser_call = F2(function(functionName, id)
 function _Browser_getViewport()
 {
 	return {
-		aQ: _Browser_getScene(),
+		aP: _Browser_getScene(),
 		aT: {
 			aV: _Browser_window.pageXOffset,
 			aW: _Browser_window.pageYOffset,
@@ -4271,7 +4271,7 @@ function _Browser_getViewportOf(id)
 	return _Browser_withNode(id, function(node)
 	{
 		return {
-			aQ: {
+			aP: {
 				aU: node.scrollWidth,
 				aB: node.scrollHeight
 			},
@@ -4309,14 +4309,14 @@ function _Browser_getElement(id)
 		var x = _Browser_window.pageXOffset;
 		var y = _Browser_window.pageYOffset;
 		return {
-			aQ: _Browser_getScene(),
+			aP: _Browser_getScene(),
 			aT: {
 				aV: x,
 				aW: y,
 				aU: _Browser_doc.documentElement.clientWidth,
 				aB: _Browser_doc.documentElement.clientHeight
 			},
-			a0: {
+			a$: {
 				aV: x + rect.left,
 				aW: y + rect.top,
 				aU: rect.width,
@@ -4355,7 +4355,24 @@ function _Browser_load(url)
 		}
 	}));
 }
-var $author$project$Main$LinkClicked = function (a) {
+
+
+function _Url_percentEncode(string)
+{
+	return encodeURIComponent(string);
+}
+
+function _Url_percentDecode(string)
+{
+	try
+	{
+		return $elm$core$Maybe$Just(decodeURIComponent(string));
+	}
+	catch (e)
+	{
+		return $elm$core$Maybe$Nothing;
+	}
+}var $author$project$Main$LinkClicked = function (a) {
 	return {$: 0, a: a};
 };
 var $author$project$Main$UrlChanged = function (a) {
@@ -4865,7 +4882,7 @@ var $elm$url$Url$Http = 0;
 var $elm$url$Url$Https = 1;
 var $elm$url$Url$Url = F6(
 	function (protocol, host, port_, path, query, fragment) {
-		return {aA: fragment, aC: host, aH: path, aJ: port_, aM: protocol, aN: query};
+		return {a2: fragment, aC: host, bb: path, aI: port_, aL: protocol, aM: query};
 	});
 var $elm$core$String$contains = _String_contains;
 var $elm$core$String$length = _String_length;
@@ -5146,26 +5163,808 @@ var $elm$core$Task$perform = F2(
 var $elm$browser$Browser$application = _Browser_application;
 var $author$project$Main$Model = F3(
 	function (key, url, page) {
-		return {ab: key, L: page, at: url};
+		return {A: key, ah: page, at: url};
 	});
-var $author$project$Main$WelcomePage = $elm$core$Basics$identity;
+var $author$project$Main$WelcomeMsg = function (a) {
+	return {$: 2, a: a};
+};
+var $author$project$Main$WelcomePage = function (a) {
+	return {$: 0, a: a};
+};
 var $author$project$Page$Welcome$Init = {$: 0};
-var $author$project$Page$Welcome$init = $author$project$Page$Welcome$Init;
 var $elm$core$Platform$Cmd$batch = _Platform_batch;
 var $elm$core$Platform$Cmd$none = $elm$core$Platform$Cmd$batch(_List_Nil);
+var $author$project$Page$Welcome$init = function (_v0) {
+	return _Utils_Tuple2($author$project$Page$Welcome$Init, $elm$core$Platform$Cmd$none);
+};
+var $elm$core$Platform$Cmd$map = _Platform_map;
+var $author$project$Main$pageMap = F3(
+	function (toPage, toMsg, _v0) {
+		var m = _v0.a;
+		var c = _v0.b;
+		return _Utils_Tuple2(
+			toPage(m),
+			A2($elm$core$Platform$Cmd$map, toMsg, c));
+	});
 var $author$project$Main$init = F3(
 	function (flags, url, key) {
-		return _Utils_Tuple2(
-			A3($author$project$Main$Model, key, url, $author$project$Page$Welcome$init),
-			$elm$core$Platform$Cmd$none);
+		return function (_v0) {
+			var p = _v0.a;
+			var c = _v0.b;
+			return _Utils_Tuple2(
+				A3($author$project$Main$Model, key, url, p),
+				c);
+		}(
+			A3(
+				$author$project$Main$pageMap,
+				$author$project$Main$WelcomePage,
+				$author$project$Main$WelcomeMsg,
+				$author$project$Page$Welcome$init(flags)));
 	});
 var $elm$core$Platform$Sub$batch = _Platform_batch;
 var $elm$core$Platform$Sub$none = $elm$core$Platform$Sub$batch(_List_Nil);
-var $author$project$Main$subscriptions = function (_v0) {
-	return $elm$core$Platform$Sub$none;
+var $author$project$Main$BikesMsg = function (a) {
+	return {$: 3, a: a};
+};
+var $author$project$Main$BikesPage = function (a) {
+	return {$: 1, a: a};
+};
+var $elm$core$Maybe$withDefault = F2(
+	function (_default, maybe) {
+		if (!maybe.$) {
+			var value = maybe.a;
+			return value;
+		} else {
+			return _default;
+		}
+	});
+var $author$project$Main$hashUrltoUrl = function (url) {
+	return _Utils_update(
+		url,
+		{
+			bb: A2($elm$core$Maybe$withDefault, '', url.a2)
+		});
+};
+var $author$project$Page$Bikes$BlueEagle = 0;
+var $author$project$Page$Bikes$Viewing = $elm$core$Basics$identity;
+var $author$project$Page$Bikes$init = function (_v0) {
+	return _Utils_Tuple2(0, $elm$core$Platform$Cmd$none);
 };
 var $elm$browser$Browser$Navigation$load = _Browser_load;
+var $elm$url$Url$Parser$State = F5(
+	function (visited, unvisited, params, frag, value) {
+		return {t: frag, u: params, s: unvisited, o: value, w: visited};
+	});
+var $elm$url$Url$Parser$getFirstMatch = function (states) {
+	getFirstMatch:
+	while (true) {
+		if (!states.b) {
+			return $elm$core$Maybe$Nothing;
+		} else {
+			var state = states.a;
+			var rest = states.b;
+			var _v1 = state.s;
+			if (!_v1.b) {
+				return $elm$core$Maybe$Just(state.o);
+			} else {
+				if ((_v1.a === '') && (!_v1.b.b)) {
+					return $elm$core$Maybe$Just(state.o);
+				} else {
+					var $temp$states = rest;
+					states = $temp$states;
+					continue getFirstMatch;
+				}
+			}
+		}
+	}
+};
+var $elm$url$Url$Parser$removeFinalEmpty = function (segments) {
+	if (!segments.b) {
+		return _List_Nil;
+	} else {
+		if ((segments.a === '') && (!segments.b.b)) {
+			return _List_Nil;
+		} else {
+			var segment = segments.a;
+			var rest = segments.b;
+			return A2(
+				$elm$core$List$cons,
+				segment,
+				$elm$url$Url$Parser$removeFinalEmpty(rest));
+		}
+	}
+};
+var $elm$url$Url$Parser$preparePath = function (path) {
+	var _v0 = A2($elm$core$String$split, '/', path);
+	if (_v0.b && (_v0.a === '')) {
+		var segments = _v0.b;
+		return $elm$url$Url$Parser$removeFinalEmpty(segments);
+	} else {
+		var segments = _v0;
+		return $elm$url$Url$Parser$removeFinalEmpty(segments);
+	}
+};
+var $elm$url$Url$Parser$addToParametersHelp = F2(
+	function (value, maybeList) {
+		if (maybeList.$ === 1) {
+			return $elm$core$Maybe$Just(
+				_List_fromArray(
+					[value]));
+		} else {
+			var list = maybeList.a;
+			return $elm$core$Maybe$Just(
+				A2($elm$core$List$cons, value, list));
+		}
+	});
+var $elm$url$Url$percentDecode = _Url_percentDecode;
+var $elm$core$Basics$compare = _Utils_compare;
+var $elm$core$Dict$get = F2(
+	function (targetKey, dict) {
+		get:
+		while (true) {
+			if (dict.$ === -2) {
+				return $elm$core$Maybe$Nothing;
+			} else {
+				var key = dict.b;
+				var value = dict.c;
+				var left = dict.d;
+				var right = dict.e;
+				var _v1 = A2($elm$core$Basics$compare, targetKey, key);
+				switch (_v1) {
+					case 0:
+						var $temp$targetKey = targetKey,
+							$temp$dict = left;
+						targetKey = $temp$targetKey;
+						dict = $temp$dict;
+						continue get;
+					case 1:
+						return $elm$core$Maybe$Just(value);
+					default:
+						var $temp$targetKey = targetKey,
+							$temp$dict = right;
+						targetKey = $temp$targetKey;
+						dict = $temp$dict;
+						continue get;
+				}
+			}
+		}
+	});
+var $elm$core$Dict$Black = 1;
+var $elm$core$Dict$RBNode_elm_builtin = F5(
+	function (a, b, c, d, e) {
+		return {$: -1, a: a, b: b, c: c, d: d, e: e};
+	});
+var $elm$core$Dict$RBEmpty_elm_builtin = {$: -2};
+var $elm$core$Dict$Red = 0;
+var $elm$core$Dict$balance = F5(
+	function (color, key, value, left, right) {
+		if ((right.$ === -1) && (!right.a)) {
+			var _v1 = right.a;
+			var rK = right.b;
+			var rV = right.c;
+			var rLeft = right.d;
+			var rRight = right.e;
+			if ((left.$ === -1) && (!left.a)) {
+				var _v3 = left.a;
+				var lK = left.b;
+				var lV = left.c;
+				var lLeft = left.d;
+				var lRight = left.e;
+				return A5(
+					$elm$core$Dict$RBNode_elm_builtin,
+					0,
+					key,
+					value,
+					A5($elm$core$Dict$RBNode_elm_builtin, 1, lK, lV, lLeft, lRight),
+					A5($elm$core$Dict$RBNode_elm_builtin, 1, rK, rV, rLeft, rRight));
+			} else {
+				return A5(
+					$elm$core$Dict$RBNode_elm_builtin,
+					color,
+					rK,
+					rV,
+					A5($elm$core$Dict$RBNode_elm_builtin, 0, key, value, left, rLeft),
+					rRight);
+			}
+		} else {
+			if ((((left.$ === -1) && (!left.a)) && (left.d.$ === -1)) && (!left.d.a)) {
+				var _v5 = left.a;
+				var lK = left.b;
+				var lV = left.c;
+				var _v6 = left.d;
+				var _v7 = _v6.a;
+				var llK = _v6.b;
+				var llV = _v6.c;
+				var llLeft = _v6.d;
+				var llRight = _v6.e;
+				var lRight = left.e;
+				return A5(
+					$elm$core$Dict$RBNode_elm_builtin,
+					0,
+					lK,
+					lV,
+					A5($elm$core$Dict$RBNode_elm_builtin, 1, llK, llV, llLeft, llRight),
+					A5($elm$core$Dict$RBNode_elm_builtin, 1, key, value, lRight, right));
+			} else {
+				return A5($elm$core$Dict$RBNode_elm_builtin, color, key, value, left, right);
+			}
+		}
+	});
+var $elm$core$Dict$insertHelp = F3(
+	function (key, value, dict) {
+		if (dict.$ === -2) {
+			return A5($elm$core$Dict$RBNode_elm_builtin, 0, key, value, $elm$core$Dict$RBEmpty_elm_builtin, $elm$core$Dict$RBEmpty_elm_builtin);
+		} else {
+			var nColor = dict.a;
+			var nKey = dict.b;
+			var nValue = dict.c;
+			var nLeft = dict.d;
+			var nRight = dict.e;
+			var _v1 = A2($elm$core$Basics$compare, key, nKey);
+			switch (_v1) {
+				case 0:
+					return A5(
+						$elm$core$Dict$balance,
+						nColor,
+						nKey,
+						nValue,
+						A3($elm$core$Dict$insertHelp, key, value, nLeft),
+						nRight);
+				case 1:
+					return A5($elm$core$Dict$RBNode_elm_builtin, nColor, nKey, value, nLeft, nRight);
+				default:
+					return A5(
+						$elm$core$Dict$balance,
+						nColor,
+						nKey,
+						nValue,
+						nLeft,
+						A3($elm$core$Dict$insertHelp, key, value, nRight));
+			}
+		}
+	});
+var $elm$core$Dict$insert = F3(
+	function (key, value, dict) {
+		var _v0 = A3($elm$core$Dict$insertHelp, key, value, dict);
+		if ((_v0.$ === -1) && (!_v0.a)) {
+			var _v1 = _v0.a;
+			var k = _v0.b;
+			var v = _v0.c;
+			var l = _v0.d;
+			var r = _v0.e;
+			return A5($elm$core$Dict$RBNode_elm_builtin, 1, k, v, l, r);
+		} else {
+			var x = _v0;
+			return x;
+		}
+	});
+var $elm$core$Dict$getMin = function (dict) {
+	getMin:
+	while (true) {
+		if ((dict.$ === -1) && (dict.d.$ === -1)) {
+			var left = dict.d;
+			var $temp$dict = left;
+			dict = $temp$dict;
+			continue getMin;
+		} else {
+			return dict;
+		}
+	}
+};
+var $elm$core$Dict$moveRedLeft = function (dict) {
+	if (((dict.$ === -1) && (dict.d.$ === -1)) && (dict.e.$ === -1)) {
+		if ((dict.e.d.$ === -1) && (!dict.e.d.a)) {
+			var clr = dict.a;
+			var k = dict.b;
+			var v = dict.c;
+			var _v1 = dict.d;
+			var lClr = _v1.a;
+			var lK = _v1.b;
+			var lV = _v1.c;
+			var lLeft = _v1.d;
+			var lRight = _v1.e;
+			var _v2 = dict.e;
+			var rClr = _v2.a;
+			var rK = _v2.b;
+			var rV = _v2.c;
+			var rLeft = _v2.d;
+			var _v3 = rLeft.a;
+			var rlK = rLeft.b;
+			var rlV = rLeft.c;
+			var rlL = rLeft.d;
+			var rlR = rLeft.e;
+			var rRight = _v2.e;
+			return A5(
+				$elm$core$Dict$RBNode_elm_builtin,
+				0,
+				rlK,
+				rlV,
+				A5(
+					$elm$core$Dict$RBNode_elm_builtin,
+					1,
+					k,
+					v,
+					A5($elm$core$Dict$RBNode_elm_builtin, 0, lK, lV, lLeft, lRight),
+					rlL),
+				A5($elm$core$Dict$RBNode_elm_builtin, 1, rK, rV, rlR, rRight));
+		} else {
+			var clr = dict.a;
+			var k = dict.b;
+			var v = dict.c;
+			var _v4 = dict.d;
+			var lClr = _v4.a;
+			var lK = _v4.b;
+			var lV = _v4.c;
+			var lLeft = _v4.d;
+			var lRight = _v4.e;
+			var _v5 = dict.e;
+			var rClr = _v5.a;
+			var rK = _v5.b;
+			var rV = _v5.c;
+			var rLeft = _v5.d;
+			var rRight = _v5.e;
+			if (clr === 1) {
+				return A5(
+					$elm$core$Dict$RBNode_elm_builtin,
+					1,
+					k,
+					v,
+					A5($elm$core$Dict$RBNode_elm_builtin, 0, lK, lV, lLeft, lRight),
+					A5($elm$core$Dict$RBNode_elm_builtin, 0, rK, rV, rLeft, rRight));
+			} else {
+				return A5(
+					$elm$core$Dict$RBNode_elm_builtin,
+					1,
+					k,
+					v,
+					A5($elm$core$Dict$RBNode_elm_builtin, 0, lK, lV, lLeft, lRight),
+					A5($elm$core$Dict$RBNode_elm_builtin, 0, rK, rV, rLeft, rRight));
+			}
+		}
+	} else {
+		return dict;
+	}
+};
+var $elm$core$Dict$moveRedRight = function (dict) {
+	if (((dict.$ === -1) && (dict.d.$ === -1)) && (dict.e.$ === -1)) {
+		if ((dict.d.d.$ === -1) && (!dict.d.d.a)) {
+			var clr = dict.a;
+			var k = dict.b;
+			var v = dict.c;
+			var _v1 = dict.d;
+			var lClr = _v1.a;
+			var lK = _v1.b;
+			var lV = _v1.c;
+			var _v2 = _v1.d;
+			var _v3 = _v2.a;
+			var llK = _v2.b;
+			var llV = _v2.c;
+			var llLeft = _v2.d;
+			var llRight = _v2.e;
+			var lRight = _v1.e;
+			var _v4 = dict.e;
+			var rClr = _v4.a;
+			var rK = _v4.b;
+			var rV = _v4.c;
+			var rLeft = _v4.d;
+			var rRight = _v4.e;
+			return A5(
+				$elm$core$Dict$RBNode_elm_builtin,
+				0,
+				lK,
+				lV,
+				A5($elm$core$Dict$RBNode_elm_builtin, 1, llK, llV, llLeft, llRight),
+				A5(
+					$elm$core$Dict$RBNode_elm_builtin,
+					1,
+					k,
+					v,
+					lRight,
+					A5($elm$core$Dict$RBNode_elm_builtin, 0, rK, rV, rLeft, rRight)));
+		} else {
+			var clr = dict.a;
+			var k = dict.b;
+			var v = dict.c;
+			var _v5 = dict.d;
+			var lClr = _v5.a;
+			var lK = _v5.b;
+			var lV = _v5.c;
+			var lLeft = _v5.d;
+			var lRight = _v5.e;
+			var _v6 = dict.e;
+			var rClr = _v6.a;
+			var rK = _v6.b;
+			var rV = _v6.c;
+			var rLeft = _v6.d;
+			var rRight = _v6.e;
+			if (clr === 1) {
+				return A5(
+					$elm$core$Dict$RBNode_elm_builtin,
+					1,
+					k,
+					v,
+					A5($elm$core$Dict$RBNode_elm_builtin, 0, lK, lV, lLeft, lRight),
+					A5($elm$core$Dict$RBNode_elm_builtin, 0, rK, rV, rLeft, rRight));
+			} else {
+				return A5(
+					$elm$core$Dict$RBNode_elm_builtin,
+					1,
+					k,
+					v,
+					A5($elm$core$Dict$RBNode_elm_builtin, 0, lK, lV, lLeft, lRight),
+					A5($elm$core$Dict$RBNode_elm_builtin, 0, rK, rV, rLeft, rRight));
+			}
+		}
+	} else {
+		return dict;
+	}
+};
+var $elm$core$Dict$removeHelpPrepEQGT = F7(
+	function (targetKey, dict, color, key, value, left, right) {
+		if ((left.$ === -1) && (!left.a)) {
+			var _v1 = left.a;
+			var lK = left.b;
+			var lV = left.c;
+			var lLeft = left.d;
+			var lRight = left.e;
+			return A5(
+				$elm$core$Dict$RBNode_elm_builtin,
+				color,
+				lK,
+				lV,
+				lLeft,
+				A5($elm$core$Dict$RBNode_elm_builtin, 0, key, value, lRight, right));
+		} else {
+			_v2$2:
+			while (true) {
+				if ((right.$ === -1) && (right.a === 1)) {
+					if (right.d.$ === -1) {
+						if (right.d.a === 1) {
+							var _v3 = right.a;
+							var _v4 = right.d;
+							var _v5 = _v4.a;
+							return $elm$core$Dict$moveRedRight(dict);
+						} else {
+							break _v2$2;
+						}
+					} else {
+						var _v6 = right.a;
+						var _v7 = right.d;
+						return $elm$core$Dict$moveRedRight(dict);
+					}
+				} else {
+					break _v2$2;
+				}
+			}
+			return dict;
+		}
+	});
+var $elm$core$Dict$removeMin = function (dict) {
+	if ((dict.$ === -1) && (dict.d.$ === -1)) {
+		var color = dict.a;
+		var key = dict.b;
+		var value = dict.c;
+		var left = dict.d;
+		var lColor = left.a;
+		var lLeft = left.d;
+		var right = dict.e;
+		if (lColor === 1) {
+			if ((lLeft.$ === -1) && (!lLeft.a)) {
+				var _v3 = lLeft.a;
+				return A5(
+					$elm$core$Dict$RBNode_elm_builtin,
+					color,
+					key,
+					value,
+					$elm$core$Dict$removeMin(left),
+					right);
+			} else {
+				var _v4 = $elm$core$Dict$moveRedLeft(dict);
+				if (_v4.$ === -1) {
+					var nColor = _v4.a;
+					var nKey = _v4.b;
+					var nValue = _v4.c;
+					var nLeft = _v4.d;
+					var nRight = _v4.e;
+					return A5(
+						$elm$core$Dict$balance,
+						nColor,
+						nKey,
+						nValue,
+						$elm$core$Dict$removeMin(nLeft),
+						nRight);
+				} else {
+					return $elm$core$Dict$RBEmpty_elm_builtin;
+				}
+			}
+		} else {
+			return A5(
+				$elm$core$Dict$RBNode_elm_builtin,
+				color,
+				key,
+				value,
+				$elm$core$Dict$removeMin(left),
+				right);
+		}
+	} else {
+		return $elm$core$Dict$RBEmpty_elm_builtin;
+	}
+};
+var $elm$core$Dict$removeHelp = F2(
+	function (targetKey, dict) {
+		if (dict.$ === -2) {
+			return $elm$core$Dict$RBEmpty_elm_builtin;
+		} else {
+			var color = dict.a;
+			var key = dict.b;
+			var value = dict.c;
+			var left = dict.d;
+			var right = dict.e;
+			if (_Utils_cmp(targetKey, key) < 0) {
+				if ((left.$ === -1) && (left.a === 1)) {
+					var _v4 = left.a;
+					var lLeft = left.d;
+					if ((lLeft.$ === -1) && (!lLeft.a)) {
+						var _v6 = lLeft.a;
+						return A5(
+							$elm$core$Dict$RBNode_elm_builtin,
+							color,
+							key,
+							value,
+							A2($elm$core$Dict$removeHelp, targetKey, left),
+							right);
+					} else {
+						var _v7 = $elm$core$Dict$moveRedLeft(dict);
+						if (_v7.$ === -1) {
+							var nColor = _v7.a;
+							var nKey = _v7.b;
+							var nValue = _v7.c;
+							var nLeft = _v7.d;
+							var nRight = _v7.e;
+							return A5(
+								$elm$core$Dict$balance,
+								nColor,
+								nKey,
+								nValue,
+								A2($elm$core$Dict$removeHelp, targetKey, nLeft),
+								nRight);
+						} else {
+							return $elm$core$Dict$RBEmpty_elm_builtin;
+						}
+					}
+				} else {
+					return A5(
+						$elm$core$Dict$RBNode_elm_builtin,
+						color,
+						key,
+						value,
+						A2($elm$core$Dict$removeHelp, targetKey, left),
+						right);
+				}
+			} else {
+				return A2(
+					$elm$core$Dict$removeHelpEQGT,
+					targetKey,
+					A7($elm$core$Dict$removeHelpPrepEQGT, targetKey, dict, color, key, value, left, right));
+			}
+		}
+	});
+var $elm$core$Dict$removeHelpEQGT = F2(
+	function (targetKey, dict) {
+		if (dict.$ === -1) {
+			var color = dict.a;
+			var key = dict.b;
+			var value = dict.c;
+			var left = dict.d;
+			var right = dict.e;
+			if (_Utils_eq(targetKey, key)) {
+				var _v1 = $elm$core$Dict$getMin(right);
+				if (_v1.$ === -1) {
+					var minKey = _v1.b;
+					var minValue = _v1.c;
+					return A5(
+						$elm$core$Dict$balance,
+						color,
+						minKey,
+						minValue,
+						left,
+						$elm$core$Dict$removeMin(right));
+				} else {
+					return $elm$core$Dict$RBEmpty_elm_builtin;
+				}
+			} else {
+				return A5(
+					$elm$core$Dict$balance,
+					color,
+					key,
+					value,
+					left,
+					A2($elm$core$Dict$removeHelp, targetKey, right));
+			}
+		} else {
+			return $elm$core$Dict$RBEmpty_elm_builtin;
+		}
+	});
+var $elm$core$Dict$remove = F2(
+	function (key, dict) {
+		var _v0 = A2($elm$core$Dict$removeHelp, key, dict);
+		if ((_v0.$ === -1) && (!_v0.a)) {
+			var _v1 = _v0.a;
+			var k = _v0.b;
+			var v = _v0.c;
+			var l = _v0.d;
+			var r = _v0.e;
+			return A5($elm$core$Dict$RBNode_elm_builtin, 1, k, v, l, r);
+		} else {
+			var x = _v0;
+			return x;
+		}
+	});
+var $elm$core$Dict$update = F3(
+	function (targetKey, alter, dictionary) {
+		var _v0 = alter(
+			A2($elm$core$Dict$get, targetKey, dictionary));
+		if (!_v0.$) {
+			var value = _v0.a;
+			return A3($elm$core$Dict$insert, targetKey, value, dictionary);
+		} else {
+			return A2($elm$core$Dict$remove, targetKey, dictionary);
+		}
+	});
+var $elm$url$Url$Parser$addParam = F2(
+	function (segment, dict) {
+		var _v0 = A2($elm$core$String$split, '=', segment);
+		if ((_v0.b && _v0.b.b) && (!_v0.b.b.b)) {
+			var rawKey = _v0.a;
+			var _v1 = _v0.b;
+			var rawValue = _v1.a;
+			var _v2 = $elm$url$Url$percentDecode(rawKey);
+			if (_v2.$ === 1) {
+				return dict;
+			} else {
+				var key = _v2.a;
+				var _v3 = $elm$url$Url$percentDecode(rawValue);
+				if (_v3.$ === 1) {
+					return dict;
+				} else {
+					var value = _v3.a;
+					return A3(
+						$elm$core$Dict$update,
+						key,
+						$elm$url$Url$Parser$addToParametersHelp(value),
+						dict);
+				}
+			}
+		} else {
+			return dict;
+		}
+	});
+var $elm$core$Dict$empty = $elm$core$Dict$RBEmpty_elm_builtin;
+var $elm$url$Url$Parser$prepareQuery = function (maybeQuery) {
+	if (maybeQuery.$ === 1) {
+		return $elm$core$Dict$empty;
+	} else {
+		var qry = maybeQuery.a;
+		return A3(
+			$elm$core$List$foldr,
+			$elm$url$Url$Parser$addParam,
+			$elm$core$Dict$empty,
+			A2($elm$core$String$split, '&', qry));
+	}
+};
+var $elm$url$Url$Parser$parse = F2(
+	function (_v0, url) {
+		var parser = _v0;
+		return $elm$url$Url$Parser$getFirstMatch(
+			parser(
+				A5(
+					$elm$url$Url$Parser$State,
+					_List_Nil,
+					$elm$url$Url$Parser$preparePath(url.bb),
+					$elm$url$Url$Parser$prepareQuery(url.aM),
+					url.a2,
+					$elm$core$Basics$identity)));
+	});
 var $elm$browser$Browser$Navigation$pushUrl = _Browser_pushUrl;
+var $author$project$Main$Bikes = 1;
+var $author$project$Main$Home = 0;
+var $elm$url$Url$Parser$Parser = $elm$core$Basics$identity;
+var $elm$url$Url$Parser$mapState = F2(
+	function (func, _v0) {
+		var visited = _v0.w;
+		var unvisited = _v0.s;
+		var params = _v0.u;
+		var frag = _v0.t;
+		var value = _v0.o;
+		return A5(
+			$elm$url$Url$Parser$State,
+			visited,
+			unvisited,
+			params,
+			frag,
+			func(value));
+	});
+var $elm$url$Url$Parser$map = F2(
+	function (subValue, _v0) {
+		var parseArg = _v0;
+		return function (_v1) {
+			var visited = _v1.w;
+			var unvisited = _v1.s;
+			var params = _v1.u;
+			var frag = _v1.t;
+			var value = _v1.o;
+			return A2(
+				$elm$core$List$map,
+				$elm$url$Url$Parser$mapState(value),
+				parseArg(
+					A5($elm$url$Url$Parser$State, visited, unvisited, params, frag, subValue)));
+		};
+	});
+var $elm$core$List$append = F2(
+	function (xs, ys) {
+		if (!ys.b) {
+			return xs;
+		} else {
+			return A3($elm$core$List$foldr, $elm$core$List$cons, ys, xs);
+		}
+	});
+var $elm$core$List$concat = function (lists) {
+	return A3($elm$core$List$foldr, $elm$core$List$append, _List_Nil, lists);
+};
+var $elm$core$List$concatMap = F2(
+	function (f, list) {
+		return $elm$core$List$concat(
+			A2($elm$core$List$map, f, list));
+	});
+var $elm$url$Url$Parser$oneOf = function (parsers) {
+	return function (state) {
+		return A2(
+			$elm$core$List$concatMap,
+			function (_v0) {
+				var parser = _v0;
+				return parser(state);
+			},
+			parsers);
+	};
+};
+var $elm$url$Url$Parser$s = function (str) {
+	return function (_v0) {
+		var visited = _v0.w;
+		var unvisited = _v0.s;
+		var params = _v0.u;
+		var frag = _v0.t;
+		var value = _v0.o;
+		if (!unvisited.b) {
+			return _List_Nil;
+		} else {
+			var next = unvisited.a;
+			var rest = unvisited.b;
+			return _Utils_eq(next, str) ? _List_fromArray(
+				[
+					A5(
+					$elm$url$Url$Parser$State,
+					A2($elm$core$List$cons, next, visited),
+					rest,
+					params,
+					frag,
+					value)
+				]) : _List_Nil;
+		}
+	};
+};
+var $elm$url$Url$Parser$top = function (state) {
+	return _List_fromArray(
+		[state]);
+};
+var $author$project$Main$routeParser = $elm$url$Url$Parser$oneOf(
+	_List_fromArray(
+		[
+			A2($elm$url$Url$Parser$map, 0, $elm$url$Url$Parser$top),
+			A2(
+			$elm$url$Url$Parser$map,
+			1,
+			$elm$url$Url$Parser$s('bikes'))
+		]));
 var $elm$url$Url$addPort = F2(
 	function (maybePort, starter) {
 		if (maybePort.$ === 1) {
@@ -5188,7 +5987,7 @@ var $elm$url$Url$addPrefixed = F3(
 	});
 var $elm$url$Url$toString = function (url) {
 	var http = function () {
-		var _v0 = url.aM;
+		var _v0 = url.aL;
 		if (!_v0) {
 			return 'http://';
 		} else {
@@ -5198,21 +5997,24 @@ var $elm$url$Url$toString = function (url) {
 	return A3(
 		$elm$url$Url$addPrefixed,
 		'#',
-		url.aA,
+		url.a2,
 		A3(
 			$elm$url$Url$addPrefixed,
 			'?',
-			url.aN,
+			url.aM,
 			_Utils_ap(
 				A2(
 					$elm$url$Url$addPort,
-					url.aJ,
+					url.aI,
 					_Utils_ap(http, url.aC)),
-				url.aH)));
+				url.bb)));
 };
-var $author$project$Main$WelcomeMsg = function (a) {
-	return {$: 2, a: a};
-};
+var $author$project$Page$Bikes$update = F2(
+	function (msg, model) {
+		var _v0 = _Utils_Tuple2(msg, model);
+		var bike = _v0.a;
+		return _Utils_Tuple2(bike, $elm$core$Platform$Cmd$none);
+	});
 var $author$project$Page$Welcome$Bikes = 0;
 var $author$project$Page$Welcome$Hover = function (a) {
 	return {$: 1, a: a};
@@ -5246,73 +6048,134 @@ var $author$project$Page$Welcome$update = F2(
 			}
 		}
 	});
-var $elm$core$Platform$Cmd$map = _Platform_map;
-var $author$project$Main$updateWith = F4(
-	function (toPage, toMsg, model, _v0) {
-		var subpage = _v0.a;
-		var subcmd = _v0.b;
-		return _Utils_Tuple2(
-			A3(
-				$author$project$Main$Model,
-				model.ab,
-				model.at,
-				toPage(subpage)),
-			A2($elm$core$Platform$Cmd$map, toMsg, subcmd));
-	});
-var $author$project$Main$updatePage = F2(
-	function (msg, model) {
-		var _v0 = _Utils_Tuple2(msg, model.L);
-		if (_v0.a.$ === 2) {
-			var m = _v0.a.a;
-			var p = _v0.b;
-			return A4(
-				$author$project$Main$updateWith,
-				$elm$core$Basics$identity,
-				$author$project$Main$WelcomeMsg,
-				model,
-				A2($author$project$Page$Welcome$update, m, p));
-		} else {
-			return _Utils_Tuple2(model, $elm$core$Platform$Cmd$none);
-		}
-	});
 var $author$project$Main$update = F2(
 	function (msg, model) {
-		switch (msg.$) {
-			case 0:
-				var urlRequest = msg.a;
-				if (!urlRequest.$) {
-					var url = urlRequest.a;
-					return _Utils_Tuple2(
-						model,
-						A2(
-							$elm$browser$Browser$Navigation$pushUrl,
-							model.ab,
-							$elm$url$Url$toString(url)));
-				} else {
-					var href = urlRequest.a;
-					return _Utils_Tuple2(
-						model,
-						$elm$browser$Browser$Navigation$load(href));
-				}
-			case 1:
-				var url = msg.a;
-				return _Utils_Tuple2(
-					_Utils_update(
-						model,
-						{at: url}),
-					$elm$core$Platform$Cmd$none);
-			default:
-				return A2($author$project$Main$updatePage, msg, model);
+		var _v0 = _Utils_Tuple2(msg, model.ah);
+		_v0$4:
+		while (true) {
+			switch (_v0.a.$) {
+				case 0:
+					var urlRequest = _v0.a.a;
+					if (!urlRequest.$) {
+						var url = urlRequest.a;
+						return _Utils_Tuple2(
+							model,
+							A2(
+								$elm$browser$Browser$Navigation$pushUrl,
+								model.A,
+								$elm$url$Url$toString(url)));
+					} else {
+						var href = urlRequest.a;
+						return _Utils_Tuple2(
+							model,
+							$elm$browser$Browser$Navigation$load(href));
+					}
+				case 1:
+					var url = _v0.a.a;
+					var _v2 = A2(
+						$elm$url$Url$Parser$parse,
+						$author$project$Main$routeParser,
+						$author$project$Main$hashUrltoUrl(url));
+					if (!_v2.$) {
+						if (!_v2.a) {
+							var _v3 = _v2.a;
+							return function (_v4) {
+								var p = _v4.a;
+								var c = _v4.b;
+								return _Utils_Tuple2(
+									A3($author$project$Main$Model, model.A, url, p),
+									c);
+							}(
+								A3(
+									$author$project$Main$pageMap,
+									$author$project$Main$WelcomePage,
+									$author$project$Main$WelcomeMsg,
+									$author$project$Page$Welcome$init(0)));
+						} else {
+							var _v5 = _v2.a;
+							return function (_v6) {
+								var p = _v6.a;
+								var c = _v6.b;
+								return _Utils_Tuple2(
+									A3($author$project$Main$Model, model.A, url, p),
+									c);
+							}(
+								A3(
+									$author$project$Main$pageMap,
+									$author$project$Main$BikesPage,
+									$author$project$Main$BikesMsg,
+									$author$project$Page$Bikes$init(0)));
+						}
+					} else {
+						return _Utils_Tuple2(model, $elm$core$Platform$Cmd$none);
+					}
+				case 2:
+					if (!_v0.b.$) {
+						var m = _v0.a.a;
+						var p = _v0.b.a;
+						return function (_v7) {
+							var x = _v7.a;
+							var c = _v7.b;
+							return _Utils_Tuple2(
+								A3($author$project$Main$Model, model.A, model.at, x),
+								c);
+						}(
+							A3(
+								$author$project$Main$pageMap,
+								$author$project$Main$WelcomePage,
+								$author$project$Main$WelcomeMsg,
+								A2($author$project$Page$Welcome$update, m, p)));
+					} else {
+						break _v0$4;
+					}
+				default:
+					if (_v0.b.$ === 1) {
+						var m = _v0.a.a;
+						var p = _v0.b.a;
+						return function (_v8) {
+							var x = _v8.a;
+							var c = _v8.b;
+							return _Utils_Tuple2(
+								A3($author$project$Main$Model, model.A, model.at, x),
+								c);
+						}(
+							A3(
+								$author$project$Main$pageMap,
+								$author$project$Main$BikesPage,
+								$author$project$Main$BikesMsg,
+								A2($author$project$Page$Bikes$update, m, p)));
+					} else {
+						break _v0$4;
+					}
+			}
 		}
+		return _Utils_Tuple2(model, $elm$core$Platform$Cmd$none);
 	});
-var $elm$core$List$append = F2(
-	function (xs, ys) {
-		if (!ys.b) {
-			return xs;
-		} else {
-			return A3($elm$core$List$foldr, $elm$core$List$cons, ys, xs);
-		}
+var $elm$virtual_dom$VirtualDom$map = _VirtualDom_map;
+var $elm$html$Html$map = $elm$virtual_dom$VirtualDom$map;
+var $author$project$Main$docMap = F2(
+	function (toMsg, doc) {
+		return {
+			aw: A2(
+				$elm$core$List$map,
+				$elm$html$Html$map(toMsg),
+				doc.aw),
+			aS: doc.aS
+		};
 	});
+var $surprisetalk$elm_bulma$Bulma$Modifiers$Auto = 0;
+var $surprisetalk$elm_bulma$Bulma$Modifiers$Typography$Grey = 5;
+var $surprisetalk$elm_bulma$Bulma$Elements$H1 = 0;
+var $surprisetalk$elm_bulma$Bulma$Layout$Spaced = 1;
+var $surprisetalk$elm_bulma$Bulma$Modifiers$Width4 = 4;
+var $elm$virtual_dom$VirtualDom$attribute = F2(
+	function (key, value) {
+		return A2(
+			_VirtualDom_attribute,
+			_VirtualDom_noOnOrFormAction(key),
+			_VirtualDom_noJavaScriptOrHtmlUri(value));
+	});
+var $elm$html$Html$Attributes$attribute = $elm$virtual_dom$VirtualDom$attribute;
 var $elm$json$Json$Encode$string = _Json_wrap;
 var $elm$html$Html$Attributes$stringProperty = F2(
 	function (key, string) {
@@ -5321,34 +6184,31 @@ var $elm$html$Html$Attributes$stringProperty = F2(
 			key,
 			$elm$json$Json$Encode$string(string));
 	});
-var $elm$html$Html$Attributes$href = function (url) {
-	return A2(
-		$elm$html$Html$Attributes$stringProperty,
-		'href',
-		_VirtualDom_noJavaScriptUri(url));
+var $elm$html$Html$Attributes$class = $elm$html$Html$Attributes$stringProperty('className');
+var $surprisetalk$elm_bulma$Bulma$Classes$breadcrumb = $elm$html$Html$Attributes$class('breadcrumb');
+var $elm$core$Basics$composeL = F3(
+	function (g, f, x) {
+		return g(
+			f(x));
+	});
+var $surprisetalk$elm_bulma$Bulma$Classes$hasArrowSeparator = $elm$html$Html$Attributes$class('has-arrow-separator');
+var $surprisetalk$elm_bulma$Bulma$Classes$hasBulletSeparator = $elm$html$Html$Attributes$class('has-bullet-separator');
+var $surprisetalk$elm_bulma$Bulma$Classes$hasDotSeparator = $elm$html$Html$Attributes$class('has-dot-separator');
+var $surprisetalk$elm_bulma$Bulma$Classes$hasSucceedsSeparator = $elm$html$Html$Attributes$class('has-succeeds-separator');
+var $surprisetalk$elm_bulma$Bulma$Classes$isCentered = $elm$html$Html$Attributes$class('is-centered');
+var $surprisetalk$elm_bulma$Bulma$Classes$isLarge = $elm$html$Html$Attributes$class('is-large');
+var $surprisetalk$elm_bulma$Bulma$Classes$isMedium = $elm$html$Html$Attributes$class('is-medium');
+var $surprisetalk$elm_bulma$Bulma$Classes$isRight = $elm$html$Html$Attributes$class('is-right');
+var $surprisetalk$elm_bulma$Bulma$Classes$isSmall = $elm$html$Html$Attributes$class('is-small');
+var $surprisetalk$elm_bulma$Helpers$ls = function (x) {
+	return _List_fromArray(
+		[x]);
 };
 var $elm$virtual_dom$VirtualDom$node = function (tag) {
 	return _VirtualDom_node(
 		_VirtualDom_noScript(tag));
 };
 var $elm$html$Html$node = $elm$virtual_dom$VirtualDom$node;
-var $elm$html$Html$Attributes$rel = _VirtualDom_attribute('rel');
-var $surprisetalk$elm_bulma$Bulma$CDN$stylesheet = A3(
-	$elm$html$Html$node,
-	'link',
-	_List_fromArray(
-		[
-			$elm$html$Html$Attributes$rel('stylesheet'),
-			$elm$html$Html$Attributes$href('https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.1/css/bulma.min.css')
-		]),
-	_List_Nil);
-var $elm$virtual_dom$VirtualDom$map = _VirtualDom_map;
-var $elm$html$Html$map = $elm$virtual_dom$VirtualDom$map;
-var $surprisetalk$elm_bulma$Bulma$Modifiers$Auto = 0;
-var $surprisetalk$elm_bulma$Bulma$Elements$H1 = 0;
-var $surprisetalk$elm_bulma$Bulma$Layout$NotSpaced = 0;
-var $elm$html$Html$Attributes$class = $elm$html$Html$Attributes$stringProperty('className');
-var $surprisetalk$elm_bulma$Bulma$Classes$container = $elm$html$Html$Attributes$class('container');
 var $surprisetalk$elm_bulma$Helpers$node = F3(
 	function (tag, attrs_, attrs) {
 		return A2(
@@ -5356,14 +6216,178 @@ var $surprisetalk$elm_bulma$Helpers$node = F3(
 			tag,
 			_Utils_ap(attrs, attrs_));
 	});
+var $surprisetalk$elm_bulma$Bulma$Classes$none = $elm$html$Html$Attributes$class('');
+var $elm$html$Html$ul = _VirtualDom_node('ul');
+var $surprisetalk$elm_bulma$Bulma$Components$breadcrumb = F3(
+	function (_v0, attrs, attrs_) {
+		var separator = _v0.ak;
+		var alignment = _v0.x;
+		var size = _v0.n;
+		return A2(
+			$elm$core$Basics$composeL,
+			A2(
+				$elm$core$Basics$composeL,
+				A3(
+					$surprisetalk$elm_bulma$Helpers$node,
+					'nav',
+					_List_fromArray(
+						[
+							A2($elm$html$Html$Attributes$attribute, 'aria-label', 'breadcrumb'),
+							$surprisetalk$elm_bulma$Bulma$Classes$breadcrumb,
+							function () {
+							switch (separator) {
+								case 0:
+									return $surprisetalk$elm_bulma$Bulma$Classes$none;
+								case 1:
+									return $surprisetalk$elm_bulma$Bulma$Classes$hasArrowSeparator;
+								case 2:
+									return $surprisetalk$elm_bulma$Bulma$Classes$hasBulletSeparator;
+								case 3:
+									return $surprisetalk$elm_bulma$Bulma$Classes$hasDotSeparator;
+								default:
+									return $surprisetalk$elm_bulma$Bulma$Classes$hasSucceedsSeparator;
+							}
+						}(),
+							function () {
+							switch (size) {
+								case 0:
+									return $surprisetalk$elm_bulma$Bulma$Classes$isSmall;
+								case 1:
+									return $surprisetalk$elm_bulma$Bulma$Classes$none;
+								case 2:
+									return $surprisetalk$elm_bulma$Bulma$Classes$isMedium;
+								default:
+									return $surprisetalk$elm_bulma$Bulma$Classes$isLarge;
+							}
+						}(),
+							function () {
+							switch (alignment) {
+								case 0:
+									return $surprisetalk$elm_bulma$Bulma$Classes$none;
+								case 1:
+									return $surprisetalk$elm_bulma$Bulma$Classes$isCentered;
+								default:
+									return $surprisetalk$elm_bulma$Bulma$Classes$isRight;
+							}
+						}()
+						]),
+					attrs),
+				$surprisetalk$elm_bulma$Helpers$ls),
+			$elm$html$Html$ul(attrs_));
+	});
+var $surprisetalk$elm_bulma$Bulma$Modifiers$Left = 0;
+var $surprisetalk$elm_bulma$Bulma$Components$Slash = 0;
+var $surprisetalk$elm_bulma$Bulma$Modifiers$Standard = 1;
+var $surprisetalk$elm_bulma$Bulma$Components$breadcrumbModifiers = {x: 0, ak: 0, n: 1};
+var $surprisetalk$elm_bulma$Bulma$Classes$container = $elm$html$Html$Attributes$class('container');
 var $surprisetalk$elm_bulma$Bulma$Layout$container = A2(
 	$surprisetalk$elm_bulma$Helpers$node,
 	'div',
 	_List_fromArray(
 		[$surprisetalk$elm_bulma$Bulma$Classes$container]));
-var $surprisetalk$elm_bulma$Bulma$Classes$isLarge = $elm$html$Html$Attributes$class('is-large');
-var $surprisetalk$elm_bulma$Bulma$Classes$isMedium = $elm$html$Html$Attributes$class('is-medium');
-var $surprisetalk$elm_bulma$Bulma$Classes$none = $elm$html$Html$Attributes$class('');
+var $elm$html$Html$a = _VirtualDom_node('a');
+var $elm$html$Html$li = _VirtualDom_node('li');
+var $surprisetalk$elm_bulma$Bulma$Components$crumblet = F3(
+	function (isActive, attrs, attrs_) {
+		return A2(
+			$elm$core$Basics$composeL,
+			A2(
+				$elm$core$Basics$composeL,
+				$elm$html$Html$li(
+					isActive ? A2(
+						$elm$core$List$cons,
+						$elm$html$Html$Attributes$class('is-active'),
+						attrs) : attrs),
+				$surprisetalk$elm_bulma$Helpers$ls),
+			$elm$html$Html$a(attrs_));
+	});
+var $elm$html$Html$em = _VirtualDom_node('em');
+var $surprisetalk$elm_bulma$Bulma$Classes$hero = $elm$html$Html$Attributes$class('hero');
+var $surprisetalk$elm_bulma$Bulma$Classes$isBlack = $elm$html$Html$Attributes$class('is-black');
+var $surprisetalk$elm_bulma$Bulma$Classes$isBold = $elm$html$Html$Attributes$class('is-bold');
+var $surprisetalk$elm_bulma$Bulma$Classes$isDanger = $elm$html$Html$Attributes$class('is-danger');
+var $surprisetalk$elm_bulma$Bulma$Classes$isDark = $elm$html$Html$Attributes$class('is-dark');
+var $surprisetalk$elm_bulma$Bulma$Classes$isFullHeight = $elm$html$Html$Attributes$class('is-fullheight');
+var $surprisetalk$elm_bulma$Bulma$Classes$isInfo = $elm$html$Html$Attributes$class('is-info');
+var $surprisetalk$elm_bulma$Bulma$Classes$isLight = $elm$html$Html$Attributes$class('is-light');
+var $surprisetalk$elm_bulma$Bulma$Classes$isLink = $elm$html$Html$Attributes$class('is-link');
+var $surprisetalk$elm_bulma$Bulma$Classes$isPrimary = $elm$html$Html$Attributes$class('is-primary');
+var $surprisetalk$elm_bulma$Bulma$Classes$isSuccess = $elm$html$Html$Attributes$class('is-success');
+var $surprisetalk$elm_bulma$Bulma$Classes$isWarning = $elm$html$Html$Attributes$class('is-warning');
+var $surprisetalk$elm_bulma$Bulma$Classes$isWhite = $elm$html$Html$Attributes$class('is-white');
+var $surprisetalk$elm_bulma$Bulma$Layout$hero = function (_v0) {
+	var bold = _v0.O;
+	var size = _v0.n;
+	var color = _v0.y;
+	return A2(
+		$surprisetalk$elm_bulma$Helpers$node,
+		'section',
+		_List_fromArray(
+			[
+				$surprisetalk$elm_bulma$Bulma$Classes$hero,
+				function () {
+				if (bold) {
+					return $surprisetalk$elm_bulma$Bulma$Classes$isBold;
+				} else {
+					return $surprisetalk$elm_bulma$Bulma$Classes$none;
+				}
+			}(),
+				function () {
+				switch (size) {
+					case 0:
+						return $surprisetalk$elm_bulma$Bulma$Classes$none;
+					case 1:
+						return $surprisetalk$elm_bulma$Bulma$Classes$isMedium;
+					case 2:
+						return $surprisetalk$elm_bulma$Bulma$Classes$isLarge;
+					default:
+						return $surprisetalk$elm_bulma$Bulma$Classes$isFullHeight;
+				}
+			}(),
+				function () {
+				switch (color) {
+					case 0:
+						return $surprisetalk$elm_bulma$Bulma$Classes$none;
+					case 1:
+						return $surprisetalk$elm_bulma$Bulma$Classes$isWhite;
+					case 4:
+						return $surprisetalk$elm_bulma$Bulma$Classes$isBlack;
+					case 2:
+						return $surprisetalk$elm_bulma$Bulma$Classes$isLight;
+					case 3:
+						return $surprisetalk$elm_bulma$Bulma$Classes$isDark;
+					case 5:
+						return $surprisetalk$elm_bulma$Bulma$Classes$isPrimary;
+					case 7:
+						return $surprisetalk$elm_bulma$Bulma$Classes$isInfo;
+					case 8:
+						return $surprisetalk$elm_bulma$Bulma$Classes$isSuccess;
+					case 9:
+						return $surprisetalk$elm_bulma$Bulma$Classes$isWarning;
+					case 10:
+						return $surprisetalk$elm_bulma$Bulma$Classes$isDanger;
+					default:
+						return $surprisetalk$elm_bulma$Bulma$Classes$isLink;
+				}
+			}()
+			]));
+};
+var $surprisetalk$elm_bulma$Bulma$Classes$heroBody = $elm$html$Html$Attributes$class('hero-body');
+var $surprisetalk$elm_bulma$Bulma$Layout$heroBody = A2(
+	$surprisetalk$elm_bulma$Helpers$node,
+	'div',
+	_List_fromArray(
+		[$surprisetalk$elm_bulma$Bulma$Classes$heroBody]));
+var $surprisetalk$elm_bulma$Bulma$Modifiers$Default = 0;
+var $surprisetalk$elm_bulma$Bulma$Modifiers$Small = 0;
+var $surprisetalk$elm_bulma$Bulma$Layout$heroModifiers = {O: false, y: 0, n: 0};
+var $elm$html$Html$Attributes$href = function (url) {
+	return A2(
+		$elm$html$Html$Attributes$stringProperty,
+		'href',
+		_VirtualDom_noJavaScriptUri(url));
+};
+var $elm$html$Html$p = _VirtualDom_node('p');
 var $surprisetalk$elm_bulma$Bulma$Classes$section = $elm$html$Html$Attributes$class('section');
 var $surprisetalk$elm_bulma$Bulma$Layout$section = function (spacing) {
 	return A2(
@@ -5384,8 +6408,57 @@ var $surprisetalk$elm_bulma$Bulma$Layout$section = function (spacing) {
 			}()
 			]));
 };
+var $elm$html$Html$Attributes$rel = _VirtualDom_attribute('rel');
+var $surprisetalk$elm_bulma$Bulma$CDN$stylesheet = A3(
+	$elm$html$Html$node,
+	'link',
+	_List_fromArray(
+		[
+			$elm$html$Html$Attributes$rel('stylesheet'),
+			$elm$html$Html$Attributes$href('https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.1/css/bulma.min.css')
+		]),
+	_List_Nil);
 var $elm$virtual_dom$VirtualDom$text = _VirtualDom_text;
 var $elm$html$Html$text = $elm$virtual_dom$VirtualDom$text;
+var $surprisetalk$elm_bulma$Bulma$Modifiers$Typography$textColor = function (color) {
+	return $elm$html$Html$Attributes$class(
+		function () {
+			switch (color) {
+				case 0:
+					return 'has-text-black';
+				case 1:
+					return 'has-text-black-bis';
+				case 2:
+					return 'has-text-black-ter';
+				case 3:
+					return 'has-text-grey-darker';
+				case 4:
+					return 'has-text-grey-dark';
+				case 5:
+					return 'has-text-grey';
+				case 6:
+					return 'has-text-grey-light';
+				case 7:
+					return 'has-text-grey-lighter';
+				case 8:
+					return 'has-text-white-bis';
+				case 9:
+					return 'has-text-white-ter';
+				case 10:
+					return 'has-text-white';
+				case 11:
+					return 'has-text-primary';
+				case 12:
+					return 'has-text-info';
+				case 13:
+					return 'has-text-success';
+				case 14:
+					return 'has-text-warning';
+				default:
+					return 'has-text-danger';
+			}
+		}());
+};
 var $surprisetalk$elm_bulma$Bulma$Classes$is1 = $elm$html$Html$Attributes$class('is-1');
 var $surprisetalk$elm_bulma$Bulma$Classes$is10 = $elm$html$Html$Attributes$class('is-10');
 var $surprisetalk$elm_bulma$Bulma$Classes$is11 = $elm$html$Html$Attributes$class('is-11');
@@ -5436,174 +6509,6 @@ var $surprisetalk$elm_bulma$Bulma$Layout$tileAncestor = function (width) {
 				}
 			}()
 			]));
-};
-var $surprisetalk$elm_bulma$Bulma$Classes$title = $elm$html$Html$Attributes$class('title');
-var $surprisetalk$elm_bulma$Bulma$Elements$title = function (size) {
-	return A2(
-		$surprisetalk$elm_bulma$Helpers$node,
-		function () {
-			switch (size) {
-				case 0:
-					return 'h1';
-				case 1:
-					return 'h2';
-				case 2:
-					return 'h3';
-				case 3:
-					return 'h4';
-				case 4:
-					return 'h5';
-				default:
-					return 'h6';
-			}
-		}(),
-		_List_fromArray(
-			[
-				$surprisetalk$elm_bulma$Bulma$Classes$title,
-				function () {
-				switch (size) {
-					case 0:
-						return $surprisetalk$elm_bulma$Bulma$Classes$is1;
-					case 1:
-						return $surprisetalk$elm_bulma$Bulma$Classes$is2;
-					case 2:
-						return $surprisetalk$elm_bulma$Bulma$Classes$is3;
-					case 3:
-						return $surprisetalk$elm_bulma$Bulma$Classes$is4;
-					case 4:
-						return $surprisetalk$elm_bulma$Bulma$Classes$is5;
-					default:
-						return $surprisetalk$elm_bulma$Bulma$Classes$is6;
-				}
-			}()
-			]));
-};
-var $elm$virtual_dom$VirtualDom$style = _VirtualDom_style;
-var $elm$html$Html$Attributes$style = $elm$virtual_dom$VirtualDom$style;
-var $author$project$Page$Welcome$cardShadow = _List_fromArray(
-	[
-		A2($elm$html$Html$Attributes$style, 'box-shadow', '5px 5px 10px #c4c4c4'),
-		A2($elm$html$Html$Attributes$style, 'transition', '0.3s ease-out'),
-		A2($elm$html$Html$Attributes$style, 'transform', 'translate(-1px, -1px)')
-	]);
-var $surprisetalk$elm_bulma$Bulma$Elements$FourByThree = {$: 2};
-var $author$project$Page$Welcome$MouseOut = function (a) {
-	return {$: 1, a: a};
-};
-var $author$project$Page$Welcome$MouseOver = function (a) {
-	return {$: 0, a: a};
-};
-var $surprisetalk$elm_bulma$Bulma$Modifiers$Width3 = 3;
-var $surprisetalk$elm_bulma$Bulma$Classes$card = $elm$html$Html$Attributes$class('card');
-var $surprisetalk$elm_bulma$Bulma$Components$card = A2(
-	$surprisetalk$elm_bulma$Helpers$node,
-	'div',
-	_List_fromArray(
-		[$surprisetalk$elm_bulma$Bulma$Classes$card]));
-var $surprisetalk$elm_bulma$Bulma$Classes$cardContent = $elm$html$Html$Attributes$class('card-content');
-var $surprisetalk$elm_bulma$Bulma$Components$cardContent = A2(
-	$surprisetalk$elm_bulma$Helpers$node,
-	'div',
-	_List_fromArray(
-		[$surprisetalk$elm_bulma$Bulma$Classes$cardContent]));
-var $surprisetalk$elm_bulma$Bulma$Classes$cardImage = $elm$html$Html$Attributes$class('card-image');
-var $surprisetalk$elm_bulma$Bulma$Components$cardImage = A2(
-	$surprisetalk$elm_bulma$Helpers$node,
-	'div',
-	_List_fromArray(
-		[$surprisetalk$elm_bulma$Bulma$Classes$cardImage]));
-var $surprisetalk$elm_bulma$Bulma$Classes$image = $elm$html$Html$Attributes$class('image');
-var $surprisetalk$elm_bulma$Bulma$Classes$is128x128 = $elm$html$Html$Attributes$class('is-128x128');
-var $surprisetalk$elm_bulma$Bulma$Classes$is16by9 = $elm$html$Html$Attributes$class('is-16by9');
-var $surprisetalk$elm_bulma$Bulma$Classes$is16x16 = $elm$html$Html$Attributes$class('is-16x16');
-var $surprisetalk$elm_bulma$Bulma$Classes$is1by1 = $elm$html$Html$Attributes$class('is-1by1');
-var $surprisetalk$elm_bulma$Bulma$Classes$is24x24 = $elm$html$Html$Attributes$class('is-24x24');
-var $surprisetalk$elm_bulma$Bulma$Classes$is2by1 = $elm$html$Html$Attributes$class('is-2by1');
-var $surprisetalk$elm_bulma$Bulma$Classes$is32x32 = $elm$html$Html$Attributes$class('is-32x32');
-var $surprisetalk$elm_bulma$Bulma$Classes$is3by2 = $elm$html$Html$Attributes$class('is-3by2');
-var $surprisetalk$elm_bulma$Bulma$Classes$is48x48 = $elm$html$Html$Attributes$class('is-48x48');
-var $surprisetalk$elm_bulma$Bulma$Classes$is4by3 = $elm$html$Html$Attributes$class('is-4by3');
-var $surprisetalk$elm_bulma$Bulma$Classes$is64x64 = $elm$html$Html$Attributes$class('is-64x64');
-var $surprisetalk$elm_bulma$Bulma$Classes$is96x96 = $elm$html$Html$Attributes$class('is-96x96');
-var $surprisetalk$elm_bulma$Bulma$Elements$image = function (shape) {
-	return A2(
-		$surprisetalk$elm_bulma$Helpers$node,
-		'figure',
-		_List_fromArray(
-			[
-				$surprisetalk$elm_bulma$Bulma$Classes$image,
-				function () {
-				switch (shape.$) {
-					case 1:
-						switch (shape.a) {
-							case 7:
-								var _v1 = shape.a;
-								return $surprisetalk$elm_bulma$Bulma$Classes$is1by1;
-							case 0:
-								var _v2 = shape.a;
-								return $surprisetalk$elm_bulma$Bulma$Classes$is16x16;
-							case 1:
-								var _v3 = shape.a;
-								return $surprisetalk$elm_bulma$Bulma$Classes$is24x24;
-							case 2:
-								var _v4 = shape.a;
-								return $surprisetalk$elm_bulma$Bulma$Classes$is32x32;
-							case 3:
-								var _v5 = shape.a;
-								return $surprisetalk$elm_bulma$Bulma$Classes$is48x48;
-							case 4:
-								var _v6 = shape.a;
-								return $surprisetalk$elm_bulma$Bulma$Classes$is64x64;
-							case 5:
-								var _v7 = shape.a;
-								return $surprisetalk$elm_bulma$Bulma$Classes$is96x96;
-							default:
-								var _v8 = shape.a;
-								return $surprisetalk$elm_bulma$Bulma$Classes$is128x128;
-						}
-					case 2:
-						return $surprisetalk$elm_bulma$Bulma$Classes$is4by3;
-					case 3:
-						return $surprisetalk$elm_bulma$Bulma$Classes$is3by2;
-					case 4:
-						return $surprisetalk$elm_bulma$Bulma$Classes$is16by9;
-					case 5:
-						return $surprisetalk$elm_bulma$Bulma$Classes$is2by1;
-					default:
-						return $surprisetalk$elm_bulma$Bulma$Classes$none;
-				}
-			}()
-			]));
-};
-var $elm$html$Html$img = _VirtualDom_node('img');
-var $elm$virtual_dom$VirtualDom$Normal = function (a) {
-	return {$: 0, a: a};
-};
-var $elm$virtual_dom$VirtualDom$on = _VirtualDom_on;
-var $elm$html$Html$Events$on = F2(
-	function (event, decoder) {
-		return A2(
-			$elm$virtual_dom$VirtualDom$on,
-			event,
-			$elm$virtual_dom$VirtualDom$Normal(decoder));
-	});
-var $elm$html$Html$Events$onMouseOut = function (msg) {
-	return A2(
-		$elm$html$Html$Events$on,
-		'mouseout',
-		$elm$json$Json$Decode$succeed(msg));
-};
-var $elm$html$Html$Events$onMouseOver = function (msg) {
-	return A2(
-		$elm$html$Html$Events$on,
-		'mouseover',
-		$elm$json$Json$Decode$succeed(msg));
-};
-var $elm$html$Html$Attributes$src = function (url) {
-	return A2(
-		$elm$html$Html$Attributes$stringProperty,
-		'src',
-		_VirtualDom_noJavaScriptOrHtmlUri(url));
 };
 var $surprisetalk$elm_bulma$Bulma$Classes$isChild = $elm$html$Html$Attributes$class('is-child');
 var $surprisetalk$elm_bulma$Bulma$Layout$tileChild = function (width) {
@@ -5683,6 +6588,1332 @@ var $surprisetalk$elm_bulma$Bulma$Layout$tileParent = function (width) {
 			}()
 			]));
 };
+var $surprisetalk$elm_bulma$Bulma$Classes$title = $elm$html$Html$Attributes$class('title');
+var $surprisetalk$elm_bulma$Bulma$Elements$title = function (size) {
+	return A2(
+		$surprisetalk$elm_bulma$Helpers$node,
+		function () {
+			switch (size) {
+				case 0:
+					return 'h1';
+				case 1:
+					return 'h2';
+				case 2:
+					return 'h3';
+				case 3:
+					return 'h4';
+				case 4:
+					return 'h5';
+				default:
+					return 'h6';
+			}
+		}(),
+		_List_fromArray(
+			[
+				$surprisetalk$elm_bulma$Bulma$Classes$title,
+				function () {
+				switch (size) {
+					case 0:
+						return $surprisetalk$elm_bulma$Bulma$Classes$is1;
+					case 1:
+						return $surprisetalk$elm_bulma$Bulma$Classes$is2;
+					case 2:
+						return $surprisetalk$elm_bulma$Bulma$Classes$is3;
+					case 3:
+						return $surprisetalk$elm_bulma$Bulma$Classes$is4;
+					case 4:
+						return $surprisetalk$elm_bulma$Bulma$Classes$is5;
+					default:
+						return $surprisetalk$elm_bulma$Bulma$Classes$is6;
+				}
+			}()
+			]));
+};
+var $surprisetalk$elm_bulma$Bulma$Elements$Natural = {$: 0};
+var $elm$html$Html$Attributes$alt = $elm$html$Html$Attributes$stringProperty('alt');
+var $elm$html$Html$article = _VirtualDom_node('article');
+var $surprisetalk$elm_bulma$Bulma$Classes$image = $elm$html$Html$Attributes$class('image');
+var $surprisetalk$elm_bulma$Bulma$Classes$is128x128 = $elm$html$Html$Attributes$class('is-128x128');
+var $surprisetalk$elm_bulma$Bulma$Classes$is16by9 = $elm$html$Html$Attributes$class('is-16by9');
+var $surprisetalk$elm_bulma$Bulma$Classes$is16x16 = $elm$html$Html$Attributes$class('is-16x16');
+var $surprisetalk$elm_bulma$Bulma$Classes$is1by1 = $elm$html$Html$Attributes$class('is-1by1');
+var $surprisetalk$elm_bulma$Bulma$Classes$is24x24 = $elm$html$Html$Attributes$class('is-24x24');
+var $surprisetalk$elm_bulma$Bulma$Classes$is2by1 = $elm$html$Html$Attributes$class('is-2by1');
+var $surprisetalk$elm_bulma$Bulma$Classes$is32x32 = $elm$html$Html$Attributes$class('is-32x32');
+var $surprisetalk$elm_bulma$Bulma$Classes$is3by2 = $elm$html$Html$Attributes$class('is-3by2');
+var $surprisetalk$elm_bulma$Bulma$Classes$is48x48 = $elm$html$Html$Attributes$class('is-48x48');
+var $surprisetalk$elm_bulma$Bulma$Classes$is4by3 = $elm$html$Html$Attributes$class('is-4by3');
+var $surprisetalk$elm_bulma$Bulma$Classes$is64x64 = $elm$html$Html$Attributes$class('is-64x64');
+var $surprisetalk$elm_bulma$Bulma$Classes$is96x96 = $elm$html$Html$Attributes$class('is-96x96');
+var $surprisetalk$elm_bulma$Bulma$Elements$image = function (shape) {
+	return A2(
+		$surprisetalk$elm_bulma$Helpers$node,
+		'figure',
+		_List_fromArray(
+			[
+				$surprisetalk$elm_bulma$Bulma$Classes$image,
+				function () {
+				switch (shape.$) {
+					case 1:
+						switch (shape.a) {
+							case 7:
+								var _v1 = shape.a;
+								return $surprisetalk$elm_bulma$Bulma$Classes$is1by1;
+							case 0:
+								var _v2 = shape.a;
+								return $surprisetalk$elm_bulma$Bulma$Classes$is16x16;
+							case 1:
+								var _v3 = shape.a;
+								return $surprisetalk$elm_bulma$Bulma$Classes$is24x24;
+							case 2:
+								var _v4 = shape.a;
+								return $surprisetalk$elm_bulma$Bulma$Classes$is32x32;
+							case 3:
+								var _v5 = shape.a;
+								return $surprisetalk$elm_bulma$Bulma$Classes$is48x48;
+							case 4:
+								var _v6 = shape.a;
+								return $surprisetalk$elm_bulma$Bulma$Classes$is64x64;
+							case 5:
+								var _v7 = shape.a;
+								return $surprisetalk$elm_bulma$Bulma$Classes$is96x96;
+							default:
+								var _v8 = shape.a;
+								return $surprisetalk$elm_bulma$Bulma$Classes$is128x128;
+						}
+					case 2:
+						return $surprisetalk$elm_bulma$Bulma$Classes$is4by3;
+					case 3:
+						return $surprisetalk$elm_bulma$Bulma$Classes$is3by2;
+					case 4:
+						return $surprisetalk$elm_bulma$Bulma$Classes$is16by9;
+					case 5:
+						return $surprisetalk$elm_bulma$Bulma$Classes$is2by1;
+					default:
+						return $surprisetalk$elm_bulma$Bulma$Classes$none;
+				}
+			}()
+			]));
+};
+var $elm$html$Html$img = _VirtualDom_node('img');
+var $elm$html$Html$Attributes$src = function (url) {
+	return A2(
+		$elm$html$Html$Attributes$stringProperty,
+		'src',
+		_VirtualDom_noJavaScriptOrHtmlUri(url));
+};
+var $author$project$Page$Bikes$blueEagleArticle = A2(
+	$elm$html$Html$article,
+	_List_Nil,
+	_List_fromArray(
+		[
+			A3(
+			$surprisetalk$elm_bulma$Bulma$Elements$title,
+			0,
+			_List_Nil,
+			_List_fromArray(
+				[
+					$elm$html$Html$text('The birth of tinkering, 2012-2015ish')
+				])),
+			A3(
+			$surprisetalk$elm_bulma$Bulma$Elements$image,
+			$surprisetalk$elm_bulma$Bulma$Elements$Natural,
+			_List_Nil,
+			_List_fromArray(
+				[
+					A2(
+					$elm$html$Html$img,
+					_List_fromArray(
+						[
+							$elm$html$Html$Attributes$src('content/blog/bikes/blue_eagle.jpg'),
+							$elm$html$Html$Attributes$alt('A black, white and blue (an embarrassingly 2012 smartphone filter) picture of the Blue Eagle.\n It\'s covered in rust but has shiny new no-name cranks, VO left bank handlebars, and a rip-off Enfield leather saddle from eBay.')
+						]),
+					_List_Nil)
+				])),
+			A2(
+			$elm$html$Html$p,
+			_List_Nil,
+			_List_fromArray(
+				[
+					$elm$html$Html$text('I originally bought the blue eagle for $20 because I needed a seatpost, \nbut decided I liked it more than whatever other thing I was tinkering on.')
+				])),
+			A2(
+			$elm$html$Html$p,
+			_List_Nil,
+			_List_fromArray(
+				[
+					$elm$html$Html$text('I read sheldonbrown.com from start to finish and bought cheap parts off ebay. \nI doubled downed and bought handlebars, long reach brakes and bar end brake\nlevers from velo-orange.')
+				])),
+			A3(
+			$surprisetalk$elm_bulma$Bulma$Elements$image,
+			$surprisetalk$elm_bulma$Bulma$Elements$Natural,
+			_List_Nil,
+			_List_fromArray(
+				[
+					A2(
+					$elm$html$Html$img,
+					_List_fromArray(
+						[
+							$elm$html$Html$Attributes$src('content/blog/bikes/blue_eagle_20141221.jpg'),
+							$elm$html$Html$Attributes$alt('The Blue Eagle after a trip to K-Mart to buy some coat hangers.')
+						]),
+					_List_Nil)
+				])),
+			A2(
+			$elm$html$Html$p,
+			_List_Nil,
+			_List_fromArray(
+				[
+					$elm$html$Html$text('The blue eagle lasted a few years and got an upgrade to a 6 speed cassette harvested from \na bike left on a friends porch, which was donated to me and converted to a fixed gear.')
+				])),
+			A3(
+			$surprisetalk$elm_bulma$Bulma$Elements$image,
+			$surprisetalk$elm_bulma$Bulma$Elements$Natural,
+			_List_Nil,
+			_List_fromArray(
+				[
+					A2(
+					$elm$html$Html$img,
+					_List_fromArray(
+						[
+							$elm$html$Html$Attributes$src('content/blog/bikes/blue_eagle_20141126.jpg'),
+							$elm$html$Html$Attributes$alt('A POV shot of the Blue Eagle in action. Clearly visible is the crappy job I did \nof using linseed oil as a rust protector on the stem, which has made it a gross yellow colour.')
+						]),
+					_List_Nil)
+				]))
+		]));
+var $author$project$Page$Bikes$cargoArticle = A2($elm$html$Html$article, _List_Nil, _List_Nil);
+var $elm$html$Html$figcaption = _VirtualDom_node('figcaption');
+var $author$project$Page$Bikes$carrerraArticle = A2(
+	$elm$html$Html$article,
+	_List_Nil,
+	_List_fromArray(
+		[
+			A3(
+			$surprisetalk$elm_bulma$Bulma$Elements$title,
+			0,
+			_List_Nil,
+			_List_fromArray(
+				[
+					$elm$html$Html$text('My first big kid\'s bike')
+				])),
+			A3(
+			$surprisetalk$elm_bulma$Bulma$Elements$image,
+			$surprisetalk$elm_bulma$Bulma$Elements$Natural,
+			_List_Nil,
+			_List_fromArray(
+				[
+					A2(
+					$elm$html$Html$img,
+					_List_fromArray(
+						[
+							$elm$html$Html$Attributes$src('content/blog/bikes/carrera_and_me.jpg'),
+							$elm$html$Html$Attributes$alt('Me and the Carrera after a ride in the Royal National Park. The hills there inspired me to replace the crankset with one with fewer teeth.')
+						]),
+					_List_Nil),
+					A2(
+					$elm$html$Html$figcaption,
+					_List_Nil,
+					_List_fromArray(
+						[
+							$elm$html$Html$text('Photo care of'),
+							A2(
+							$elm$html$Html$a,
+							_List_fromArray(
+								[
+									$elm$html$Html$Attributes$href('https://www.instagram.com/generalben/')
+								]),
+							_List_fromArray(
+								[
+									$elm$html$Html$text(' @generalben')
+								]))
+						]))
+				])),
+			A2(
+			$elm$html$Html$p,
+			_List_Nil,
+			_List_fromArray(
+				[
+					$elm$html$Html$text('Mid 2021 I started joining some friends on some longer road rides and was a bit scared I wouldn\'t be able to keep up on a 14kg touring bike.\n I had a 90s road bike in the shed which weighed about 11kg so I thought I should look around for some more contemporary parts and bring it into the 21st century.\n However, due to the Covid pandemic bike parts were hard to come buy (for a price that I wanted to spend), so I was searching on eBay/gumtree/facebook marketplace\n for second hand parts when I came across a rather garish listing of a yellow Carrera. It was an aluminium frame, carbon wheels, decent drivetrain (Ultegra cranks\n with microShift shifters and mechs) for $760.')
+				])),
+			A2(
+			$elm$html$Html$p,
+			_List_Nil,
+			_List_fromArray(
+				[
+					$elm$html$Html$text('I thought I\'ll just put in a bid, surely it will go up a bit and I\'ll miss out, but whatever hey? Everything else I\'d looked at that was remotely similar was about $1 200\n     and a groupset alone was looking at $750-$900. Sure enough, no one else was particularly interested in frame brand that had fallen out of fashion and non-Shimano shifters.')
+				])),
+			A2(
+			$elm$html$Html$p,
+			_List_Nil,
+			_List_fromArray(
+				[
+					$elm$html$Html$text('Picking up the bike was a wild experience in itself, the seller lived in what can only be described as a Bianchi museum.')
+				]))
+		]));
+var $author$project$Page$Bikes$clamentArticle = A2(
+	$elm$html$Html$article,
+	_List_Nil,
+	_List_fromArray(
+		[
+			A3(
+			$surprisetalk$elm_bulma$Bulma$Elements$title,
+			0,
+			_List_Nil,
+			_List_fromArray(
+				[
+					$elm$html$Html$text('A succumbening to hipster-dom, the fixed gear, 2012-2015ish')
+				])),
+			A3(
+			$surprisetalk$elm_bulma$Bulma$Elements$image,
+			$surprisetalk$elm_bulma$Bulma$Elements$Natural,
+			_List_Nil,
+			_List_fromArray(
+				[
+					A2(
+					$elm$html$Html$img,
+					_List_fromArray(
+						[
+							$elm$html$Html$Attributes$src('content/blog/bikes/clament_20120324.jpg'),
+							$elm$html$Html$Attributes$alt('The Clament, converted to fixed gear, photgraphed in front of the ANZAC bridge')
+						]),
+					_List_Nil)
+				])),
+			A2(
+			$elm$html$Html$p,
+			_List_Nil,
+			_List_fromArray(
+				[
+					$elm$html$Html$text('Fixed gears are dumb. I hated them. Don\'t be such a twat and just\nget some gears.')
+				])),
+			A2(
+			$elm$html$Html$p,
+			_List_Nil,
+			_List_fromArray(
+				[
+					$elm$html$Html$text('Everyone was saying that fixed gears are so great because they have\nso little maintenance, or that they\'re cheap, or that you don\'t need brakes\nbecause your thighs can crush a fuckin\' watermelon, or that all the bike\nmessengers in new york use them so they must be super cool.')
+				])),
+			A2(
+			$elm$html$Html$p,
+			_List_Nil,
+			_List_fromArray(
+				[
+					$elm$html$Html$text('It made me irrationally angry, so when a friend moved into a place with\nan abandoned bike on the front porch, I took and converted it into a fixie.\nFuck, I even sawed the drops to make bullhorns, that\'s how hard I went.')
+				])),
+			A2(
+			$elm$html$Html$p,
+			_List_Nil,
+			_List_fromArray(
+				[
+					$elm$html$Html$text('Turns out, fixies are really fun and there\'s no rational reason for it. They just\nare. And maybe the watermelon thing has some merit.')
+				]))
+		]));
+var $surprisetalk$elm_bulma$Bulma$Classes$content = $elm$html$Html$Attributes$class('content');
+var $surprisetalk$elm_bulma$Bulma$Elements$content = function (size) {
+	return A2(
+		$surprisetalk$elm_bulma$Helpers$node,
+		'div',
+		_List_fromArray(
+			[
+				$surprisetalk$elm_bulma$Bulma$Classes$content,
+				function () {
+				switch (size) {
+					case 0:
+						return $surprisetalk$elm_bulma$Bulma$Classes$isSmall;
+					case 1:
+						return $surprisetalk$elm_bulma$Bulma$Classes$none;
+					case 2:
+						return $surprisetalk$elm_bulma$Bulma$Classes$isMedium;
+					default:
+						return $surprisetalk$elm_bulma$Bulma$Classes$isLarge;
+				}
+			}()
+			]));
+};
+var $author$project$Page$Bikes$khsArticle = A2(
+	$elm$html$Html$article,
+	_List_Nil,
+	_List_fromArray(
+		[
+			A3(
+			$surprisetalk$elm_bulma$Bulma$Elements$title,
+			0,
+			_List_Nil,
+			_List_fromArray(
+				[
+					$elm$html$Html$text('My knees can sleep when they\'re dead, ~2015-current')
+				])),
+			A3(
+			$surprisetalk$elm_bulma$Bulma$Elements$image,
+			$surprisetalk$elm_bulma$Bulma$Elements$Natural,
+			_List_Nil,
+			_List_fromArray(
+				[
+					A2(
+					$elm$html$Html$img,
+					_List_fromArray(
+						[
+							$elm$html$Html$Attributes$src('content/blog/bikes/khs_20180216.jpg'),
+							$elm$html$Html$Attributes$alt('A KHS track bike frame with a Wald 137 basket on front and VO porteur handlebars')
+						]),
+					_List_Nil)
+				])),
+			A2(
+			$elm$html$Html$p,
+			_List_Nil,
+			_List_fromArray(
+				[
+					$elm$html$Html$text('A former housemate of mine was pivotal in my descent into bike tinkerdom. Ironically, he \n was also why I hated fixed gears so much, that is until I rode one.')
+				])),
+			A2(
+			$elm$html$Html$p,
+			_List_Nil,
+			_List_fromArray(
+				[
+					$elm$html$Html$text('This bike started out as his, and I watched him replace every. single. part. on it, except\n the seat post. Some time around 2014/2015, after we\'d both moved, he\n gave it to me - he was no longer riding it and didn\'t want to see it rust on the balcony\n of his coastal apartment.')
+				])),
+			A3(
+			$surprisetalk$elm_bulma$Bulma$Elements$image,
+			$surprisetalk$elm_bulma$Bulma$Elements$Natural,
+			_List_Nil,
+			_List_fromArray(
+				[
+					A2(
+					$elm$html$Html$img,
+					_List_fromArray(
+						[
+							$elm$html$Html$Attributes$src('content/blog/bikes/khs_20170108.jpg'),
+							$elm$html$Html$Attributes$alt('The KHS fixed gear bike without the Walk basket, instead there\'s an old knapsack strapped to the seatpost')
+						]),
+					_List_Nil)
+				])),
+			A2(
+			$elm$html$Html$p,
+			_List_Nil,
+			_List_fromArray(
+				[
+					$elm$html$Html$text('I\'ve not done much to it, except change the handlebars to something more\n my preferred style (VO porteur bars from the speedwell) and give it some\n luggage options depending on what was lying around at the time.')
+				])),
+			A3(
+			$surprisetalk$elm_bulma$Bulma$Elements$image,
+			$surprisetalk$elm_bulma$Bulma$Elements$Natural,
+			_List_Nil,
+			_List_fromArray(
+				[
+					A2(
+					$elm$html$Html$img,
+					_List_fromArray(
+						[
+							$elm$html$Html$Attributes$src('content/blog/bikes/khs_20171012.jpg'),
+							$elm$html$Html$Attributes$alt('The KHS at night, very "urban". ')
+						]),
+					_List_Nil)
+				]))
+		]));
+var $author$project$Page$Bikes$korean3SixtyArticle = A2(
+	$elm$html$Html$article,
+	_List_Nil,
+	_List_fromArray(
+		[
+			A3(
+			$surprisetalk$elm_bulma$Bulma$Elements$title,
+			0,
+			_List_Nil,
+			_List_fromArray(
+				[
+					$elm$html$Html$text('Into the fold, 2019-current')
+				])),
+			A3(
+			$surprisetalk$elm_bulma$Bulma$Elements$image,
+			$surprisetalk$elm_bulma$Bulma$Elements$Natural,
+			_List_Nil,
+			_List_fromArray(
+				[
+					A2(
+					$elm$html$Html$img,
+					_List_fromArray(
+						[
+							$elm$html$Html$Attributes$src('content/blog/bikes/folding_20200213.jpg'),
+							$elm$html$Html$Attributes$alt('A 3Sixty folding bike leans against a post at the Glebe Light Rail station at dusk. In the background the historic Glebe rail tunnel is illuminated')
+						]),
+					_List_Nil)
+				])),
+			A2(
+			$elm$html$Html$p,
+			_List_Nil,
+			_List_fromArray(
+				[
+					$elm$html$Html$text('My new year\'s resolution for 2019 was to not buy a new bike. I failed.')
+				])),
+			A2(
+			$elm$html$Html$p,
+			_List_Nil,
+			_List_fromArray(
+				[
+					$elm$html$Html$text('I\'d been curious as to whether I wanted to a Brompton for quite some time. Come October, during one of\nmy regular checks of gumtree, I came across a second hand one for $800. Heccin bargain, how could I pass up? Plus it was my birthday.')
+				])),
+			A2(
+			$elm$html$Html$p,
+			_List_Nil,
+			_List_fromArray(
+				[
+					$elm$html$Html$text('Turns out, it wasn\'t so much a Brompton, but a near identical knock-off from a Korean brand 3sixty. Anyway, it was cheap and I\njustified its purchase as way of trying the folding lifestyle before I make the $2k, full experience commitment.')
+				])),
+			A2(
+			$elm$html$Html$p,
+			_List_Nil,
+			_List_fromArray(
+				[
+					$elm$html$Html$text('The seat post wasn\'t long enough, and was also bent, and crankset fell off while riding and I think the frame is slightly\nbent. So definitely learnt some lessons: yes I do like\nfolding bikes, and yes it\'s probably  worth the cash to get a Brompton. They\'re just so damn convenient for combining with other forms\nof transit. I can now also ride to the pub, and not have to leave my bike there overnight!')
+				]))
+		]));
+var $surprisetalk$elm_bulma$Bulma$Elements$H2 = 1;
+var $author$project$Page$Bikes$noNameTouringArticle = A2(
+	$elm$html$Html$article,
+	_List_Nil,
+	_List_fromArray(
+		[
+			A3(
+			$surprisetalk$elm_bulma$Bulma$Elements$title,
+			0,
+			_List_Nil,
+			_List_fromArray(
+				[
+					$elm$html$Html$text('Baby\'s first tour, 2016-2017')
+				])),
+			A3(
+			$surprisetalk$elm_bulma$Bulma$Elements$image,
+			$surprisetalk$elm_bulma$Bulma$Elements$Natural,
+			_List_Nil,
+			_List_fromArray(
+				[
+					A2(
+					$elm$html$Html$img,
+					_List_fromArray(
+						[
+							$elm$html$Html$Attributes$src('content/blog/bikes/touring_20161104.jpg'),
+							$elm$html$Html$Attributes$alt('A no-name touring bike, fully loaded while on tour. \n Features a rear rack with two panniers and gear on top, a handlebar bag, and three stainless\n steel water bottles - two on the handlebars and one on the seat tube.')
+						]),
+					_List_Nil)
+				])),
+			A2(
+			$elm$html$Html$p,
+			_List_Nil,
+			_List_fromArray(
+				[
+					$elm$html$Html$text('I\'d long wanted to go on a bike tour, but it took a good excuse, like a 30th birthday, \nfor me to actually do it.')
+				])),
+			A2(
+			$elm$html$Html$p,
+			_List_Nil,
+			_List_fromArray(
+				[
+					$elm$html$Html$text('The first step was to a get touring bike. By now, you can probably understand that I can\'t \njust **buy** one and have some common, off-the-rack bike. No that would be contrary to whole\npoint of a coming-of-(an)-age bike tour. I had to build one, and of course I had to  \nbase the whole thing around some part that I\'d gotten for free.')
+				])),
+			A2(
+			$elm$html$Html$p,
+			_List_Nil,
+			_List_fromArray(
+				[
+					$elm$html$Html$text('That part was a frame, which I found discarded in a back alley, with a seized quill stem,\nand a bottom bracket I\'d never seen before or since. The stem came out with the help\nof a hacksaw and a lack of emotional attachment to the fork, and the bottom bracket with wd40, a pipe wrench and eventually\nby clamping the bottom bracket in a bench vice and turning the whole frame.')
+				])),
+			A3(
+			$surprisetalk$elm_bulma$Bulma$Elements$image,
+			$surprisetalk$elm_bulma$Bulma$Elements$Natural,
+			_List_Nil,
+			_List_fromArray(
+				[
+					A2(
+					$elm$html$Html$img,
+					_List_fromArray(
+						[
+							$elm$html$Html$Attributes$src('content/blog/bikes/touring_20160820.jpg'),
+							$elm$html$Html$Attributes$alt('A bare frame hanging in a tree in my back yard, ready to painted.')
+						]),
+					_List_Nil)
+				])),
+			A3(
+			$surprisetalk$elm_bulma$Bulma$Elements$image,
+			$surprisetalk$elm_bulma$Bulma$Elements$Natural,
+			_List_Nil,
+			_List_fromArray(
+				[
+					A2(
+					$elm$html$Html$img,
+					_List_fromArray(
+						[
+							$elm$html$Html$Attributes$src('content/blog/bikes/touring_20160828.jpg'),
+							$elm$html$Html$Attributes$alt('A partially built no-name touring bike with wheels and handlebars attached.')
+						]),
+					_List_Nil)
+				])),
+			A2(
+			$elm$html$Html$p,
+			_List_Nil,
+			_List_fromArray(
+				[
+					$elm$html$Html$text('I planned the tour conservatively. I scheduled 40km a day, and took a fortnight off work.\nIt took something like 5 days. 10/10 would do again.')
+				])),
+			A3(
+			$surprisetalk$elm_bulma$Bulma$Elements$title,
+			1,
+			_List_Nil,
+			_List_fromArray(
+				[
+					$elm$html$Html$text('The hunge')
+				])),
+			A3(
+			$surprisetalk$elm_bulma$Bulma$Elements$image,
+			$surprisetalk$elm_bulma$Bulma$Elements$Natural,
+			_List_Nil,
+			_List_fromArray(
+				[
+					A2(
+					$elm$html$Html$img,
+					_List_fromArray(
+						[
+							$elm$html$Html$Attributes$src('content/blog/bikes/touring_20170714.jpg'),
+							$elm$html$Html$Attributes$alt('The no-name touring bike leans against a cattle paddock gate. The handlebar bag has been replaced with a\n Soma porteur front rack with a Swift Industries Sugarloaf bag on top.')
+						]),
+					_List_Nil)
+				])),
+			A2(
+			$elm$html$Html$p,
+			_List_Nil,
+			_List_fromArray(
+				[
+					$elm$html$Html$text('A weekend away with friends in the Hunter Valley was organised and I decided to make my own way there.\nI caught the train to Morrisset and rode the rest of the way through the Olney state forest, meeting\nthem at the Wollembi Tavern for lunch along the way.')
+				])),
+			A2(
+			$elm$html$Html$p,
+			_List_Nil,
+			_List_fromArray(
+				[
+					$elm$html$Html$text('This was my longest ride ever and took me all day. I got on the train around 4am and arrived at the airbnb\n  just before dark at about 5pm. The whole ride was about 100km, and I only shared about 10 of those with cars.')
+				])),
+			A3(
+			$surprisetalk$elm_bulma$Bulma$Elements$image,
+			$surprisetalk$elm_bulma$Bulma$Elements$Natural,
+			_List_Nil,
+			_List_fromArray(
+				[
+					A2(
+					$elm$html$Html$img,
+					_List_fromArray(
+						[
+							$elm$html$Html$Attributes$src('content/blog/bikes/touring_20170714_train.jpg'),
+							$elm$html$Html$Attributes$alt('The no-name touring bike hanging from a bike rack on a NSW Intercity train.')
+						]),
+					_List_Nil)
+				])),
+			A3(
+			$surprisetalk$elm_bulma$Bulma$Elements$image,
+			$surprisetalk$elm_bulma$Bulma$Elements$Natural,
+			_List_Nil,
+			_List_fromArray(
+				[
+					A2(
+					$elm$html$Html$img,
+					_List_fromArray(
+						[
+							$elm$html$Html$Attributes$src('content/blog/bikes/touring_20170714_forest.jpg'),
+							$elm$html$Html$Attributes$alt('The no-name touring bike leaning against a felled tree in the Olney State Forest.')
+						]),
+					_List_Nil)
+				]))
+		]));
+var $author$project$Page$Bikes$speedwellArticle = A2(
+	$elm$html$Html$article,
+	_List_Nil,
+	_List_fromArray(
+		[
+			A3(
+			$surprisetalk$elm_bulma$Bulma$Elements$title,
+			0,
+			_List_Nil,
+			_List_fromArray(
+				[
+					$elm$html$Html$text('Actually this one is quite old, 2013-current')
+				])),
+			A3(
+			$surprisetalk$elm_bulma$Bulma$Elements$image,
+			$surprisetalk$elm_bulma$Bulma$Elements$Natural,
+			_List_Nil,
+			_List_fromArray(
+				[
+					A2(
+					$elm$html$Html$img,
+					_List_fromArray(
+						[
+							$elm$html$Html$Attributes$src('content/blog/bikes/speedwell_20130512_100554.jpg'),
+							$elm$html$Html$Attributes$alt('A dark purple vintage Speedwell bicycle. The chain is rusty and the \ngears - a Sturmy Archer AW3 - aren\'t connected.')
+						]),
+					_List_Nil)
+				])),
+			A2(
+			$elm$html$Html$p,
+			_List_Nil,
+			_List_fromArray(
+				[
+					$elm$html$Html$text('I had two bikes by now, and had bored my family enough with this new found interest\nthat I was becoming a "bike guy". My grandparents\' neighbour was getting rid of his\nold bike that had been sitting in his backyard shed for some time. So my grandparents\nput me in touch and I went to have a look - I don\'t need a new bike, but I can have a look\nright.')
+				])),
+			A3(
+			$surprisetalk$elm_bulma$Bulma$Elements$image,
+			$surprisetalk$elm_bulma$Bulma$Elements$Natural,
+			_List_Nil,
+			_List_fromArray(
+				[
+					A2(
+					$elm$html$Html$img,
+					_List_fromArray(
+						[
+							$elm$html$Html$Attributes$src('content/blog/bikes/speedwell_20130512_100606.jpg'),
+							$elm$html$Html$Attributes$alt('Original Sturmey Archer shifter, mounted to the top tube.')
+						]),
+					_List_Nil)
+				])),
+			A2(
+			$elm$html$Html$p,
+			_List_Nil,
+			_List_fromArray(
+				[
+					$elm$html$Html$text('When he said the bike had been sitting in the shed for a while, he meant since the mid-70s.\nHe bought it brand new in in 1952. At this time, this bike was more than twice my age\nand I would be its second owner.')
+				])),
+			A3(
+			$surprisetalk$elm_bulma$Bulma$Elements$image,
+			$surprisetalk$elm_bulma$Bulma$Elements$Natural,
+			_List_Nil,
+			_List_fromArray(
+				[
+					A2(
+					$elm$html$Html$img,
+					_List_fromArray(
+						[
+							$elm$html$Html$Attributes$src('content/blog/bikes/speedwell_20130512_101429.jpg'),
+							$elm$html$Html$Attributes$alt('Original Wrights saddle, worn and with rusty rivets.')
+						]),
+					_List_Nil)
+				])),
+			A3(
+			$surprisetalk$elm_bulma$Bulma$Elements$image,
+			$surprisetalk$elm_bulma$Bulma$Elements$Natural,
+			_List_Nil,
+			_List_fromArray(
+				[
+					A2(
+					$elm$html$Html$img,
+					_List_fromArray(
+						[
+							$elm$html$Html$Attributes$src('content/blog/bikes/speedwell_20130512_100722.jpg'),
+							$elm$html$Html$Attributes$alt('Serial number of the Speedwell frame. Number reads 24875 which apparently indicates this was the 75th frame built in Feb, 1948.')
+						]),
+					_List_Nil)
+				])),
+			A2(
+			$elm$html$Html$p,
+			_List_Nil,
+			_List_fromArray(
+				[
+					$elm$html$Html$text('Originally I did very little to this bike, and just got it running. When I almost crashed in the rain because steel rims are a\njoke, I decided to the get the wheels re-built with aluminium rims. I added some flair with some velo-orange hammered fenders \nand porteur handlebars as well as a soma porteur rack.')
+				])),
+			A3(
+			$surprisetalk$elm_bulma$Bulma$Elements$image,
+			$surprisetalk$elm_bulma$Bulma$Elements$Natural,
+			_List_Nil,
+			_List_fromArray(
+				[
+					A2(
+					$elm$html$Html$img,
+					_List_fromArray(
+						[
+							$elm$html$Html$Attributes$src('content/blog/bikes/speedwell_20130702.jpg'),
+							$elm$html$Html$Attributes$alt('The Speedwell with the wheels re-built into aluminium rims, VO porteur handlebars and Soma porteur front rack.')
+						]),
+					_List_Nil)
+				])),
+			A2(
+			$elm$html$Html$p,
+			_List_Nil,
+			_List_fromArray(
+				[
+					$elm$html$Html$text('This setup lasted a few months until the old sturmey archer AW shat itself. My trusted bike mechanic told me they could open it up\nbut were unsure what they\'d be able to do once they did. So I replaced it with a shimano nexus 8. I left the 3 speed shifter on though\nbecause it was so cool.')
+				])),
+			A3(
+			$surprisetalk$elm_bulma$Bulma$Elements$title,
+			1,
+			_List_Nil,
+			_List_fromArray(
+				[
+					$elm$html$Html$text('A 2018 refresh: Speedwell and the hottest hits from the 50s, 70s and now')
+				])),
+			A2(
+			$elm$html$Html$p,
+			_List_Nil,
+			_List_fromArray(
+				[
+					$elm$html$Html$text('My main bike shifted to a touring bike in 2016 and the speedwell returned to a shed to await its rebirth. That came in 2018.')
+				])),
+			A2(
+			$elm$html$Html$p,
+			_List_Nil,
+			_List_fromArray(
+				[
+					$elm$html$Html$text('A colleague off-loaded a set of wheels to me with a sturmey archer hub from the late 70s, so again I bought parts to re-fit the\nspeedwell, this time as almost a time-capsule on wheels. This was no longer a bike from the 50s with some new parts on it, but a\ntrip through history itself - a frame imported from England in the 50s, some wheels from the 70s that weren\'t properly \nsecured at university, some handlebars from the 2010s mimicing a style from Paris in 30s. Now it\'s just a nice bike.')
+				])),
+			A3(
+			$surprisetalk$elm_bulma$Bulma$Elements$image,
+			$surprisetalk$elm_bulma$Bulma$Elements$Natural,
+			_List_Nil,
+			_List_fromArray(
+				[
+					A2(
+					$elm$html$Html$img,
+					_List_fromArray(
+						[
+							$elm$html$Html$Attributes$src('content/blog/bikes/speedwell_20180526_shifter.jpg'),
+							$elm$html$Html$Attributes$alt('A more modern Sturmey Archer AW shifter to match the hub from the 70s.')
+						]),
+					_List_Nil)
+				])),
+			A3(
+			$surprisetalk$elm_bulma$Bulma$Elements$image,
+			$surprisetalk$elm_bulma$Bulma$Elements$Natural,
+			_List_Nil,
+			_List_fromArray(
+				[
+					A2(
+					$elm$html$Html$img,
+					_List_fromArray(
+						[
+							$elm$html$Html$Attributes$src('content/blog/bikes/speedwell_20180526_hub.jpg'),
+							$elm$html$Html$Attributes$alt('A Sturmey Archer AW 3-speed hub built in 1977.')
+						]),
+					_List_Nil)
+				])),
+			A3(
+			$surprisetalk$elm_bulma$Bulma$Elements$image,
+			$surprisetalk$elm_bulma$Bulma$Elements$Natural,
+			_List_Nil,
+			_List_fromArray(
+				[
+					A2(
+					$elm$html$Html$img,
+					_List_fromArray(
+						[
+							$elm$html$Html$Attributes$src('content/blog/bikes/speedwell_20180526_security.jpg'),
+							$elm$html$Html$Attributes$alt('A spoke card from University Security warning that the bike hadn\'t been secured in an approved rack.')
+						]),
+					_List_Nil)
+				]))
+		]));
+var $author$project$Page$Bikes$surlyArticle = A2(
+	$elm$html$Html$article,
+	_List_Nil,
+	_List_fromArray(
+		[
+			A3(
+			$surprisetalk$elm_bulma$Bulma$Elements$title,
+			0,
+			_List_Nil,
+			_List_fromArray(
+				[
+					$elm$html$Html$text('My most expensive bike to date, 2018-current')
+				])),
+			A3(
+			$surprisetalk$elm_bulma$Bulma$Elements$image,
+			$surprisetalk$elm_bulma$Bulma$Elements$Natural,
+			_List_Nil,
+			_List_fromArray(
+				[
+					A2(
+					$elm$html$Html$img,
+					_List_fromArray(
+						[
+							$elm$html$Html$Attributes$src('content/blog/bikes/surly_20190630.jpg'),
+							$elm$html$Html$Attributes$alt('A fully loaded Surly Disc Trucker with leather VO saddle, red handlebar\ntape and Dia Compe bar-end shifters. Attached the front is a Surly front rack with a Wald\n137 basket on top holding a Swift Industries Sugarloaf bag. Hanging from the saddle is\nSwift Industries Zeitgeist saddle bag. Two Aventir brand panniers hang from the front rack')
+						]),
+					_List_Nil)
+				])),
+			A2(
+			$elm$html$Html$p,
+			_List_Nil,
+			_List_fromArray(
+				[
+					$elm$html$Html$text('The cost of a bike is a nebulous concept for me, because I\'ve not really gone to shop and bought one\nthat was sitting there ready to go. The surly holds the record for most expensive bike mostly because\nI actually bought everything that\'s on it, at some point, rather than having been donated bits and pieces.')
+				])),
+			A2(
+			$elm$html$Html$p,
+			_List_Nil,
+			_List_fromArray(
+				[
+					$elm$html$Html$text('It came about because the scalveged frame on the touring bike wasn\'t quite doing it for me, and I wanted\nsomething that actually had the bosses to attach the racks and accessories I wanted to attach. I also wanted\ndisc brakes.')
+				])),
+			A2(
+			$elm$html$Html$p,
+			_List_Nil,
+			_List_fromArray(
+				[
+					$elm$html$Html$text('Most of the touring bike made its way across to the surly when the frame arrived, and all in all I ended up with...\nbasically a stock disc trucker - sora groupset, trp disc brakes (upraded from avid bb5s once I\'d had enough of their\nincessant harpy squealing), dia compe bar end shifters. So not only is this the most expensive bike I\'ve ever owned,\nit probably actually cost me more than buying one straight off the shop floor ¯\\_(ツ)_/¯ .')
+				]))
+		]));
+var $author$project$Page$Bikes$viewMainPanel = function (bike) {
+	switch (bike) {
+		case 0:
+			return _List_fromArray(
+				[
+					A3(
+					$surprisetalk$elm_bulma$Bulma$Elements$content,
+					1,
+					_List_Nil,
+					_List_fromArray(
+						[$author$project$Page$Bikes$blueEagleArticle]))
+				]);
+		case 1:
+			return _List_fromArray(
+				[
+					A3(
+					$surprisetalk$elm_bulma$Bulma$Elements$content,
+					1,
+					_List_Nil,
+					_List_fromArray(
+						[$author$project$Page$Bikes$clamentArticle]))
+				]);
+		case 2:
+			return _List_fromArray(
+				[
+					A3(
+					$surprisetalk$elm_bulma$Bulma$Elements$content,
+					1,
+					_List_Nil,
+					_List_fromArray(
+						[$author$project$Page$Bikes$speedwellArticle]))
+				]);
+		case 3:
+			return _List_fromArray(
+				[
+					A3(
+					$surprisetalk$elm_bulma$Bulma$Elements$content,
+					1,
+					_List_Nil,
+					_List_fromArray(
+						[$author$project$Page$Bikes$khsArticle]))
+				]);
+		case 4:
+			return _List_fromArray(
+				[
+					A3(
+					$surprisetalk$elm_bulma$Bulma$Elements$content,
+					1,
+					_List_Nil,
+					_List_fromArray(
+						[$author$project$Page$Bikes$noNameTouringArticle]))
+				]);
+		case 5:
+			return _List_fromArray(
+				[
+					A3(
+					$surprisetalk$elm_bulma$Bulma$Elements$content,
+					1,
+					_List_Nil,
+					_List_fromArray(
+						[$author$project$Page$Bikes$surlyArticle]))
+				]);
+		case 6:
+			return _List_fromArray(
+				[
+					A3(
+					$surprisetalk$elm_bulma$Bulma$Elements$content,
+					1,
+					_List_Nil,
+					_List_fromArray(
+						[$author$project$Page$Bikes$korean3SixtyArticle]))
+				]);
+		case 7:
+			return _List_fromArray(
+				[
+					A3(
+					$surprisetalk$elm_bulma$Bulma$Elements$content,
+					1,
+					_List_Nil,
+					_List_fromArray(
+						[$author$project$Page$Bikes$carrerraArticle]))
+				]);
+		default:
+			return _List_fromArray(
+				[
+					A3(
+					$surprisetalk$elm_bulma$Bulma$Elements$content,
+					1,
+					_List_Nil,
+					_List_fromArray(
+						[$author$project$Page$Bikes$cargoArticle]))
+				]);
+	}
+};
+var $author$project$Page$Bikes$Carrerra = 7;
+var $author$project$Page$Bikes$ChangeTo = $elm$core$Basics$identity;
+var $author$project$Page$Bikes$Clament = 1;
+var $author$project$Page$Bikes$KHSFixie = 3;
+var $author$project$Page$Bikes$Korean3Sixty = 6;
+var $author$project$Page$Bikes$NoNameTouring = 4;
+var $author$project$Page$Bikes$Speedwell = 2;
+var $author$project$Page$Bikes$Surly = 5;
+var $elm$virtual_dom$VirtualDom$Normal = function (a) {
+	return {$: 0, a: a};
+};
+var $elm$virtual_dom$VirtualDom$on = _VirtualDom_on;
+var $elm$html$Html$Events$on = F2(
+	function (event, decoder) {
+		return A2(
+			$elm$virtual_dom$VirtualDom$on,
+			event,
+			$elm$virtual_dom$VirtualDom$Normal(decoder));
+	});
+var $elm$html$Html$Events$onClick = function (msg) {
+	return A2(
+		$elm$html$Html$Events$on,
+		'click',
+		$elm$json$Json$Decode$succeed(msg));
+};
+var $surprisetalk$elm_bulma$Bulma$Classes$panel = $elm$html$Html$Attributes$class('panel');
+var $surprisetalk$elm_bulma$Bulma$Components$panel = A2(
+	$surprisetalk$elm_bulma$Helpers$node,
+	'div',
+	_List_fromArray(
+		[$surprisetalk$elm_bulma$Bulma$Classes$panel]));
+var $surprisetalk$elm_bulma$Bulma$Classes$panelHeading = $elm$html$Html$Attributes$class('panel-heading');
+var $surprisetalk$elm_bulma$Bulma$Components$panelHeading = A2(
+	$surprisetalk$elm_bulma$Helpers$node,
+	'p',
+	_List_fromArray(
+		[$surprisetalk$elm_bulma$Bulma$Classes$panelHeading]));
+var $surprisetalk$elm_bulma$Bulma$Classes$isActive = $elm$html$Html$Attributes$class('is-active');
+var $surprisetalk$elm_bulma$Bulma$Classes$panelBlock = $elm$html$Html$Attributes$class('panel-block');
+var $surprisetalk$elm_bulma$Bulma$Components$panelLink = function (active) {
+	return A2(
+		$surprisetalk$elm_bulma$Helpers$node,
+		'a',
+		_List_fromArray(
+			[
+				$surprisetalk$elm_bulma$Bulma$Classes$panelBlock,
+				function () {
+				if (active) {
+					return $surprisetalk$elm_bulma$Bulma$Classes$isActive;
+				} else {
+					return $surprisetalk$elm_bulma$Bulma$Classes$none;
+				}
+			}()
+			]));
+};
+var $author$project$Page$Bikes$viewMenu = function (bike) {
+	return _List_fromArray(
+		[
+			A2(
+			$surprisetalk$elm_bulma$Bulma$Components$panel,
+			_List_Nil,
+			_List_fromArray(
+				[
+					A2(
+					$surprisetalk$elm_bulma$Bulma$Components$panelHeading,
+					_List_Nil,
+					_List_fromArray(
+						[
+							$elm$html$Html$text('My Bikes')
+						])),
+					A3(
+					$surprisetalk$elm_bulma$Bulma$Components$panelLink,
+					!bike,
+					_List_fromArray(
+						[
+							$elm$html$Html$Events$onClick(0),
+							$elm$html$Html$Attributes$href('#/bikes')
+						]),
+					_List_fromArray(
+						[
+							$elm$html$Html$text('The Blue eagle (2012-2015ish)')
+						])),
+					A3(
+					$surprisetalk$elm_bulma$Bulma$Components$panelLink,
+					bike === 1,
+					_List_fromArray(
+						[
+							$elm$html$Html$Events$onClick(1),
+							$elm$html$Html$Attributes$href('#/bikes')
+						]),
+					_List_fromArray(
+						[
+							$elm$html$Html$text('Clament fixed gear (2012-2015ish)')
+						])),
+					A3(
+					$surprisetalk$elm_bulma$Bulma$Components$panelLink,
+					bike === 2,
+					_List_fromArray(
+						[
+							$elm$html$Html$Events$onClick(2),
+							$elm$html$Html$Attributes$href('#/bikes')
+						]),
+					_List_fromArray(
+						[
+							$elm$html$Html$text('1948 Speedwell (2013-current)')
+						])),
+					A3(
+					$surprisetalk$elm_bulma$Bulma$Components$panelLink,
+					bike === 3,
+					_List_fromArray(
+						[
+							$elm$html$Html$Events$onClick(3),
+							$elm$html$Html$Attributes$href('#/bikes')
+						]),
+					_List_fromArray(
+						[
+							$elm$html$Html$text('KHS Fixed Gear (~2015-current)')
+						])),
+					A3(
+					$surprisetalk$elm_bulma$Bulma$Components$panelLink,
+					bike === 4,
+					_List_fromArray(
+						[
+							$elm$html$Html$Events$onClick(4),
+							$elm$html$Html$Attributes$href('#/bikes')
+						]),
+					_List_fromArray(
+						[
+							$elm$html$Html$text('No-name touring bike (2016-2017)')
+						])),
+					A3(
+					$surprisetalk$elm_bulma$Bulma$Components$panelLink,
+					bike === 5,
+					_List_fromArray(
+						[
+							$elm$html$Html$Events$onClick(5),
+							$elm$html$Html$Attributes$href('#/bikes')
+						]),
+					_List_fromArray(
+						[
+							$elm$html$Html$text('Surly Disc Trucker (2018-current)')
+						])),
+					A3(
+					$surprisetalk$elm_bulma$Bulma$Components$panelLink,
+					bike === 6,
+					_List_fromArray(
+						[
+							$elm$html$Html$Events$onClick(6),
+							$elm$html$Html$Attributes$href('#/bikes')
+						]),
+					_List_fromArray(
+						[
+							$elm$html$Html$text('3Sixty (2019-current)')
+						])),
+					A3(
+					$surprisetalk$elm_bulma$Bulma$Components$panelLink,
+					bike === 7,
+					_List_fromArray(
+						[
+							$elm$html$Html$Events$onClick(7),
+							$elm$html$Html$Attributes$href('#/bikes')
+						]),
+					_List_fromArray(
+						[
+							$elm$html$Html$text('Carrerra (2021-current)')
+						]))
+				]))
+		]);
+};
+var $author$project$Page$Bikes$viewBike = function (bike) {
+	return {
+		aw: _List_fromArray(
+			[
+				$surprisetalk$elm_bulma$Bulma$CDN$stylesheet,
+				A3(
+				$surprisetalk$elm_bulma$Bulma$Layout$section,
+				1,
+				_List_Nil,
+				_List_fromArray(
+					[
+						A2(
+						$surprisetalk$elm_bulma$Bulma$Layout$container,
+						_List_Nil,
+						_List_fromArray(
+							[
+								A3(
+								$surprisetalk$elm_bulma$Bulma$Layout$hero,
+								$surprisetalk$elm_bulma$Bulma$Layout$heroModifiers,
+								_List_Nil,
+								_List_fromArray(
+									[
+										A2(
+										$surprisetalk$elm_bulma$Bulma$Layout$heroBody,
+										_List_Nil,
+										_List_fromArray(
+											[
+												A2(
+												$surprisetalk$elm_bulma$Bulma$Layout$container,
+												_List_Nil,
+												_List_fromArray(
+													[
+														A4(
+														$surprisetalk$elm_bulma$Bulma$Components$breadcrumb,
+														$surprisetalk$elm_bulma$Bulma$Components$breadcrumbModifiers,
+														_List_Nil,
+														_List_Nil,
+														_List_fromArray(
+															[
+																A4(
+																$surprisetalk$elm_bulma$Bulma$Components$crumblet,
+																false,
+																_List_Nil,
+																_List_fromArray(
+																	[
+																		$elm$html$Html$Attributes$href('/')
+																	]),
+																_List_fromArray(
+																	[
+																		$elm$html$Html$text('Home')
+																	])),
+																A4(
+																$surprisetalk$elm_bulma$Bulma$Components$crumblet,
+																true,
+																_List_Nil,
+																_List_fromArray(
+																	[
+																		$elm$html$Html$Attributes$href('/#/bikes')
+																	]),
+																_List_fromArray(
+																	[
+																		$elm$html$Html$text('Bikes')
+																	]))
+															])),
+														A3(
+														$surprisetalk$elm_bulma$Bulma$Elements$title,
+														0,
+														_List_Nil,
+														_List_fromArray(
+															[
+																$elm$html$Html$text('A brief history of (my) bikes')
+															])),
+														A2(
+														$elm$html$Html$em,
+														_List_fromArray(
+															[
+																$surprisetalk$elm_bulma$Bulma$Modifiers$Typography$textColor(5)
+															]),
+														_List_fromArray(
+															[
+																$elm$html$Html$text('last updated September 2021')
+															])),
+														A2(
+														$elm$html$Html$p,
+														_List_Nil,
+														_List_fromArray(
+															[
+																$elm$html$Html$text('Here lies an almost complete chronicle of the bikes that made me the cyclist I am today.')
+															]))
+													]))
+											]))
+									])),
+								A3(
+								$surprisetalk$elm_bulma$Bulma$Layout$tileAncestor,
+								0,
+								_List_Nil,
+								_List_fromArray(
+									[
+										A3(
+										$surprisetalk$elm_bulma$Bulma$Layout$tileParent,
+										4,
+										_List_Nil,
+										_List_fromArray(
+											[
+												A3(
+												$surprisetalk$elm_bulma$Bulma$Layout$tileChild,
+												0,
+												_List_Nil,
+												$author$project$Page$Bikes$viewMenu(bike))
+											])),
+										A3(
+										$surprisetalk$elm_bulma$Bulma$Layout$tileParent,
+										0,
+										_List_Nil,
+										_List_fromArray(
+											[
+												A3(
+												$surprisetalk$elm_bulma$Bulma$Layout$tileChild,
+												0,
+												_List_fromArray(
+													[
+														$elm$html$Html$Attributes$class('box')
+													]),
+												$author$project$Page$Bikes$viewMainPanel(bike))
+											]))
+									]))
+							]))
+					]))
+			]),
+		aS: 'My bikes'
+	};
+};
+var $author$project$Page$Bikes$view = function (model) {
+	var bike = model;
+	return $author$project$Page$Bikes$viewBike(bike);
+};
+var $surprisetalk$elm_bulma$Bulma$Layout$NotSpaced = 0;
+var $elm$virtual_dom$VirtualDom$style = _VirtualDom_style;
+var $elm$html$Html$Attributes$style = $elm$virtual_dom$VirtualDom$style;
+var $author$project$Page$Welcome$cardShadow = _List_fromArray(
+	[
+		A2($elm$html$Html$Attributes$style, 'box-shadow', '5px 5px 10px #c4c4c4'),
+		A2($elm$html$Html$Attributes$style, 'transition', '0.3s ease-out'),
+		A2($elm$html$Html$Attributes$style, 'transform', 'translate(-1px, -1px)')
+	]);
+var $surprisetalk$elm_bulma$Bulma$Elements$FourByThree = {$: 2};
+var $author$project$Page$Welcome$MouseOut = function (a) {
+	return {$: 1, a: a};
+};
+var $author$project$Page$Welcome$MouseOver = function (a) {
+	return {$: 0, a: a};
+};
+var $surprisetalk$elm_bulma$Bulma$Modifiers$Width3 = 3;
+var $surprisetalk$elm_bulma$Bulma$Classes$card = $elm$html$Html$Attributes$class('card');
+var $surprisetalk$elm_bulma$Bulma$Components$card = A2(
+	$surprisetalk$elm_bulma$Helpers$node,
+	'div',
+	_List_fromArray(
+		[$surprisetalk$elm_bulma$Bulma$Classes$card]));
+var $surprisetalk$elm_bulma$Bulma$Classes$cardContent = $elm$html$Html$Attributes$class('card-content');
+var $surprisetalk$elm_bulma$Bulma$Components$cardContent = A2(
+	$surprisetalk$elm_bulma$Helpers$node,
+	'div',
+	_List_fromArray(
+		[$surprisetalk$elm_bulma$Bulma$Classes$cardContent]));
+var $surprisetalk$elm_bulma$Bulma$Classes$cardFooter = $elm$html$Html$Attributes$class('card-footer');
+var $surprisetalk$elm_bulma$Bulma$Components$cardFooter = A2(
+	$surprisetalk$elm_bulma$Helpers$node,
+	'footer',
+	_List_fromArray(
+		[$surprisetalk$elm_bulma$Bulma$Classes$cardFooter]));
+var $surprisetalk$elm_bulma$Bulma$Classes$cardFooterItem = $elm$html$Html$Attributes$class('card-footer-item');
+var $surprisetalk$elm_bulma$Bulma$Components$cardFooterItemLink = A2(
+	$surprisetalk$elm_bulma$Helpers$node,
+	'a',
+	_List_fromArray(
+		[$surprisetalk$elm_bulma$Bulma$Classes$cardFooterItem]));
+var $surprisetalk$elm_bulma$Bulma$Classes$cardImage = $elm$html$Html$Attributes$class('card-image');
+var $surprisetalk$elm_bulma$Bulma$Components$cardImage = A2(
+	$surprisetalk$elm_bulma$Helpers$node,
+	'div',
+	_List_fromArray(
+		[$surprisetalk$elm_bulma$Bulma$Classes$cardImage]));
+var $elm$html$Html$Events$onMouseOut = function (msg) {
+	return A2(
+		$elm$html$Html$Events$on,
+		'mouseout',
+		$elm$json$Json$Decode$succeed(msg));
+};
+var $elm$html$Html$Events$onMouseOver = function (msg) {
+	return A2(
+		$elm$html$Html$Events$on,
+		'mouseover',
+		$elm$json$Json$Decode$succeed(msg));
+};
 var $author$project$Page$Welcome$viewBikesTile = function (attrs) {
 	return A3(
 		$surprisetalk$elm_bulma$Bulma$Layout$tileParent,
@@ -5736,6 +7967,22 @@ var $author$project$Page$Welcome$viewBikesTile = function (attrs) {
 								_List_fromArray(
 									[
 										$elm$html$Html$text('I\'m all about bikes')
+									])),
+								A2(
+								$surprisetalk$elm_bulma$Bulma$Components$cardFooter,
+								_List_Nil,
+								_List_fromArray(
+									[
+										A2(
+										$surprisetalk$elm_bulma$Bulma$Components$cardFooterItemLink,
+										_List_fromArray(
+											[
+												$elm$html$Html$Attributes$href('#/bikes')
+											]),
+										_List_fromArray(
+											[
+												$elm$html$Html$text('Read more...')
+											]))
 									]))
 							]))
 					]))
@@ -5761,6 +8008,7 @@ var $author$project$Page$Welcome$viewTile = F2(
 var $author$project$Page$Welcome$viewBody = function (model) {
 	return _List_fromArray(
 		[
+			$surprisetalk$elm_bulma$Bulma$CDN$stylesheet,
 			A3(
 			$surprisetalk$elm_bulma$Bulma$Layout$section,
 			0,
@@ -5799,31 +8047,39 @@ var $author$project$Page$Welcome$viewBody = function (model) {
 				]))
 		]);
 };
-var $author$project$Main$viewBody = function (model) {
-	var _v0 = model.L;
-	var m = _v0;
-	return A2(
-		$elm$core$List$map,
-		$elm$html$Html$map($author$project$Main$WelcomeMsg),
-		$author$project$Page$Welcome$viewBody(m));
-};
 var $author$project$Page$Welcome$viewTitle = 'mattswoon';
-var $author$project$Main$viewTitle = function (model) {
-	var _v0 = model.L;
-	var m = _v0;
-	return $author$project$Page$Welcome$viewTitle;
-};
-var $author$project$Main$view = function (model) {
+var $author$project$Page$Welcome$view = function (model) {
 	return {
-		aZ: A2(
-			$elm$core$List$append,
-			_List_fromArray(
-				[$surprisetalk$elm_bulma$Bulma$CDN$stylesheet]),
-			$author$project$Main$viewBody(model)),
-		bd: $author$project$Main$viewTitle(model)
+		aw: $author$project$Page$Welcome$viewBody(model),
+		aS: $author$project$Page$Welcome$viewTitle
 	};
 };
+var $author$project$Main$view = function (model) {
+	var _v0 = model.ah;
+	if (!_v0.$) {
+		var p = _v0.a;
+		return A2(
+			$author$project$Main$docMap,
+			$author$project$Main$WelcomeMsg,
+			$author$project$Page$Welcome$view(p));
+	} else {
+		var p = _v0.a;
+		return A2(
+			$author$project$Main$docMap,
+			$author$project$Main$BikesMsg,
+			$author$project$Page$Bikes$view(p));
+	}
+};
 var $author$project$Main$main = $elm$browser$Browser$application(
-	{a6: $author$project$Main$init, a8: $author$project$Main$UrlChanged, a9: $author$project$Main$LinkClicked, bc: $author$project$Main$subscriptions, be: $author$project$Main$update, bf: $author$project$Main$view});
+	{
+		a6: $author$project$Main$init,
+		a8: $author$project$Main$UrlChanged,
+		a9: $author$project$Main$LinkClicked,
+		bd: function (_v0) {
+			return $elm$core$Platform$Sub$none;
+		},
+		be: $author$project$Main$update,
+		bf: $author$project$Main$view
+	});
 _Platform_export({'Main':{'init':$author$project$Main$main(
 	$elm$json$Json$Decode$succeed(0))(0)}});}(this));
