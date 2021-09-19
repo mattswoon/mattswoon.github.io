@@ -5138,50 +5138,34 @@ var $elm$core$Task$perform = F2(
 			A2($elm$core$Task$map, toMessage, task));
 	});
 var $elm$browser$Browser$document = _Browser_document;
-var $author$project$Page$Welcome$Init = {$: 0};
+var $author$project$Page$Bikes$BlueEagle = 0;
+var $author$project$Page$Bikes$Viewing = $elm$core$Basics$identity;
 var $elm$core$Platform$Cmd$batch = _Platform_batch;
 var $elm$core$Platform$Cmd$none = $elm$core$Platform$Cmd$batch(_List_Nil);
-var $author$project$Page$Welcome$init = function (_v0) {
-	return _Utils_Tuple2($author$project$Page$Welcome$Init, $elm$core$Platform$Cmd$none);
+var $author$project$Page$Bikes$init = function (_v0) {
+	return _Utils_Tuple2(0, $elm$core$Platform$Cmd$none);
 };
 var $elm$core$Platform$Sub$batch = _Platform_batch;
 var $elm$core$Platform$Sub$none = $elm$core$Platform$Sub$batch(_List_Nil);
-var $author$project$Page$Welcome$Bikes = 0;
-var $author$project$Page$Welcome$Hover = function (a) {
-	return {$: 1, a: a};
-};
-var $author$project$Page$Welcome$update = F2(
+var $author$project$Page$Bikes$update = F2(
 	function (msg, model) {
 		var _v0 = _Utils_Tuple2(msg, model);
-		if (!_v0.a.$) {
-			if (!_v0.b.$) {
-				var _v1 = _v0.a.a;
-				var _v2 = _v0.b;
-				return _Utils_Tuple2(
-					$author$project$Page$Welcome$Hover(0),
-					$elm$core$Platform$Cmd$none);
-			} else {
-				var _v3 = _v0.a.a;
-				var _v4 = _v0.b.a;
-				return _Utils_Tuple2(
-					$author$project$Page$Welcome$Hover(0),
-					$elm$core$Platform$Cmd$none);
-			}
-		} else {
-			if (!_v0.b.$) {
-				var _v5 = _v0.a.a;
-				var _v6 = _v0.b;
-				return _Utils_Tuple2($author$project$Page$Welcome$Init, $elm$core$Platform$Cmd$none);
-			} else {
-				var _v7 = _v0.a.a;
-				var _v8 = _v0.b.a;
-				return _Utils_Tuple2($author$project$Page$Welcome$Init, $elm$core$Platform$Cmd$none);
-			}
-		}
+		var bike = _v0.a;
+		return _Utils_Tuple2(bike, $elm$core$Platform$Cmd$none);
 	});
 var $surprisetalk$elm_bulma$Bulma$Modifiers$Auto = 0;
+var $surprisetalk$elm_bulma$Bulma$Modifiers$Typography$Grey = 5;
 var $surprisetalk$elm_bulma$Bulma$Elements$H1 = 0;
-var $surprisetalk$elm_bulma$Bulma$Layout$NotSpaced = 0;
+var $surprisetalk$elm_bulma$Bulma$Layout$Spaced = 1;
+var $surprisetalk$elm_bulma$Bulma$Modifiers$Width4 = 4;
+var $elm$virtual_dom$VirtualDom$attribute = F2(
+	function (key, value) {
+		return A2(
+			_VirtualDom_attribute,
+			_VirtualDom_noOnOrFormAction(key),
+			_VirtualDom_noJavaScriptOrHtmlUri(value));
+	});
+var $elm$html$Html$Attributes$attribute = $elm$virtual_dom$VirtualDom$attribute;
 var $elm$json$Json$Encode$string = _Json_wrap;
 var $elm$html$Html$Attributes$stringProperty = F2(
 	function (key, string) {
@@ -5191,7 +5175,25 @@ var $elm$html$Html$Attributes$stringProperty = F2(
 			$elm$json$Json$Encode$string(string));
 	});
 var $elm$html$Html$Attributes$class = $elm$html$Html$Attributes$stringProperty('className');
-var $surprisetalk$elm_bulma$Bulma$Classes$container = $elm$html$Html$Attributes$class('container');
+var $surprisetalk$elm_bulma$Bulma$Classes$breadcrumb = $elm$html$Html$Attributes$class('breadcrumb');
+var $elm$core$Basics$composeL = F3(
+	function (g, f, x) {
+		return g(
+			f(x));
+	});
+var $surprisetalk$elm_bulma$Bulma$Classes$hasArrowSeparator = $elm$html$Html$Attributes$class('has-arrow-separator');
+var $surprisetalk$elm_bulma$Bulma$Classes$hasBulletSeparator = $elm$html$Html$Attributes$class('has-bullet-separator');
+var $surprisetalk$elm_bulma$Bulma$Classes$hasDotSeparator = $elm$html$Html$Attributes$class('has-dot-separator');
+var $surprisetalk$elm_bulma$Bulma$Classes$hasSucceedsSeparator = $elm$html$Html$Attributes$class('has-succeeds-separator');
+var $surprisetalk$elm_bulma$Bulma$Classes$isCentered = $elm$html$Html$Attributes$class('is-centered');
+var $surprisetalk$elm_bulma$Bulma$Classes$isLarge = $elm$html$Html$Attributes$class('is-large');
+var $surprisetalk$elm_bulma$Bulma$Classes$isMedium = $elm$html$Html$Attributes$class('is-medium');
+var $surprisetalk$elm_bulma$Bulma$Classes$isRight = $elm$html$Html$Attributes$class('is-right');
+var $surprisetalk$elm_bulma$Bulma$Classes$isSmall = $elm$html$Html$Attributes$class('is-small');
+var $surprisetalk$elm_bulma$Helpers$ls = function (x) {
+	return _List_fromArray(
+		[x]);
+};
 var $elm$virtual_dom$VirtualDom$node = function (tag) {
 	return _VirtualDom_node(
 		_VirtualDom_noScript(tag));
@@ -5204,14 +5206,178 @@ var $surprisetalk$elm_bulma$Helpers$node = F3(
 			tag,
 			_Utils_ap(attrs, attrs_));
 	});
+var $surprisetalk$elm_bulma$Bulma$Classes$none = $elm$html$Html$Attributes$class('');
+var $elm$html$Html$ul = _VirtualDom_node('ul');
+var $surprisetalk$elm_bulma$Bulma$Components$breadcrumb = F3(
+	function (_v0, attrs, attrs_) {
+		var separator = _v0.ai;
+		var alignment = _v0.x;
+		var size = _v0.n;
+		return A2(
+			$elm$core$Basics$composeL,
+			A2(
+				$elm$core$Basics$composeL,
+				A3(
+					$surprisetalk$elm_bulma$Helpers$node,
+					'nav',
+					_List_fromArray(
+						[
+							A2($elm$html$Html$Attributes$attribute, 'aria-label', 'breadcrumb'),
+							$surprisetalk$elm_bulma$Bulma$Classes$breadcrumb,
+							function () {
+							switch (separator) {
+								case 0:
+									return $surprisetalk$elm_bulma$Bulma$Classes$none;
+								case 1:
+									return $surprisetalk$elm_bulma$Bulma$Classes$hasArrowSeparator;
+								case 2:
+									return $surprisetalk$elm_bulma$Bulma$Classes$hasBulletSeparator;
+								case 3:
+									return $surprisetalk$elm_bulma$Bulma$Classes$hasDotSeparator;
+								default:
+									return $surprisetalk$elm_bulma$Bulma$Classes$hasSucceedsSeparator;
+							}
+						}(),
+							function () {
+							switch (size) {
+								case 0:
+									return $surprisetalk$elm_bulma$Bulma$Classes$isSmall;
+								case 1:
+									return $surprisetalk$elm_bulma$Bulma$Classes$none;
+								case 2:
+									return $surprisetalk$elm_bulma$Bulma$Classes$isMedium;
+								default:
+									return $surprisetalk$elm_bulma$Bulma$Classes$isLarge;
+							}
+						}(),
+							function () {
+							switch (alignment) {
+								case 0:
+									return $surprisetalk$elm_bulma$Bulma$Classes$none;
+								case 1:
+									return $surprisetalk$elm_bulma$Bulma$Classes$isCentered;
+								default:
+									return $surprisetalk$elm_bulma$Bulma$Classes$isRight;
+							}
+						}()
+						]),
+					attrs),
+				$surprisetalk$elm_bulma$Helpers$ls),
+			$elm$html$Html$ul(attrs_));
+	});
+var $surprisetalk$elm_bulma$Bulma$Modifiers$Left = 0;
+var $surprisetalk$elm_bulma$Bulma$Components$Slash = 0;
+var $surprisetalk$elm_bulma$Bulma$Modifiers$Standard = 1;
+var $surprisetalk$elm_bulma$Bulma$Components$breadcrumbModifiers = {x: 0, ai: 0, n: 1};
+var $surprisetalk$elm_bulma$Bulma$Classes$container = $elm$html$Html$Attributes$class('container');
 var $surprisetalk$elm_bulma$Bulma$Layout$container = A2(
 	$surprisetalk$elm_bulma$Helpers$node,
 	'div',
 	_List_fromArray(
 		[$surprisetalk$elm_bulma$Bulma$Classes$container]));
-var $surprisetalk$elm_bulma$Bulma$Classes$isLarge = $elm$html$Html$Attributes$class('is-large');
-var $surprisetalk$elm_bulma$Bulma$Classes$isMedium = $elm$html$Html$Attributes$class('is-medium');
-var $surprisetalk$elm_bulma$Bulma$Classes$none = $elm$html$Html$Attributes$class('');
+var $elm$html$Html$a = _VirtualDom_node('a');
+var $elm$html$Html$li = _VirtualDom_node('li');
+var $surprisetalk$elm_bulma$Bulma$Components$crumblet = F3(
+	function (isActive, attrs, attrs_) {
+		return A2(
+			$elm$core$Basics$composeL,
+			A2(
+				$elm$core$Basics$composeL,
+				$elm$html$Html$li(
+					isActive ? A2(
+						$elm$core$List$cons,
+						$elm$html$Html$Attributes$class('is-active'),
+						attrs) : attrs),
+				$surprisetalk$elm_bulma$Helpers$ls),
+			$elm$html$Html$a(attrs_));
+	});
+var $elm$html$Html$em = _VirtualDom_node('em');
+var $surprisetalk$elm_bulma$Bulma$Classes$hero = $elm$html$Html$Attributes$class('hero');
+var $surprisetalk$elm_bulma$Bulma$Classes$isBlack = $elm$html$Html$Attributes$class('is-black');
+var $surprisetalk$elm_bulma$Bulma$Classes$isBold = $elm$html$Html$Attributes$class('is-bold');
+var $surprisetalk$elm_bulma$Bulma$Classes$isDanger = $elm$html$Html$Attributes$class('is-danger');
+var $surprisetalk$elm_bulma$Bulma$Classes$isDark = $elm$html$Html$Attributes$class('is-dark');
+var $surprisetalk$elm_bulma$Bulma$Classes$isFullHeight = $elm$html$Html$Attributes$class('is-fullheight');
+var $surprisetalk$elm_bulma$Bulma$Classes$isInfo = $elm$html$Html$Attributes$class('is-info');
+var $surprisetalk$elm_bulma$Bulma$Classes$isLight = $elm$html$Html$Attributes$class('is-light');
+var $surprisetalk$elm_bulma$Bulma$Classes$isLink = $elm$html$Html$Attributes$class('is-link');
+var $surprisetalk$elm_bulma$Bulma$Classes$isPrimary = $elm$html$Html$Attributes$class('is-primary');
+var $surprisetalk$elm_bulma$Bulma$Classes$isSuccess = $elm$html$Html$Attributes$class('is-success');
+var $surprisetalk$elm_bulma$Bulma$Classes$isWarning = $elm$html$Html$Attributes$class('is-warning');
+var $surprisetalk$elm_bulma$Bulma$Classes$isWhite = $elm$html$Html$Attributes$class('is-white');
+var $surprisetalk$elm_bulma$Bulma$Layout$hero = function (_v0) {
+	var bold = _v0.N;
+	var size = _v0.n;
+	var color = _v0.y;
+	return A2(
+		$surprisetalk$elm_bulma$Helpers$node,
+		'section',
+		_List_fromArray(
+			[
+				$surprisetalk$elm_bulma$Bulma$Classes$hero,
+				function () {
+				if (bold) {
+					return $surprisetalk$elm_bulma$Bulma$Classes$isBold;
+				} else {
+					return $surprisetalk$elm_bulma$Bulma$Classes$none;
+				}
+			}(),
+				function () {
+				switch (size) {
+					case 0:
+						return $surprisetalk$elm_bulma$Bulma$Classes$none;
+					case 1:
+						return $surprisetalk$elm_bulma$Bulma$Classes$isMedium;
+					case 2:
+						return $surprisetalk$elm_bulma$Bulma$Classes$isLarge;
+					default:
+						return $surprisetalk$elm_bulma$Bulma$Classes$isFullHeight;
+				}
+			}(),
+				function () {
+				switch (color) {
+					case 0:
+						return $surprisetalk$elm_bulma$Bulma$Classes$none;
+					case 1:
+						return $surprisetalk$elm_bulma$Bulma$Classes$isWhite;
+					case 4:
+						return $surprisetalk$elm_bulma$Bulma$Classes$isBlack;
+					case 2:
+						return $surprisetalk$elm_bulma$Bulma$Classes$isLight;
+					case 3:
+						return $surprisetalk$elm_bulma$Bulma$Classes$isDark;
+					case 5:
+						return $surprisetalk$elm_bulma$Bulma$Classes$isPrimary;
+					case 7:
+						return $surprisetalk$elm_bulma$Bulma$Classes$isInfo;
+					case 8:
+						return $surprisetalk$elm_bulma$Bulma$Classes$isSuccess;
+					case 9:
+						return $surprisetalk$elm_bulma$Bulma$Classes$isWarning;
+					case 10:
+						return $surprisetalk$elm_bulma$Bulma$Classes$isDanger;
+					default:
+						return $surprisetalk$elm_bulma$Bulma$Classes$isLink;
+				}
+			}()
+			]));
+};
+var $surprisetalk$elm_bulma$Bulma$Classes$heroBody = $elm$html$Html$Attributes$class('hero-body');
+var $surprisetalk$elm_bulma$Bulma$Layout$heroBody = A2(
+	$surprisetalk$elm_bulma$Helpers$node,
+	'div',
+	_List_fromArray(
+		[$surprisetalk$elm_bulma$Bulma$Classes$heroBody]));
+var $surprisetalk$elm_bulma$Bulma$Modifiers$Default = 0;
+var $surprisetalk$elm_bulma$Bulma$Modifiers$Small = 0;
+var $surprisetalk$elm_bulma$Bulma$Layout$heroModifiers = {N: false, y: 0, n: 0};
+var $elm$html$Html$Attributes$href = function (url) {
+	return A2(
+		$elm$html$Html$Attributes$stringProperty,
+		'href',
+		_VirtualDom_noJavaScriptUri(url));
+};
+var $elm$html$Html$p = _VirtualDom_node('p');
 var $surprisetalk$elm_bulma$Bulma$Classes$section = $elm$html$Html$Attributes$class('section');
 var $surprisetalk$elm_bulma$Bulma$Layout$section = function (spacing) {
 	return A2(
@@ -5232,12 +5398,6 @@ var $surprisetalk$elm_bulma$Bulma$Layout$section = function (spacing) {
 			}()
 			]));
 };
-var $elm$html$Html$Attributes$href = function (url) {
-	return A2(
-		$elm$html$Html$Attributes$stringProperty,
-		'href',
-		_VirtualDom_noJavaScriptUri(url));
-};
 var $elm$html$Html$Attributes$rel = _VirtualDom_attribute('rel');
 var $surprisetalk$elm_bulma$Bulma$CDN$stylesheet = A3(
 	$elm$html$Html$node,
@@ -5250,6 +5410,45 @@ var $surprisetalk$elm_bulma$Bulma$CDN$stylesheet = A3(
 	_List_Nil);
 var $elm$virtual_dom$VirtualDom$text = _VirtualDom_text;
 var $elm$html$Html$text = $elm$virtual_dom$VirtualDom$text;
+var $surprisetalk$elm_bulma$Bulma$Modifiers$Typography$textColor = function (color) {
+	return $elm$html$Html$Attributes$class(
+		function () {
+			switch (color) {
+				case 0:
+					return 'has-text-black';
+				case 1:
+					return 'has-text-black-bis';
+				case 2:
+					return 'has-text-black-ter';
+				case 3:
+					return 'has-text-grey-darker';
+				case 4:
+					return 'has-text-grey-dark';
+				case 5:
+					return 'has-text-grey';
+				case 6:
+					return 'has-text-grey-light';
+				case 7:
+					return 'has-text-grey-lighter';
+				case 8:
+					return 'has-text-white-bis';
+				case 9:
+					return 'has-text-white-ter';
+				case 10:
+					return 'has-text-white';
+				case 11:
+					return 'has-text-primary';
+				case 12:
+					return 'has-text-info';
+				case 13:
+					return 'has-text-success';
+				case 14:
+					return 'has-text-warning';
+				default:
+					return 'has-text-danger';
+			}
+		}());
+};
 var $surprisetalk$elm_bulma$Bulma$Classes$is1 = $elm$html$Html$Attributes$class('is-1');
 var $surprisetalk$elm_bulma$Bulma$Classes$is10 = $elm$html$Html$Attributes$class('is-10');
 var $surprisetalk$elm_bulma$Bulma$Classes$is11 = $elm$html$Html$Attributes$class('is-11');
@@ -5300,194 +5499,6 @@ var $surprisetalk$elm_bulma$Bulma$Layout$tileAncestor = function (width) {
 				}
 			}()
 			]));
-};
-var $surprisetalk$elm_bulma$Bulma$Classes$title = $elm$html$Html$Attributes$class('title');
-var $surprisetalk$elm_bulma$Bulma$Elements$title = function (size) {
-	return A2(
-		$surprisetalk$elm_bulma$Helpers$node,
-		function () {
-			switch (size) {
-				case 0:
-					return 'h1';
-				case 1:
-					return 'h2';
-				case 2:
-					return 'h3';
-				case 3:
-					return 'h4';
-				case 4:
-					return 'h5';
-				default:
-					return 'h6';
-			}
-		}(),
-		_List_fromArray(
-			[
-				$surprisetalk$elm_bulma$Bulma$Classes$title,
-				function () {
-				switch (size) {
-					case 0:
-						return $surprisetalk$elm_bulma$Bulma$Classes$is1;
-					case 1:
-						return $surprisetalk$elm_bulma$Bulma$Classes$is2;
-					case 2:
-						return $surprisetalk$elm_bulma$Bulma$Classes$is3;
-					case 3:
-						return $surprisetalk$elm_bulma$Bulma$Classes$is4;
-					case 4:
-						return $surprisetalk$elm_bulma$Bulma$Classes$is5;
-					default:
-						return $surprisetalk$elm_bulma$Bulma$Classes$is6;
-				}
-			}()
-			]));
-};
-var $elm$virtual_dom$VirtualDom$style = _VirtualDom_style;
-var $elm$html$Html$Attributes$style = $elm$virtual_dom$VirtualDom$style;
-var $author$project$Page$Welcome$cardShadow = _List_fromArray(
-	[
-		A2($elm$html$Html$Attributes$style, 'box-shadow', '5px 5px 10px #c4c4c4'),
-		A2($elm$html$Html$Attributes$style, 'transition', '0.3s ease-out'),
-		A2($elm$html$Html$Attributes$style, 'transform', 'translate(-1px, -1px)')
-	]);
-var $surprisetalk$elm_bulma$Bulma$Elements$FourByThree = {$: 2};
-var $author$project$Page$Welcome$MouseOut = function (a) {
-	return {$: 1, a: a};
-};
-var $author$project$Page$Welcome$MouseOver = function (a) {
-	return {$: 0, a: a};
-};
-var $surprisetalk$elm_bulma$Bulma$Modifiers$Width3 = 3;
-var $elm$core$List$append = F2(
-	function (xs, ys) {
-		if (!ys.b) {
-			return xs;
-		} else {
-			return A3($elm$core$List$foldr, $elm$core$List$cons, ys, xs);
-		}
-	});
-var $surprisetalk$elm_bulma$Bulma$Classes$card = $elm$html$Html$Attributes$class('card');
-var $surprisetalk$elm_bulma$Bulma$Components$card = A2(
-	$surprisetalk$elm_bulma$Helpers$node,
-	'div',
-	_List_fromArray(
-		[$surprisetalk$elm_bulma$Bulma$Classes$card]));
-var $surprisetalk$elm_bulma$Bulma$Classes$cardContent = $elm$html$Html$Attributes$class('card-content');
-var $surprisetalk$elm_bulma$Bulma$Components$cardContent = A2(
-	$surprisetalk$elm_bulma$Helpers$node,
-	'div',
-	_List_fromArray(
-		[$surprisetalk$elm_bulma$Bulma$Classes$cardContent]));
-var $surprisetalk$elm_bulma$Bulma$Classes$cardFooter = $elm$html$Html$Attributes$class('card-footer');
-var $surprisetalk$elm_bulma$Bulma$Components$cardFooter = A2(
-	$surprisetalk$elm_bulma$Helpers$node,
-	'footer',
-	_List_fromArray(
-		[$surprisetalk$elm_bulma$Bulma$Classes$cardFooter]));
-var $surprisetalk$elm_bulma$Bulma$Classes$cardFooterItem = $elm$html$Html$Attributes$class('card-footer-item');
-var $surprisetalk$elm_bulma$Bulma$Components$cardFooterItemLink = A2(
-	$surprisetalk$elm_bulma$Helpers$node,
-	'a',
-	_List_fromArray(
-		[$surprisetalk$elm_bulma$Bulma$Classes$cardFooterItem]));
-var $surprisetalk$elm_bulma$Bulma$Classes$cardImage = $elm$html$Html$Attributes$class('card-image');
-var $surprisetalk$elm_bulma$Bulma$Components$cardImage = A2(
-	$surprisetalk$elm_bulma$Helpers$node,
-	'div',
-	_List_fromArray(
-		[$surprisetalk$elm_bulma$Bulma$Classes$cardImage]));
-var $surprisetalk$elm_bulma$Bulma$Classes$image = $elm$html$Html$Attributes$class('image');
-var $surprisetalk$elm_bulma$Bulma$Classes$is128x128 = $elm$html$Html$Attributes$class('is-128x128');
-var $surprisetalk$elm_bulma$Bulma$Classes$is16by9 = $elm$html$Html$Attributes$class('is-16by9');
-var $surprisetalk$elm_bulma$Bulma$Classes$is16x16 = $elm$html$Html$Attributes$class('is-16x16');
-var $surprisetalk$elm_bulma$Bulma$Classes$is1by1 = $elm$html$Html$Attributes$class('is-1by1');
-var $surprisetalk$elm_bulma$Bulma$Classes$is24x24 = $elm$html$Html$Attributes$class('is-24x24');
-var $surprisetalk$elm_bulma$Bulma$Classes$is2by1 = $elm$html$Html$Attributes$class('is-2by1');
-var $surprisetalk$elm_bulma$Bulma$Classes$is32x32 = $elm$html$Html$Attributes$class('is-32x32');
-var $surprisetalk$elm_bulma$Bulma$Classes$is3by2 = $elm$html$Html$Attributes$class('is-3by2');
-var $surprisetalk$elm_bulma$Bulma$Classes$is48x48 = $elm$html$Html$Attributes$class('is-48x48');
-var $surprisetalk$elm_bulma$Bulma$Classes$is4by3 = $elm$html$Html$Attributes$class('is-4by3');
-var $surprisetalk$elm_bulma$Bulma$Classes$is64x64 = $elm$html$Html$Attributes$class('is-64x64');
-var $surprisetalk$elm_bulma$Bulma$Classes$is96x96 = $elm$html$Html$Attributes$class('is-96x96');
-var $surprisetalk$elm_bulma$Bulma$Elements$image = function (shape) {
-	return A2(
-		$surprisetalk$elm_bulma$Helpers$node,
-		'figure',
-		_List_fromArray(
-			[
-				$surprisetalk$elm_bulma$Bulma$Classes$image,
-				function () {
-				switch (shape.$) {
-					case 1:
-						switch (shape.a) {
-							case 7:
-								var _v1 = shape.a;
-								return $surprisetalk$elm_bulma$Bulma$Classes$is1by1;
-							case 0:
-								var _v2 = shape.a;
-								return $surprisetalk$elm_bulma$Bulma$Classes$is16x16;
-							case 1:
-								var _v3 = shape.a;
-								return $surprisetalk$elm_bulma$Bulma$Classes$is24x24;
-							case 2:
-								var _v4 = shape.a;
-								return $surprisetalk$elm_bulma$Bulma$Classes$is32x32;
-							case 3:
-								var _v5 = shape.a;
-								return $surprisetalk$elm_bulma$Bulma$Classes$is48x48;
-							case 4:
-								var _v6 = shape.a;
-								return $surprisetalk$elm_bulma$Bulma$Classes$is64x64;
-							case 5:
-								var _v7 = shape.a;
-								return $surprisetalk$elm_bulma$Bulma$Classes$is96x96;
-							default:
-								var _v8 = shape.a;
-								return $surprisetalk$elm_bulma$Bulma$Classes$is128x128;
-						}
-					case 2:
-						return $surprisetalk$elm_bulma$Bulma$Classes$is4by3;
-					case 3:
-						return $surprisetalk$elm_bulma$Bulma$Classes$is3by2;
-					case 4:
-						return $surprisetalk$elm_bulma$Bulma$Classes$is16by9;
-					case 5:
-						return $surprisetalk$elm_bulma$Bulma$Classes$is2by1;
-					default:
-						return $surprisetalk$elm_bulma$Bulma$Classes$none;
-				}
-			}()
-			]));
-};
-var $elm$html$Html$img = _VirtualDom_node('img');
-var $elm$virtual_dom$VirtualDom$Normal = function (a) {
-	return {$: 0, a: a};
-};
-var $elm$virtual_dom$VirtualDom$on = _VirtualDom_on;
-var $elm$html$Html$Events$on = F2(
-	function (event, decoder) {
-		return A2(
-			$elm$virtual_dom$VirtualDom$on,
-			event,
-			$elm$virtual_dom$VirtualDom$Normal(decoder));
-	});
-var $elm$html$Html$Events$onMouseOut = function (msg) {
-	return A2(
-		$elm$html$Html$Events$on,
-		'mouseout',
-		$elm$json$Json$Decode$succeed(msg));
-};
-var $elm$html$Html$Events$onMouseOver = function (msg) {
-	return A2(
-		$elm$html$Html$Events$on,
-		'mouseover',
-		$elm$json$Json$Decode$succeed(msg));
-};
-var $elm$html$Html$Attributes$src = function (url) {
-	return A2(
-		$elm$html$Html$Attributes$stringProperty,
-		'src',
-		_VirtualDom_noJavaScriptOrHtmlUri(url));
 };
 var $surprisetalk$elm_bulma$Bulma$Classes$isChild = $elm$html$Html$Attributes$class('is-child');
 var $surprisetalk$elm_bulma$Bulma$Layout$tileChild = function (width) {
@@ -5567,154 +5578,1281 @@ var $surprisetalk$elm_bulma$Bulma$Layout$tileParent = function (width) {
 			}()
 			]));
 };
-var $author$project$Page$Welcome$viewBikesTile = function (attrs) {
-	return A3(
-		$surprisetalk$elm_bulma$Bulma$Layout$tileParent,
-		0,
-		_List_Nil,
+var $surprisetalk$elm_bulma$Bulma$Classes$title = $elm$html$Html$Attributes$class('title');
+var $surprisetalk$elm_bulma$Bulma$Elements$title = function (size) {
+	return A2(
+		$surprisetalk$elm_bulma$Helpers$node,
+		function () {
+			switch (size) {
+				case 0:
+					return 'h1';
+				case 1:
+					return 'h2';
+				case 2:
+					return 'h3';
+				case 3:
+					return 'h4';
+				case 4:
+					return 'h5';
+				default:
+					return 'h6';
+			}
+		}(),
 		_List_fromArray(
 			[
-				A3(
-				$surprisetalk$elm_bulma$Bulma$Layout$tileChild,
-				3,
-				_List_Nil,
-				_List_fromArray(
-					[
-						A2(
-						$surprisetalk$elm_bulma$Bulma$Components$card,
-						A2(
-							$elm$core$List$append,
-							attrs,
-							_List_fromArray(
-								[
-									$elm$html$Html$Events$onMouseOver(
-									$author$project$Page$Welcome$MouseOver(0)),
-									$elm$html$Html$Events$onMouseOut(
-									$author$project$Page$Welcome$MouseOut(0))
-								])),
-						_List_fromArray(
-							[
-								A2(
-								$surprisetalk$elm_bulma$Bulma$Components$cardImage,
-								_List_Nil,
-								_List_fromArray(
-									[
-										A3(
-										$surprisetalk$elm_bulma$Bulma$Elements$image,
-										$surprisetalk$elm_bulma$Bulma$Elements$FourByThree,
-										_List_Nil,
-										_List_fromArray(
-											[
-												A2(
-												$elm$html$Html$img,
-												_List_fromArray(
-													[
-														$elm$html$Html$Attributes$src('content/blog/bikes/surly_20190630.jpg')
-													]),
-												_List_Nil)
-											]))
-									])),
-								A2(
-								$surprisetalk$elm_bulma$Bulma$Components$cardContent,
-								_List_Nil,
-								_List_fromArray(
-									[
-										$elm$html$Html$text('I\'m all about bikes')
-									])),
-								A2(
-								$surprisetalk$elm_bulma$Bulma$Components$cardFooter,
-								_List_Nil,
-								_List_fromArray(
-									[
-										A2(
-										$surprisetalk$elm_bulma$Bulma$Components$cardFooterItemLink,
-										_List_fromArray(
-											[
-												$elm$html$Html$Attributes$href('/bikes')
-											]),
-										_List_fromArray(
-											[
-												$elm$html$Html$text('Read more...')
-											]))
-									]))
-							]))
-					]))
+				$surprisetalk$elm_bulma$Bulma$Classes$title,
+				function () {
+				switch (size) {
+					case 0:
+						return $surprisetalk$elm_bulma$Bulma$Classes$is1;
+					case 1:
+						return $surprisetalk$elm_bulma$Bulma$Classes$is2;
+					case 2:
+						return $surprisetalk$elm_bulma$Bulma$Classes$is3;
+					case 3:
+						return $surprisetalk$elm_bulma$Bulma$Classes$is4;
+					case 4:
+						return $surprisetalk$elm_bulma$Bulma$Classes$is5;
+					default:
+						return $surprisetalk$elm_bulma$Bulma$Classes$is6;
+				}
+			}()
 			]));
 };
-var $author$project$Page$Welcome$viewTile = F2(
-	function (t, model) {
-		var _v0 = _Utils_Tuple2(t, model);
-		if (!_v0.b.$) {
-			var _v1 = _v0.a;
-			var _v2 = _v0.b;
-			return $author$project$Page$Welcome$viewBikesTile(
-				_List_fromArray(
-					[
-						A2($elm$html$Html$Attributes$style, 'transition', '0.3s ease-in-out')
-					]));
-		} else {
-			var _v3 = _v0.a;
-			var _v4 = _v0.b.a;
-			return $author$project$Page$Welcome$viewBikesTile($author$project$Page$Welcome$cardShadow);
-		}
-	});
-var $author$project$Page$Welcome$viewBody = function (model) {
-	return _List_fromArray(
+var $surprisetalk$elm_bulma$Bulma$Elements$Natural = {$: 0};
+var $elm$html$Html$Attributes$alt = $elm$html$Html$Attributes$stringProperty('alt');
+var $elm$html$Html$article = _VirtualDom_node('article');
+var $surprisetalk$elm_bulma$Bulma$Classes$image = $elm$html$Html$Attributes$class('image');
+var $surprisetalk$elm_bulma$Bulma$Classes$is128x128 = $elm$html$Html$Attributes$class('is-128x128');
+var $surprisetalk$elm_bulma$Bulma$Classes$is16by9 = $elm$html$Html$Attributes$class('is-16by9');
+var $surprisetalk$elm_bulma$Bulma$Classes$is16x16 = $elm$html$Html$Attributes$class('is-16x16');
+var $surprisetalk$elm_bulma$Bulma$Classes$is1by1 = $elm$html$Html$Attributes$class('is-1by1');
+var $surprisetalk$elm_bulma$Bulma$Classes$is24x24 = $elm$html$Html$Attributes$class('is-24x24');
+var $surprisetalk$elm_bulma$Bulma$Classes$is2by1 = $elm$html$Html$Attributes$class('is-2by1');
+var $surprisetalk$elm_bulma$Bulma$Classes$is32x32 = $elm$html$Html$Attributes$class('is-32x32');
+var $surprisetalk$elm_bulma$Bulma$Classes$is3by2 = $elm$html$Html$Attributes$class('is-3by2');
+var $surprisetalk$elm_bulma$Bulma$Classes$is48x48 = $elm$html$Html$Attributes$class('is-48x48');
+var $surprisetalk$elm_bulma$Bulma$Classes$is4by3 = $elm$html$Html$Attributes$class('is-4by3');
+var $surprisetalk$elm_bulma$Bulma$Classes$is64x64 = $elm$html$Html$Attributes$class('is-64x64');
+var $surprisetalk$elm_bulma$Bulma$Classes$is96x96 = $elm$html$Html$Attributes$class('is-96x96');
+var $surprisetalk$elm_bulma$Bulma$Elements$image = function (shape) {
+	return A2(
+		$surprisetalk$elm_bulma$Helpers$node,
+		'figure',
+		_List_fromArray(
+			[
+				$surprisetalk$elm_bulma$Bulma$Classes$image,
+				function () {
+				switch (shape.$) {
+					case 1:
+						switch (shape.a) {
+							case 7:
+								var _v1 = shape.a;
+								return $surprisetalk$elm_bulma$Bulma$Classes$is1by1;
+							case 0:
+								var _v2 = shape.a;
+								return $surprisetalk$elm_bulma$Bulma$Classes$is16x16;
+							case 1:
+								var _v3 = shape.a;
+								return $surprisetalk$elm_bulma$Bulma$Classes$is24x24;
+							case 2:
+								var _v4 = shape.a;
+								return $surprisetalk$elm_bulma$Bulma$Classes$is32x32;
+							case 3:
+								var _v5 = shape.a;
+								return $surprisetalk$elm_bulma$Bulma$Classes$is48x48;
+							case 4:
+								var _v6 = shape.a;
+								return $surprisetalk$elm_bulma$Bulma$Classes$is64x64;
+							case 5:
+								var _v7 = shape.a;
+								return $surprisetalk$elm_bulma$Bulma$Classes$is96x96;
+							default:
+								var _v8 = shape.a;
+								return $surprisetalk$elm_bulma$Bulma$Classes$is128x128;
+						}
+					case 2:
+						return $surprisetalk$elm_bulma$Bulma$Classes$is4by3;
+					case 3:
+						return $surprisetalk$elm_bulma$Bulma$Classes$is3by2;
+					case 4:
+						return $surprisetalk$elm_bulma$Bulma$Classes$is16by9;
+					case 5:
+						return $surprisetalk$elm_bulma$Bulma$Classes$is2by1;
+					default:
+						return $surprisetalk$elm_bulma$Bulma$Classes$none;
+				}
+			}()
+			]));
+};
+var $elm$html$Html$img = _VirtualDom_node('img');
+var $elm$html$Html$Attributes$src = function (url) {
+	return A2(
+		$elm$html$Html$Attributes$stringProperty,
+		'src',
+		_VirtualDom_noJavaScriptOrHtmlUri(url));
+};
+var $author$project$Page$Bikes$blueEagleArticle = A2(
+	$elm$html$Html$article,
+	_List_Nil,
+	_List_fromArray(
 		[
-			$surprisetalk$elm_bulma$Bulma$CDN$stylesheet,
 			A3(
-			$surprisetalk$elm_bulma$Bulma$Layout$section,
+			$surprisetalk$elm_bulma$Bulma$Elements$title,
 			0,
+			_List_Nil,
+			_List_fromArray(
+				[
+					$elm$html$Html$text('The birth of tinkering, 2012-2015ish')
+				])),
+			A3(
+			$surprisetalk$elm_bulma$Bulma$Elements$image,
+			$surprisetalk$elm_bulma$Bulma$Elements$Natural,
 			_List_Nil,
 			_List_fromArray(
 				[
 					A2(
-					$surprisetalk$elm_bulma$Bulma$Layout$container,
-					_List_Nil,
+					$elm$html$Html$img,
 					_List_fromArray(
 						[
-							A3(
-							$surprisetalk$elm_bulma$Bulma$Elements$title,
-							0,
-							_List_Nil,
-							_List_fromArray(
-								[
-									$elm$html$Html$text('mattswoon')
-								]))
-						]))
+							$elm$html$Html$Attributes$src('content/blog/bikes/blue_eagle.jpg'),
+							$elm$html$Html$Attributes$alt('A black, white and blue (an embarrassingly 2012 smartphone filter) picture of the Blue Eagle.\n It\'s covered in rust but has shiny new no-name cranks, VO left bank handlebars, and a rip-off Enfield leather saddle from eBay.')
+						]),
+					_List_Nil)
+				])),
+			A2(
+			$elm$html$Html$p,
+			_List_Nil,
+			_List_fromArray(
+				[
+					$elm$html$Html$text('I originally bought the blue eagle for $20 because I needed a seatpost, \nbut decided I liked it more than whatever other thing I was tinkering on.')
+				])),
+			A2(
+			$elm$html$Html$p,
+			_List_Nil,
+			_List_fromArray(
+				[
+					$elm$html$Html$text('I read sheldonbrown.com from start to finish and bought cheap parts off ebay. \nI doubled downed and bought handlebars, long reach brakes and bar end brake\nlevers from velo-orange.')
 				])),
 			A3(
-			$surprisetalk$elm_bulma$Bulma$Layout$section,
+			$surprisetalk$elm_bulma$Bulma$Elements$image,
+			$surprisetalk$elm_bulma$Bulma$Elements$Natural,
+			_List_Nil,
+			_List_fromArray(
+				[
+					A2(
+					$elm$html$Html$img,
+					_List_fromArray(
+						[
+							$elm$html$Html$Attributes$src('content/blog/bikes/blue_eagle_20141221.jpg'),
+							$elm$html$Html$Attributes$alt('The Blue Eagle after a trip to K-Mart to buy some coat hangers.')
+						]),
+					_List_Nil)
+				])),
+			A2(
+			$elm$html$Html$p,
+			_List_Nil,
+			_List_fromArray(
+				[
+					$elm$html$Html$text('The blue eagle lasted a few years and got an upgrade to a 6 speed cassette harvested from \na bike left on a friends porch, which was donated to me and converted to a fixed gear.')
+				])),
+			A3(
+			$surprisetalk$elm_bulma$Bulma$Elements$image,
+			$surprisetalk$elm_bulma$Bulma$Elements$Natural,
+			_List_Nil,
+			_List_fromArray(
+				[
+					A2(
+					$elm$html$Html$img,
+					_List_fromArray(
+						[
+							$elm$html$Html$Attributes$src('content/blog/bikes/blue_eagle_20141126.jpg'),
+							$elm$html$Html$Attributes$alt('A POV shot of the Blue Eagle in action. Clearly visible is the crappy job I did \nof using linseed oil as a rust protector on the stem, which has made it a gross yellow colour.')
+						]),
+					_List_Nil)
+				]))
+		]));
+var $author$project$Page$Bikes$cargoArticle = A2($elm$html$Html$article, _List_Nil, _List_Nil);
+var $elm$html$Html$figcaption = _VirtualDom_node('figcaption');
+var $author$project$Page$Bikes$carrerraArticle = A2(
+	$elm$html$Html$article,
+	_List_Nil,
+	_List_fromArray(
+		[
+			A3(
+			$surprisetalk$elm_bulma$Bulma$Elements$title,
 			0,
 			_List_Nil,
 			_List_fromArray(
 				[
-					A3(
-					$surprisetalk$elm_bulma$Bulma$Layout$tileAncestor,
-					0,
+					$elm$html$Html$text('My first big kid\'s bike')
+				])),
+			A3(
+			$surprisetalk$elm_bulma$Bulma$Elements$image,
+			$surprisetalk$elm_bulma$Bulma$Elements$Natural,
+			_List_Nil,
+			_List_fromArray(
+				[
+					A2(
+					$elm$html$Html$img,
+					_List_fromArray(
+						[
+							$elm$html$Html$Attributes$src('content/blog/bikes/carrera_and_me.jpg'),
+							$elm$html$Html$Attributes$alt('Me and the Carrera after a ride in the Royal National Park. The hills there inspired me to replace the crankset with one with fewer teeth.')
+						]),
+					_List_Nil),
+					A2(
+					$elm$html$Html$figcaption,
 					_List_Nil,
 					_List_fromArray(
 						[
-							A2($author$project$Page$Welcome$viewTile, 0, model)
+							$elm$html$Html$text('Photo care of'),
+							A2(
+							$elm$html$Html$a,
+							_List_fromArray(
+								[
+									$elm$html$Html$Attributes$href('https://www.instagram.com/generalben/')
+								]),
+							_List_fromArray(
+								[
+									$elm$html$Html$text(' @generalben')
+								]))
+						]))
+				])),
+			A2(
+			$elm$html$Html$p,
+			_List_Nil,
+			_List_fromArray(
+				[
+					$elm$html$Html$text('Mid 2021 I started joining some friends on some longer road rides and was a bit scared I wouldn\'t be able to keep up on a 14kg touring bike.\n I had a 90s road bike in the shed which weighed about 11kg so I thought I should look around for some more contemporary parts and bring it into the 21st century.\n However, due to the Covid pandemic bike parts were hard to come buy (for a price that I wanted to spend), so I was searching on eBay/gumtree/facebook marketplace\n for second hand parts when I came across a rather garish listing of a yellow Carrera. It was an aluminium frame, carbon wheels, decent drivetrain (Ultegra cranks\n with microShift shifters and mechs) for $760.')
+				])),
+			A2(
+			$elm$html$Html$p,
+			_List_Nil,
+			_List_fromArray(
+				[
+					$elm$html$Html$text('I thought I\'ll just put in a bid, surely it will go up a bit and I\'ll miss out, but whatever hey? Everything else I\'d looked at that was remotely similar was about $1 200\n     and a groupset alone was looking at $750-$900. Sure enough, no one else was particularly interested in frame brand that had fallen out of fashion and non-Shimano shifters.')
+				])),
+			A2(
+			$elm$html$Html$p,
+			_List_Nil,
+			_List_fromArray(
+				[
+					$elm$html$Html$text('Picking up the bike was a wild experience in itself, the seller lived in what can only be described as a Bianchi museum.')
+				]))
+		]));
+var $author$project$Page$Bikes$clamentArticle = A2(
+	$elm$html$Html$article,
+	_List_Nil,
+	_List_fromArray(
+		[
+			A3(
+			$surprisetalk$elm_bulma$Bulma$Elements$title,
+			0,
+			_List_Nil,
+			_List_fromArray(
+				[
+					$elm$html$Html$text('A succumbening to hipster-dom, the fixed gear, 2012-2015ish')
+				])),
+			A3(
+			$surprisetalk$elm_bulma$Bulma$Elements$image,
+			$surprisetalk$elm_bulma$Bulma$Elements$Natural,
+			_List_Nil,
+			_List_fromArray(
+				[
+					A2(
+					$elm$html$Html$img,
+					_List_fromArray(
+						[
+							$elm$html$Html$Attributes$src('content/blog/bikes/clament_20120324.jpg'),
+							$elm$html$Html$Attributes$alt('The Clament, converted to fixed gear, photgraphed in front of the ANZAC bridge')
+						]),
+					_List_Nil)
+				])),
+			A2(
+			$elm$html$Html$p,
+			_List_Nil,
+			_List_fromArray(
+				[
+					$elm$html$Html$text('Fixed gears are dumb. I hated them. Don\'t be such a twat and just\nget some gears.')
+				])),
+			A2(
+			$elm$html$Html$p,
+			_List_Nil,
+			_List_fromArray(
+				[
+					$elm$html$Html$text('Everyone was saying that fixed gears are so great because they have\nso little maintenance, or that they\'re cheap, or that you don\'t need brakes\nbecause your thighs can crush a fuckin\' watermelon, or that all the bike\nmessengers in new york use them so they must be super cool.')
+				])),
+			A2(
+			$elm$html$Html$p,
+			_List_Nil,
+			_List_fromArray(
+				[
+					$elm$html$Html$text('It made me irrationally angry, so when a friend moved into a place with\nan abandoned bike on the front porch, I took and converted it into a fixie.\nFuck, I even sawed the drops to make bullhorns, that\'s how hard I went.')
+				])),
+			A2(
+			$elm$html$Html$p,
+			_List_Nil,
+			_List_fromArray(
+				[
+					$elm$html$Html$text('Turns out, fixies are really fun and there\'s no rational reason for it. They just\nare. And maybe the watermelon thing has some merit.')
+				]))
+		]));
+var $surprisetalk$elm_bulma$Bulma$Classes$content = $elm$html$Html$Attributes$class('content');
+var $surprisetalk$elm_bulma$Bulma$Elements$content = function (size) {
+	return A2(
+		$surprisetalk$elm_bulma$Helpers$node,
+		'div',
+		_List_fromArray(
+			[
+				$surprisetalk$elm_bulma$Bulma$Classes$content,
+				function () {
+				switch (size) {
+					case 0:
+						return $surprisetalk$elm_bulma$Bulma$Classes$isSmall;
+					case 1:
+						return $surprisetalk$elm_bulma$Bulma$Classes$none;
+					case 2:
+						return $surprisetalk$elm_bulma$Bulma$Classes$isMedium;
+					default:
+						return $surprisetalk$elm_bulma$Bulma$Classes$isLarge;
+				}
+			}()
+			]));
+};
+var $author$project$Page$Bikes$khsArticle = A2(
+	$elm$html$Html$article,
+	_List_Nil,
+	_List_fromArray(
+		[
+			A3(
+			$surprisetalk$elm_bulma$Bulma$Elements$title,
+			0,
+			_List_Nil,
+			_List_fromArray(
+				[
+					$elm$html$Html$text('My knees can sleep when they\'re dead, ~2015-current')
+				])),
+			A3(
+			$surprisetalk$elm_bulma$Bulma$Elements$image,
+			$surprisetalk$elm_bulma$Bulma$Elements$Natural,
+			_List_Nil,
+			_List_fromArray(
+				[
+					A2(
+					$elm$html$Html$img,
+					_List_fromArray(
+						[
+							$elm$html$Html$Attributes$src('content/blog/bikes/khs_20180216.jpg'),
+							$elm$html$Html$Attributes$alt('A KHS track bike frame with a Wald 137 basket on front and VO porteur handlebars')
+						]),
+					_List_Nil)
+				])),
+			A2(
+			$elm$html$Html$p,
+			_List_Nil,
+			_List_fromArray(
+				[
+					$elm$html$Html$text('A former housemate of mine was pivotal in my descent into bike tinkerdom. Ironically, he \n was also why I hated fixed gears so much, that is until I rode one.')
+				])),
+			A2(
+			$elm$html$Html$p,
+			_List_Nil,
+			_List_fromArray(
+				[
+					$elm$html$Html$text('This bike started out as his, and I watched him replace every. single. part. on it, except\n the seat post. Some time around 2014/2015, after we\'d both moved, he\n gave it to me - he was no longer riding it and didn\'t want to see it rust on the balcony\n of his coastal apartment.')
+				])),
+			A3(
+			$surprisetalk$elm_bulma$Bulma$Elements$image,
+			$surprisetalk$elm_bulma$Bulma$Elements$Natural,
+			_List_Nil,
+			_List_fromArray(
+				[
+					A2(
+					$elm$html$Html$img,
+					_List_fromArray(
+						[
+							$elm$html$Html$Attributes$src('content/blog/bikes/khs_20170108.jpg'),
+							$elm$html$Html$Attributes$alt('The KHS fixed gear bike without the Walk basket, instead there\'s an old knapsack strapped to the seatpost')
+						]),
+					_List_Nil)
+				])),
+			A2(
+			$elm$html$Html$p,
+			_List_Nil,
+			_List_fromArray(
+				[
+					$elm$html$Html$text('I\'ve not done much to it, except change the handlebars to something more\n my preferred style (VO porteur bars from the speedwell) and give it some\n luggage options depending on what was lying around at the time.')
+				])),
+			A3(
+			$surprisetalk$elm_bulma$Bulma$Elements$image,
+			$surprisetalk$elm_bulma$Bulma$Elements$Natural,
+			_List_Nil,
+			_List_fromArray(
+				[
+					A2(
+					$elm$html$Html$img,
+					_List_fromArray(
+						[
+							$elm$html$Html$Attributes$src('content/blog/bikes/khs_20171012.jpg'),
+							$elm$html$Html$Attributes$alt('The KHS at night, very "urban". ')
+						]),
+					_List_Nil)
+				]))
+		]));
+var $author$project$Page$Bikes$korean3SixtyArticle = A2(
+	$elm$html$Html$article,
+	_List_Nil,
+	_List_fromArray(
+		[
+			A3(
+			$surprisetalk$elm_bulma$Bulma$Elements$title,
+			0,
+			_List_Nil,
+			_List_fromArray(
+				[
+					$elm$html$Html$text('Into the fold, 2019-current')
+				])),
+			A3(
+			$surprisetalk$elm_bulma$Bulma$Elements$image,
+			$surprisetalk$elm_bulma$Bulma$Elements$Natural,
+			_List_Nil,
+			_List_fromArray(
+				[
+					A2(
+					$elm$html$Html$img,
+					_List_fromArray(
+						[
+							$elm$html$Html$Attributes$src('content/blog/bikes/folding_20200213.jpg'),
+							$elm$html$Html$Attributes$alt('A 3Sixty folding bike leans against a post at the Glebe Light Rail station at dusk. In the background the historic Glebe rail tunnel is illuminated')
+						]),
+					_List_Nil)
+				])),
+			A2(
+			$elm$html$Html$p,
+			_List_Nil,
+			_List_fromArray(
+				[
+					$elm$html$Html$text('My new year\'s resolution for 2019 was to not buy a new bike. I failed.')
+				])),
+			A2(
+			$elm$html$Html$p,
+			_List_Nil,
+			_List_fromArray(
+				[
+					$elm$html$Html$text('I\'d been curious as to whether I wanted to a Brompton for quite some time. Come October, during one of\nmy regular checks of gumtree, I came across a second hand one for $800. Heccin bargain, how could I pass up? Plus it was my birthday.')
+				])),
+			A2(
+			$elm$html$Html$p,
+			_List_Nil,
+			_List_fromArray(
+				[
+					$elm$html$Html$text('Turns out, it wasn\'t so much a Brompton, but a near identical knock-off from a Korean brand 3sixty. Anyway, it was cheap and I\njustified its purchase as way of trying the folding lifestyle before I make the $2k, full experience commitment.')
+				])),
+			A2(
+			$elm$html$Html$p,
+			_List_Nil,
+			_List_fromArray(
+				[
+					$elm$html$Html$text('The seat post wasn\'t long enough, and was also bent, and crankset fell off while riding and I think the frame is slightly\nbent. So definitely learnt some lessons: yes I do like\nfolding bikes, and yes it\'s probably  worth the cash to get a Brompton. They\'re just so damn convenient for combining with other forms\nof transit. I can now also ride to the pub, and not have to leave my bike there overnight!')
+				]))
+		]));
+var $surprisetalk$elm_bulma$Bulma$Elements$H2 = 1;
+var $author$project$Page$Bikes$noNameTouringArticle = A2(
+	$elm$html$Html$article,
+	_List_Nil,
+	_List_fromArray(
+		[
+			A3(
+			$surprisetalk$elm_bulma$Bulma$Elements$title,
+			0,
+			_List_Nil,
+			_List_fromArray(
+				[
+					$elm$html$Html$text('Baby\'s first tour, 2016-2017')
+				])),
+			A3(
+			$surprisetalk$elm_bulma$Bulma$Elements$image,
+			$surprisetalk$elm_bulma$Bulma$Elements$Natural,
+			_List_Nil,
+			_List_fromArray(
+				[
+					A2(
+					$elm$html$Html$img,
+					_List_fromArray(
+						[
+							$elm$html$Html$Attributes$src('content/blog/bikes/touring_20161104.jpg'),
+							$elm$html$Html$Attributes$alt('A no-name touring bike, fully loaded while on tour. \n Features a rear rack with two panniers and gear on top, a handlebar bag, and three stainless\n steel water bottles - two on the handlebars and one on the seat tube.')
+						]),
+					_List_Nil)
+				])),
+			A2(
+			$elm$html$Html$p,
+			_List_Nil,
+			_List_fromArray(
+				[
+					$elm$html$Html$text('I\'d long wanted to go on a bike tour, but it took a good excuse, like a 30th birthday, \nfor me to actually do it.')
+				])),
+			A2(
+			$elm$html$Html$p,
+			_List_Nil,
+			_List_fromArray(
+				[
+					$elm$html$Html$text('The first step was to a get touring bike. By now, you can probably understand that I can\'t \njust **buy** one and have some common, off-the-rack bike. No that would be contrary to whole\npoint of a coming-of-(an)-age bike tour. I had to build one, and of course I had to  \nbase the whole thing around some part that I\'d gotten for free.')
+				])),
+			A2(
+			$elm$html$Html$p,
+			_List_Nil,
+			_List_fromArray(
+				[
+					$elm$html$Html$text('That part was a frame, which I found discarded in a back alley, with a seized quill stem,\nand a bottom bracket I\'d never seen before or since. The stem came out with the help\nof a hacksaw and a lack of emotional attachment to the fork, and the bottom bracket with wd40, a pipe wrench and eventually\nby clamping the bottom bracket in a bench vice and turning the whole frame.')
+				])),
+			A3(
+			$surprisetalk$elm_bulma$Bulma$Elements$image,
+			$surprisetalk$elm_bulma$Bulma$Elements$Natural,
+			_List_Nil,
+			_List_fromArray(
+				[
+					A2(
+					$elm$html$Html$img,
+					_List_fromArray(
+						[
+							$elm$html$Html$Attributes$src('content/blog/bikes/touring_20160820.jpg'),
+							$elm$html$Html$Attributes$alt('A bare frame hanging in a tree in my back yard, ready to painted.')
+						]),
+					_List_Nil)
+				])),
+			A3(
+			$surprisetalk$elm_bulma$Bulma$Elements$image,
+			$surprisetalk$elm_bulma$Bulma$Elements$Natural,
+			_List_Nil,
+			_List_fromArray(
+				[
+					A2(
+					$elm$html$Html$img,
+					_List_fromArray(
+						[
+							$elm$html$Html$Attributes$src('content/blog/bikes/touring_20160828.jpg'),
+							$elm$html$Html$Attributes$alt('A partially built no-name touring bike with wheels and handlebars attached.')
+						]),
+					_List_Nil)
+				])),
+			A2(
+			$elm$html$Html$p,
+			_List_Nil,
+			_List_fromArray(
+				[
+					$elm$html$Html$text('I planned the tour conservatively. I scheduled 40km a day, and took a fortnight off work.\nIt took something like 5 days. 10/10 would do again.')
+				])),
+			A3(
+			$surprisetalk$elm_bulma$Bulma$Elements$title,
+			1,
+			_List_Nil,
+			_List_fromArray(
+				[
+					$elm$html$Html$text('The hunge')
+				])),
+			A3(
+			$surprisetalk$elm_bulma$Bulma$Elements$image,
+			$surprisetalk$elm_bulma$Bulma$Elements$Natural,
+			_List_Nil,
+			_List_fromArray(
+				[
+					A2(
+					$elm$html$Html$img,
+					_List_fromArray(
+						[
+							$elm$html$Html$Attributes$src('content/blog/bikes/touring_20170714.jpg'),
+							$elm$html$Html$Attributes$alt('The no-name touring bike leans against a cattle paddock gate. The handlebar bag has been replaced with a\n Soma porteur front rack with a Swift Industries Sugarloaf bag on top.')
+						]),
+					_List_Nil)
+				])),
+			A2(
+			$elm$html$Html$p,
+			_List_Nil,
+			_List_fromArray(
+				[
+					$elm$html$Html$text('A weekend away with friends in the Hunter Valley was organised and I decided to make my own way there.\nI caught the train to Morrisset and rode the rest of the way through the Olney state forest, meeting\nthem at the Wollembi Tavern for lunch along the way.')
+				])),
+			A2(
+			$elm$html$Html$p,
+			_List_Nil,
+			_List_fromArray(
+				[
+					$elm$html$Html$text('This was my longest ride ever and took me all day. I got on the train around 4am and arrived at the airbnb\n  just before dark at about 5pm. The whole ride was about 100km, and I only shared about 10 of those with cars.')
+				])),
+			A3(
+			$surprisetalk$elm_bulma$Bulma$Elements$image,
+			$surprisetalk$elm_bulma$Bulma$Elements$Natural,
+			_List_Nil,
+			_List_fromArray(
+				[
+					A2(
+					$elm$html$Html$img,
+					_List_fromArray(
+						[
+							$elm$html$Html$Attributes$src('content/blog/bikes/touring_20170714_train.jpg'),
+							$elm$html$Html$Attributes$alt('The no-name touring bike hanging from a bike rack on a NSW Intercity train.')
+						]),
+					_List_Nil)
+				])),
+			A3(
+			$surprisetalk$elm_bulma$Bulma$Elements$image,
+			$surprisetalk$elm_bulma$Bulma$Elements$Natural,
+			_List_Nil,
+			_List_fromArray(
+				[
+					A2(
+					$elm$html$Html$img,
+					_List_fromArray(
+						[
+							$elm$html$Html$Attributes$src('content/blog/bikes/touring_20170714_forest.jpg'),
+							$elm$html$Html$Attributes$alt('The no-name touring bike leaning against a felled tree in the Olney State Forest.')
+						]),
+					_List_Nil)
+				]))
+		]));
+var $author$project$Page$Bikes$speedwellArticle = A2(
+	$elm$html$Html$article,
+	_List_Nil,
+	_List_fromArray(
+		[
+			A3(
+			$surprisetalk$elm_bulma$Bulma$Elements$title,
+			0,
+			_List_Nil,
+			_List_fromArray(
+				[
+					$elm$html$Html$text('Actually this one is quite old, 2013-current')
+				])),
+			A3(
+			$surprisetalk$elm_bulma$Bulma$Elements$image,
+			$surprisetalk$elm_bulma$Bulma$Elements$Natural,
+			_List_Nil,
+			_List_fromArray(
+				[
+					A2(
+					$elm$html$Html$img,
+					_List_fromArray(
+						[
+							$elm$html$Html$Attributes$src('content/blog/bikes/speedwell_20130512_100554.jpg'),
+							$elm$html$Html$Attributes$alt('A dark purple vintage Speedwell bicycle. The chain is rusty and the \ngears - a Sturmy Archer AW3 - aren\'t connected.')
+						]),
+					_List_Nil)
+				])),
+			A2(
+			$elm$html$Html$p,
+			_List_Nil,
+			_List_fromArray(
+				[
+					$elm$html$Html$text('I had two bikes by now, and had bored my family enough with this new found interest\nthat I was becoming a "bike guy". My grandparents\' neighbour was getting rid of his\nold bike that had been sitting in his backyard shed for some time. So my grandparents\nput me in touch and I went to have a look - I don\'t need a new bike, but I can have a look\nright.')
+				])),
+			A3(
+			$surprisetalk$elm_bulma$Bulma$Elements$image,
+			$surprisetalk$elm_bulma$Bulma$Elements$Natural,
+			_List_Nil,
+			_List_fromArray(
+				[
+					A2(
+					$elm$html$Html$img,
+					_List_fromArray(
+						[
+							$elm$html$Html$Attributes$src('content/blog/bikes/speedwell_20130512_100606.jpg'),
+							$elm$html$Html$Attributes$alt('Original Sturmey Archer shifter, mounted to the top tube.')
+						]),
+					_List_Nil)
+				])),
+			A2(
+			$elm$html$Html$p,
+			_List_Nil,
+			_List_fromArray(
+				[
+					$elm$html$Html$text('When he said the bike had been sitting in the shed for a while, he meant since the mid-70s.\nHe bought it brand new in in 1952. At this time, this bike was more than twice my age\nand I would be its second owner.')
+				])),
+			A3(
+			$surprisetalk$elm_bulma$Bulma$Elements$image,
+			$surprisetalk$elm_bulma$Bulma$Elements$Natural,
+			_List_Nil,
+			_List_fromArray(
+				[
+					A2(
+					$elm$html$Html$img,
+					_List_fromArray(
+						[
+							$elm$html$Html$Attributes$src('content/blog/bikes/speedwell_20130512_101429.jpg'),
+							$elm$html$Html$Attributes$alt('Original Wrights saddle, worn and with rusty rivets.')
+						]),
+					_List_Nil)
+				])),
+			A3(
+			$surprisetalk$elm_bulma$Bulma$Elements$image,
+			$surprisetalk$elm_bulma$Bulma$Elements$Natural,
+			_List_Nil,
+			_List_fromArray(
+				[
+					A2(
+					$elm$html$Html$img,
+					_List_fromArray(
+						[
+							$elm$html$Html$Attributes$src('content/blog/bikes/speedwell_20130512_100722.jpg'),
+							$elm$html$Html$Attributes$alt('Serial number of the Speedwell frame. Number reads 24875 which apparently indicates this was the 75th frame built in Feb, 1948.')
+						]),
+					_List_Nil)
+				])),
+			A2(
+			$elm$html$Html$p,
+			_List_Nil,
+			_List_fromArray(
+				[
+					$elm$html$Html$text('Originally I did very little to this bike, and just got it running. When I almost crashed in the rain because steel rims are a\njoke, I decided to the get the wheels re-built with aluminium rims. I added some flair with some velo-orange hammered fenders \nand porteur handlebars as well as a soma porteur rack.')
+				])),
+			A3(
+			$surprisetalk$elm_bulma$Bulma$Elements$image,
+			$surprisetalk$elm_bulma$Bulma$Elements$Natural,
+			_List_Nil,
+			_List_fromArray(
+				[
+					A2(
+					$elm$html$Html$img,
+					_List_fromArray(
+						[
+							$elm$html$Html$Attributes$src('content/blog/bikes/speedwell_20130702.jpg'),
+							$elm$html$Html$Attributes$alt('The Speedwell with the wheels re-built into aluminium rims, VO porteur handlebars and Soma porteur front rack.')
+						]),
+					_List_Nil)
+				])),
+			A2(
+			$elm$html$Html$p,
+			_List_Nil,
+			_List_fromArray(
+				[
+					$elm$html$Html$text('This setup lasted a few months until the old sturmey archer AW shat itself. My trusted bike mechanic told me they could open it up\nbut were unsure what they\'d be able to do once they did. So I replaced it with a shimano nexus 8. I left the 3 speed shifter on though\nbecause it was so cool.')
+				])),
+			A3(
+			$surprisetalk$elm_bulma$Bulma$Elements$title,
+			1,
+			_List_Nil,
+			_List_fromArray(
+				[
+					$elm$html$Html$text('A 2018 refresh: Speedwell and the hottest hits from the 50s, 70s and now')
+				])),
+			A2(
+			$elm$html$Html$p,
+			_List_Nil,
+			_List_fromArray(
+				[
+					$elm$html$Html$text('My main bike shifted to a touring bike in 2016 and the speedwell returned to a shed to await its rebirth. That came in 2018.')
+				])),
+			A2(
+			$elm$html$Html$p,
+			_List_Nil,
+			_List_fromArray(
+				[
+					$elm$html$Html$text('A colleague off-loaded a set of wheels to me with a sturmey archer hub from the late 70s, so again I bought parts to re-fit the\nspeedwell, this time as almost a time-capsule on wheels. This was no longer a bike from the 50s with some new parts on it, but a\ntrip through history itself - a frame imported from England in the 50s, some wheels from the 70s that weren\'t properly \nsecured at university, some handlebars from the 2010s mimicing a style from Paris in 30s. Now it\'s just a nice bike.')
+				])),
+			A3(
+			$surprisetalk$elm_bulma$Bulma$Elements$image,
+			$surprisetalk$elm_bulma$Bulma$Elements$Natural,
+			_List_Nil,
+			_List_fromArray(
+				[
+					A2(
+					$elm$html$Html$img,
+					_List_fromArray(
+						[
+							$elm$html$Html$Attributes$src('content/blog/bikes/speedwell_20180526_shifter.jpg'),
+							$elm$html$Html$Attributes$alt('A more modern Sturmey Archer AW shifter to match the hub from the 70s.')
+						]),
+					_List_Nil)
+				])),
+			A3(
+			$surprisetalk$elm_bulma$Bulma$Elements$image,
+			$surprisetalk$elm_bulma$Bulma$Elements$Natural,
+			_List_Nil,
+			_List_fromArray(
+				[
+					A2(
+					$elm$html$Html$img,
+					_List_fromArray(
+						[
+							$elm$html$Html$Attributes$src('content/blog/bikes/speedwell_20180526_hub.jpg'),
+							$elm$html$Html$Attributes$alt('A Sturmey Archer AW 3-speed hub built in 1977.')
+						]),
+					_List_Nil)
+				])),
+			A3(
+			$surprisetalk$elm_bulma$Bulma$Elements$image,
+			$surprisetalk$elm_bulma$Bulma$Elements$Natural,
+			_List_Nil,
+			_List_fromArray(
+				[
+					A2(
+					$elm$html$Html$img,
+					_List_fromArray(
+						[
+							$elm$html$Html$Attributes$src('content/blog/bikes/speedwell_20180526_security.jpg'),
+							$elm$html$Html$Attributes$alt('A spoke card from University Security warning that the bike hadn\'t been secured in an approved rack.')
+						]),
+					_List_Nil)
+				]))
+		]));
+var $author$project$Page$Bikes$surlyArticle = A2(
+	$elm$html$Html$article,
+	_List_Nil,
+	_List_fromArray(
+		[
+			A3(
+			$surprisetalk$elm_bulma$Bulma$Elements$title,
+			0,
+			_List_Nil,
+			_List_fromArray(
+				[
+					$elm$html$Html$text('My most expensive bike to date, 2018-current')
+				])),
+			A3(
+			$surprisetalk$elm_bulma$Bulma$Elements$image,
+			$surprisetalk$elm_bulma$Bulma$Elements$Natural,
+			_List_Nil,
+			_List_fromArray(
+				[
+					A2(
+					$elm$html$Html$img,
+					_List_fromArray(
+						[
+							$elm$html$Html$Attributes$src('content/blog/bikes/surly_20190630.jpg'),
+							$elm$html$Html$Attributes$alt('A fully loaded Surly Disc Trucker with leather VO saddle, red handlebar\ntape and Dia Compe bar-end shifters. Attached the front is a Surly front rack with a Wald\n137 basket on top holding a Swift Industries Sugarloaf bag. Hanging from the saddle is\nSwift Industries Zeitgeist saddle bag. Two Aventir brand panniers hang from the front rack')
+						]),
+					_List_Nil)
+				])),
+			A2(
+			$elm$html$Html$p,
+			_List_Nil,
+			_List_fromArray(
+				[
+					$elm$html$Html$text('The cost of a bike is a nebulous concept for me, because I\'ve not really gone to shop and bought one\nthat was sitting there ready to go. The surly holds the record for most expensive bike mostly because\nI actually bought everything that\'s on it, at some point, rather than having been donated bits and pieces.')
+				])),
+			A2(
+			$elm$html$Html$p,
+			_List_Nil,
+			_List_fromArray(
+				[
+					$elm$html$Html$text('It came about because the scalveged frame on the touring bike wasn\'t quite doing it for me, and I wanted\nsomething that actually had the bosses to attach the racks and accessories I wanted to attach. I also wanted\ndisc brakes.')
+				])),
+			A2(
+			$elm$html$Html$p,
+			_List_Nil,
+			_List_fromArray(
+				[
+					$elm$html$Html$text('Most of the touring bike made its way across to the surly when the frame arrived, and all in all I ended up with...\nbasically a stock disc trucker - sora groupset, trp disc brakes (upraded from avid bb5s once I\'d had enough of their\nincessant harpy squealing), dia compe bar end shifters. So not only is this the most expensive bike I\'ve ever owned,\nit probably actually cost me more than buying one straight off the shop floor ¯\\_(ツ)_/¯ .')
+				]))
+		]));
+var $author$project$Page$Bikes$viewMainPanel = function (bike) {
+	switch (bike) {
+		case 0:
+			return _List_fromArray(
+				[
+					A3(
+					$surprisetalk$elm_bulma$Bulma$Elements$content,
+					1,
+					_List_Nil,
+					_List_fromArray(
+						[$author$project$Page$Bikes$blueEagleArticle]))
+				]);
+		case 1:
+			return _List_fromArray(
+				[
+					A3(
+					$surprisetalk$elm_bulma$Bulma$Elements$content,
+					1,
+					_List_Nil,
+					_List_fromArray(
+						[$author$project$Page$Bikes$clamentArticle]))
+				]);
+		case 2:
+			return _List_fromArray(
+				[
+					A3(
+					$surprisetalk$elm_bulma$Bulma$Elements$content,
+					1,
+					_List_Nil,
+					_List_fromArray(
+						[$author$project$Page$Bikes$speedwellArticle]))
+				]);
+		case 3:
+			return _List_fromArray(
+				[
+					A3(
+					$surprisetalk$elm_bulma$Bulma$Elements$content,
+					1,
+					_List_Nil,
+					_List_fromArray(
+						[$author$project$Page$Bikes$khsArticle]))
+				]);
+		case 4:
+			return _List_fromArray(
+				[
+					A3(
+					$surprisetalk$elm_bulma$Bulma$Elements$content,
+					1,
+					_List_Nil,
+					_List_fromArray(
+						[$author$project$Page$Bikes$noNameTouringArticle]))
+				]);
+		case 5:
+			return _List_fromArray(
+				[
+					A3(
+					$surprisetalk$elm_bulma$Bulma$Elements$content,
+					1,
+					_List_Nil,
+					_List_fromArray(
+						[$author$project$Page$Bikes$surlyArticle]))
+				]);
+		case 6:
+			return _List_fromArray(
+				[
+					A3(
+					$surprisetalk$elm_bulma$Bulma$Elements$content,
+					1,
+					_List_Nil,
+					_List_fromArray(
+						[$author$project$Page$Bikes$korean3SixtyArticle]))
+				]);
+		case 7:
+			return _List_fromArray(
+				[
+					A3(
+					$surprisetalk$elm_bulma$Bulma$Elements$content,
+					1,
+					_List_Nil,
+					_List_fromArray(
+						[$author$project$Page$Bikes$carrerraArticle]))
+				]);
+		default:
+			return _List_fromArray(
+				[
+					A3(
+					$surprisetalk$elm_bulma$Bulma$Elements$content,
+					1,
+					_List_Nil,
+					_List_fromArray(
+						[$author$project$Page$Bikes$cargoArticle]))
+				]);
+	}
+};
+var $author$project$Page$Bikes$Carrerra = 7;
+var $author$project$Page$Bikes$ChangeTo = $elm$core$Basics$identity;
+var $author$project$Page$Bikes$Clament = 1;
+var $author$project$Page$Bikes$KHSFixie = 3;
+var $author$project$Page$Bikes$Korean3Sixty = 6;
+var $author$project$Page$Bikes$NoNameTouring = 4;
+var $author$project$Page$Bikes$Speedwell = 2;
+var $author$project$Page$Bikes$Surly = 5;
+var $elm$virtual_dom$VirtualDom$Normal = function (a) {
+	return {$: 0, a: a};
+};
+var $elm$virtual_dom$VirtualDom$on = _VirtualDom_on;
+var $elm$html$Html$Events$on = F2(
+	function (event, decoder) {
+		return A2(
+			$elm$virtual_dom$VirtualDom$on,
+			event,
+			$elm$virtual_dom$VirtualDom$Normal(decoder));
+	});
+var $elm$html$Html$Events$onClick = function (msg) {
+	return A2(
+		$elm$html$Html$Events$on,
+		'click',
+		$elm$json$Json$Decode$succeed(msg));
+};
+var $surprisetalk$elm_bulma$Bulma$Classes$panel = $elm$html$Html$Attributes$class('panel');
+var $surprisetalk$elm_bulma$Bulma$Components$panel = A2(
+	$surprisetalk$elm_bulma$Helpers$node,
+	'div',
+	_List_fromArray(
+		[$surprisetalk$elm_bulma$Bulma$Classes$panel]));
+var $surprisetalk$elm_bulma$Bulma$Classes$panelHeading = $elm$html$Html$Attributes$class('panel-heading');
+var $surprisetalk$elm_bulma$Bulma$Components$panelHeading = A2(
+	$surprisetalk$elm_bulma$Helpers$node,
+	'p',
+	_List_fromArray(
+		[$surprisetalk$elm_bulma$Bulma$Classes$panelHeading]));
+var $surprisetalk$elm_bulma$Bulma$Classes$isActive = $elm$html$Html$Attributes$class('is-active');
+var $surprisetalk$elm_bulma$Bulma$Classes$panelBlock = $elm$html$Html$Attributes$class('panel-block');
+var $surprisetalk$elm_bulma$Bulma$Components$panelLink = function (active) {
+	return A2(
+		$surprisetalk$elm_bulma$Helpers$node,
+		'a',
+		_List_fromArray(
+			[
+				$surprisetalk$elm_bulma$Bulma$Classes$panelBlock,
+				function () {
+				if (active) {
+					return $surprisetalk$elm_bulma$Bulma$Classes$isActive;
+				} else {
+					return $surprisetalk$elm_bulma$Bulma$Classes$none;
+				}
+			}()
+			]));
+};
+var $author$project$Page$Bikes$viewMenu = function (bike) {
+	return _List_fromArray(
+		[
+			A2(
+			$surprisetalk$elm_bulma$Bulma$Components$panel,
+			_List_Nil,
+			_List_fromArray(
+				[
+					A2(
+					$surprisetalk$elm_bulma$Bulma$Components$panelHeading,
+					_List_Nil,
+					_List_fromArray(
+						[
+							$elm$html$Html$text('My Bikes')
+						])),
+					A3(
+					$surprisetalk$elm_bulma$Bulma$Components$panelLink,
+					!bike,
+					_List_fromArray(
+						[
+							$elm$html$Html$Events$onClick(0),
+							$elm$html$Html$Attributes$href('#/bikes')
+						]),
+					_List_fromArray(
+						[
+							$elm$html$Html$text('The Blue eagle (2012-2015ish)')
+						])),
+					A3(
+					$surprisetalk$elm_bulma$Bulma$Components$panelLink,
+					bike === 1,
+					_List_fromArray(
+						[
+							$elm$html$Html$Events$onClick(1),
+							$elm$html$Html$Attributes$href('#/bikes')
+						]),
+					_List_fromArray(
+						[
+							$elm$html$Html$text('Clament fixed gear (2012-2015ish)')
+						])),
+					A3(
+					$surprisetalk$elm_bulma$Bulma$Components$panelLink,
+					bike === 2,
+					_List_fromArray(
+						[
+							$elm$html$Html$Events$onClick(2),
+							$elm$html$Html$Attributes$href('#/bikes')
+						]),
+					_List_fromArray(
+						[
+							$elm$html$Html$text('1948 Speedwell (2013-current)')
+						])),
+					A3(
+					$surprisetalk$elm_bulma$Bulma$Components$panelLink,
+					bike === 3,
+					_List_fromArray(
+						[
+							$elm$html$Html$Events$onClick(3),
+							$elm$html$Html$Attributes$href('#/bikes')
+						]),
+					_List_fromArray(
+						[
+							$elm$html$Html$text('KHS Fixed Gear (~2015-current)')
+						])),
+					A3(
+					$surprisetalk$elm_bulma$Bulma$Components$panelLink,
+					bike === 4,
+					_List_fromArray(
+						[
+							$elm$html$Html$Events$onClick(4),
+							$elm$html$Html$Attributes$href('#/bikes')
+						]),
+					_List_fromArray(
+						[
+							$elm$html$Html$text('No-name touring bike (2016-2017)')
+						])),
+					A3(
+					$surprisetalk$elm_bulma$Bulma$Components$panelLink,
+					bike === 5,
+					_List_fromArray(
+						[
+							$elm$html$Html$Events$onClick(5),
+							$elm$html$Html$Attributes$href('#/bikes')
+						]),
+					_List_fromArray(
+						[
+							$elm$html$Html$text('Surly Disc Trucker (2018-current)')
+						])),
+					A3(
+					$surprisetalk$elm_bulma$Bulma$Components$panelLink,
+					bike === 6,
+					_List_fromArray(
+						[
+							$elm$html$Html$Events$onClick(6),
+							$elm$html$Html$Attributes$href('#/bikes')
+						]),
+					_List_fromArray(
+						[
+							$elm$html$Html$text('3Sixty (2019-current)')
+						])),
+					A3(
+					$surprisetalk$elm_bulma$Bulma$Components$panelLink,
+					bike === 7,
+					_List_fromArray(
+						[
+							$elm$html$Html$Events$onClick(7),
+							$elm$html$Html$Attributes$href('#/bikes')
+						]),
+					_List_fromArray(
+						[
+							$elm$html$Html$text('Carrerra (2021-current)')
 						]))
 				]))
 		]);
 };
-var $author$project$Page$Welcome$viewTitle = 'mattswoon';
-var $author$project$Page$Welcome$view = function (model) {
+var $author$project$Page$Bikes$viewBike = function (bike) {
 	return {
-		aX: $author$project$Page$Welcome$viewBody(model),
-		bb: $author$project$Page$Welcome$viewTitle
+		aX: _List_fromArray(
+			[
+				$surprisetalk$elm_bulma$Bulma$CDN$stylesheet,
+				A3(
+				$surprisetalk$elm_bulma$Bulma$Layout$section,
+				1,
+				_List_Nil,
+				_List_fromArray(
+					[
+						A2(
+						$surprisetalk$elm_bulma$Bulma$Layout$container,
+						_List_Nil,
+						_List_fromArray(
+							[
+								A3(
+								$surprisetalk$elm_bulma$Bulma$Layout$hero,
+								$surprisetalk$elm_bulma$Bulma$Layout$heroModifiers,
+								_List_Nil,
+								_List_fromArray(
+									[
+										A2(
+										$surprisetalk$elm_bulma$Bulma$Layout$heroBody,
+										_List_Nil,
+										_List_fromArray(
+											[
+												A2(
+												$surprisetalk$elm_bulma$Bulma$Layout$container,
+												_List_Nil,
+												_List_fromArray(
+													[
+														A4(
+														$surprisetalk$elm_bulma$Bulma$Components$breadcrumb,
+														$surprisetalk$elm_bulma$Bulma$Components$breadcrumbModifiers,
+														_List_Nil,
+														_List_Nil,
+														_List_fromArray(
+															[
+																A4(
+																$surprisetalk$elm_bulma$Bulma$Components$crumblet,
+																false,
+																_List_Nil,
+																_List_fromArray(
+																	[
+																		$elm$html$Html$Attributes$href('/')
+																	]),
+																_List_fromArray(
+																	[
+																		$elm$html$Html$text('Home')
+																	])),
+																A4(
+																$surprisetalk$elm_bulma$Bulma$Components$crumblet,
+																true,
+																_List_Nil,
+																_List_fromArray(
+																	[
+																		$elm$html$Html$Attributes$href('/#/bikes')
+																	]),
+																_List_fromArray(
+																	[
+																		$elm$html$Html$text('Bikes')
+																	]))
+															])),
+														A3(
+														$surprisetalk$elm_bulma$Bulma$Elements$title,
+														0,
+														_List_Nil,
+														_List_fromArray(
+															[
+																$elm$html$Html$text('A brief history of (my) bikes')
+															])),
+														A2(
+														$elm$html$Html$em,
+														_List_fromArray(
+															[
+																$surprisetalk$elm_bulma$Bulma$Modifiers$Typography$textColor(5)
+															]),
+														_List_fromArray(
+															[
+																$elm$html$Html$text('last updated September 2021')
+															])),
+														A2(
+														$elm$html$Html$p,
+														_List_Nil,
+														_List_fromArray(
+															[
+																$elm$html$Html$text('Here lies an almost complete chronicle of the bikes that made me the cyclist I am today.')
+															]))
+													]))
+											]))
+									])),
+								A3(
+								$surprisetalk$elm_bulma$Bulma$Layout$tileAncestor,
+								0,
+								_List_Nil,
+								_List_fromArray(
+									[
+										A3(
+										$surprisetalk$elm_bulma$Bulma$Layout$tileParent,
+										4,
+										_List_Nil,
+										_List_fromArray(
+											[
+												A3(
+												$surprisetalk$elm_bulma$Bulma$Layout$tileChild,
+												0,
+												_List_Nil,
+												$author$project$Page$Bikes$viewMenu(bike))
+											])),
+										A3(
+										$surprisetalk$elm_bulma$Bulma$Layout$tileParent,
+										0,
+										_List_Nil,
+										_List_fromArray(
+											[
+												A3(
+												$surprisetalk$elm_bulma$Bulma$Layout$tileChild,
+												0,
+												_List_fromArray(
+													[
+														$elm$html$Html$Attributes$class('box')
+													]),
+												$author$project$Page$Bikes$viewMainPanel(bike))
+											]))
+									]))
+							]))
+					]))
+			]),
+		bb: 'My bikes'
 	};
 };
-var $author$project$Page$Welcome$main = $elm$browser$Browser$document(
+var $author$project$Page$Bikes$view = function (model) {
+	var bike = model;
+	return $author$project$Page$Bikes$viewBike(bike);
+};
+var $author$project$Page$Bikes$main = $elm$browser$Browser$document(
 	{
-		a4: $author$project$Page$Welcome$init,
+		a4: $author$project$Page$Bikes$init,
 		ba: function (_v0) {
 			return $elm$core$Platform$Sub$none;
 		},
-		bc: $author$project$Page$Welcome$update,
-		bd: $author$project$Page$Welcome$view
+		bc: $author$project$Page$Bikes$update,
+		bd: $author$project$Page$Bikes$view
 	});
-_Platform_export({'Page':{'Welcome':{'init':$author$project$Page$Welcome$main(
+_Platform_export({'Page':{'Bikes':{'init':$author$project$Page$Bikes$main(
 	$elm$json$Json$Decode$succeed(0))(0)}}});}(this));

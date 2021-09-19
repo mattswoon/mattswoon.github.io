@@ -78,7 +78,7 @@ viewBikesTile attrs =
                     [ text "I'm all about bikes"
                     ]
                 , cardFooter []
-                    [ cardFooterItemLink [ href "#/bikes" ] [ text "Read more..." ]
+                    [ cardFooterItemLink [ href "/bikes" ] [ text "Read more..." ]
                     ]
                 ]
             ]
