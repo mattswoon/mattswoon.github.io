@@ -5715,7 +5715,7 @@ var $author$project$Page$Bikes$blueEagleArticle = A2(
 					$elm$html$Html$img,
 					_List_fromArray(
 						[
-							$elm$html$Html$Attributes$src('content/blog/bikes/blue_eagle.jpg'),
+							$elm$html$Html$Attributes$src('/content/blog/bikes/blue_eagle.jpg'),
 							$elm$html$Html$Attributes$alt('A black, white and blue (an embarrassingly 2012 smartphone filter) picture of the Blue Eagle.\n It\'s covered in rust but has shiny new no-name cranks, VO left bank handlebars, and a rip-off Enfield leather saddle from eBay.')
 						]),
 					_List_Nil)
@@ -5744,7 +5744,7 @@ var $author$project$Page$Bikes$blueEagleArticle = A2(
 					$elm$html$Html$img,
 					_List_fromArray(
 						[
-							$elm$html$Html$Attributes$src('content/blog/bikes/blue_eagle_20141221.jpg'),
+							$elm$html$Html$Attributes$src('/content/blog/bikes/blue_eagle_20141221.jpg'),
 							$elm$html$Html$Attributes$alt('The Blue Eagle after a trip to K-Mart to buy some coat hangers.')
 						]),
 					_List_Nil)
@@ -5766,7 +5766,7 @@ var $author$project$Page$Bikes$blueEagleArticle = A2(
 					$elm$html$Html$img,
 					_List_fromArray(
 						[
-							$elm$html$Html$Attributes$src('content/blog/bikes/blue_eagle_20141126.jpg'),
+							$elm$html$Html$Attributes$src('/content/blog/bikes/blue_eagle_20141126.jpg'),
 							$elm$html$Html$Attributes$alt('A POV shot of the Blue Eagle in action. Clearly visible is the crappy job I did \nof using linseed oil as a rust protector on the stem, which has made it a gross yellow colour.')
 						]),
 					_List_Nil)
@@ -5797,7 +5797,7 @@ var $author$project$Page$Bikes$carrerraArticle = A2(
 					$elm$html$Html$img,
 					_List_fromArray(
 						[
-							$elm$html$Html$Attributes$src('content/blog/bikes/carrera_and_me.jpg'),
+							$elm$html$Html$Attributes$src('/content/blog/bikes/carrera_and_me.jpg'),
 							$elm$html$Html$Attributes$alt('Me and the Carrera after a ride in the Royal National Park. The hills there inspired me to replace the crankset with one with fewer teeth.')
 						]),
 					_List_Nil),
@@ -5864,7 +5864,7 @@ var $author$project$Page$Bikes$clamentArticle = A2(
 					$elm$html$Html$img,
 					_List_fromArray(
 						[
-							$elm$html$Html$Attributes$src('content/blog/bikes/clament_20120324.jpg'),
+							$elm$html$Html$Attributes$src('/content/blog/bikes/clament_20120324.jpg'),
 							$elm$html$Html$Attributes$alt('The Clament, converted to fixed gear, photgraphed in front of the ANZAC bridge')
 						]),
 					_List_Nil)
@@ -5943,7 +5943,7 @@ var $author$project$Page$Bikes$khsArticle = A2(
 					$elm$html$Html$img,
 					_List_fromArray(
 						[
-							$elm$html$Html$Attributes$src('content/blog/bikes/khs_20180216.jpg'),
+							$elm$html$Html$Attributes$src('/content/blog/bikes/khs_20180216.jpg'),
 							$elm$html$Html$Attributes$alt('A KHS track bike frame with a Wald 137 basket on front and VO porteur handlebars')
 						]),
 					_List_Nil)
@@ -5972,7 +5972,7 @@ var $author$project$Page$Bikes$khsArticle = A2(
 					$elm$html$Html$img,
 					_List_fromArray(
 						[
-							$elm$html$Html$Attributes$src('content/blog/bikes/khs_20170108.jpg'),
+							$elm$html$Html$Attributes$src('/content/blog/bikes/khs_20170108.jpg'),
 							$elm$html$Html$Attributes$alt('The KHS fixed gear bike without the Walk basket, instead there\'s an old knapsack strapped to the seatpost')
 						]),
 					_List_Nil)
@@ -5994,7 +5994,7 @@ var $author$project$Page$Bikes$khsArticle = A2(
 					$elm$html$Html$img,
 					_List_fromArray(
 						[
-							$elm$html$Html$Attributes$src('content/blog/bikes/khs_20171012.jpg'),
+							$elm$html$Html$Attributes$src('/content/blog/bikes/khs_20171012.jpg'),
 							$elm$html$Html$Attributes$alt('The KHS at night, very "urban". ')
 						]),
 					_List_Nil)
@@ -6023,7 +6023,7 @@ var $author$project$Page$Bikes$korean3SixtyArticle = A2(
 					$elm$html$Html$img,
 					_List_fromArray(
 						[
-							$elm$html$Html$Attributes$src('content/blog/bikes/folding_20200213.jpg'),
+							$elm$html$Html$Attributes$src('/content/blog/bikes/folding_20200213.jpg'),
 							$elm$html$Html$Attributes$alt('A 3Sixty folding bike leans against a post at the Glebe Light Rail station at dusk. In the background the historic Glebe rail tunnel is illuminated')
 						]),
 					_List_Nil)
@@ -6081,7 +6081,7 @@ var $author$project$Page$Bikes$noNameTouringArticle = A2(
 					$elm$html$Html$img,
 					_List_fromArray(
 						[
-							$elm$html$Html$Attributes$src('content/blog/bikes/touring_20161104.jpg'),
+							$elm$html$Html$Attributes$src('/content/blog/bikes/touring_20161104.jpg'),
 							$elm$html$Html$Attributes$alt('A no-name touring bike, fully loaded while on tour. \n Features a rear rack with two panniers and gear on top, a handlebar bag, and three stainless\n steel water bottles - two on the handlebars and one on the seat tube.')
 						]),
 					_List_Nil)
@@ -6117,7 +6117,7 @@ var $author$project$Page$Bikes$noNameTouringArticle = A2(
 					$elm$html$Html$img,
 					_List_fromArray(
 						[
-							$elm$html$Html$Attributes$src('content/blog/bikes/touring_20160820.jpg'),
+							$elm$html$Html$Attributes$src('/content/blog/bikes/touring_20160820.jpg'),
 							$elm$html$Html$Attributes$alt('A bare frame hanging in a tree in my back yard, ready to painted.')
 						]),
 					_List_Nil)
@@ -6132,7 +6132,7 @@ var $author$project$Page$Bikes$noNameTouringArticle = A2(
 					$elm$html$Html$img,
 					_List_fromArray(
 						[
-							$elm$html$Html$Attributes$src('content/blog/bikes/touring_20160828.jpg'),
+							$elm$html$Html$Attributes$src('/content/blog/bikes/touring_20160828.jpg'),
 							$elm$html$Html$Attributes$alt('A partially built no-name touring bike with wheels and handlebars attached.')
 						]),
 					_List_Nil)
@@ -6162,7 +6162,7 @@ var $author$project$Page$Bikes$noNameTouringArticle = A2(
 					$elm$html$Html$img,
 					_List_fromArray(
 						[
-							$elm$html$Html$Attributes$src('content/blog/bikes/touring_20170714.jpg'),
+							$elm$html$Html$Attributes$src('/content/blog/bikes/touring_20170714.jpg'),
 							$elm$html$Html$Attributes$alt('The no-name touring bike leans against a cattle paddock gate. The handlebar bag has been replaced with a\n Soma porteur front rack with a Swift Industries Sugarloaf bag on top.')
 						]),
 					_List_Nil)
@@ -6191,7 +6191,7 @@ var $author$project$Page$Bikes$noNameTouringArticle = A2(
 					$elm$html$Html$img,
 					_List_fromArray(
 						[
-							$elm$html$Html$Attributes$src('content/blog/bikes/touring_20170714_train.jpg'),
+							$elm$html$Html$Attributes$src('/content/blog/bikes/touring_20170714_train.jpg'),
 							$elm$html$Html$Attributes$alt('The no-name touring bike hanging from a bike rack on a NSW Intercity train.')
 						]),
 					_List_Nil)
@@ -6206,7 +6206,7 @@ var $author$project$Page$Bikes$noNameTouringArticle = A2(
 					$elm$html$Html$img,
 					_List_fromArray(
 						[
-							$elm$html$Html$Attributes$src('content/blog/bikes/touring_20170714_forest.jpg'),
+							$elm$html$Html$Attributes$src('/content/blog/bikes/touring_20170714_forest.jpg'),
 							$elm$html$Html$Attributes$alt('The no-name touring bike leaning against a felled tree in the Olney State Forest.')
 						]),
 					_List_Nil)
@@ -6235,7 +6235,7 @@ var $author$project$Page$Bikes$speedwellArticle = A2(
 					$elm$html$Html$img,
 					_List_fromArray(
 						[
-							$elm$html$Html$Attributes$src('content/blog/bikes/speedwell_20130512_100554.jpg'),
+							$elm$html$Html$Attributes$src('/content/blog/bikes/speedwell_20130512_100554.jpg'),
 							$elm$html$Html$Attributes$alt('A dark purple vintage Speedwell bicycle. The chain is rusty and the \ngears - a Sturmy Archer AW3 - aren\'t connected.')
 						]),
 					_List_Nil)
@@ -6257,7 +6257,7 @@ var $author$project$Page$Bikes$speedwellArticle = A2(
 					$elm$html$Html$img,
 					_List_fromArray(
 						[
-							$elm$html$Html$Attributes$src('content/blog/bikes/speedwell_20130512_100606.jpg'),
+							$elm$html$Html$Attributes$src('/content/blog/bikes/speedwell_20130512_100606.jpg'),
 							$elm$html$Html$Attributes$alt('Original Sturmey Archer shifter, mounted to the top tube.')
 						]),
 					_List_Nil)
@@ -6279,7 +6279,7 @@ var $author$project$Page$Bikes$speedwellArticle = A2(
 					$elm$html$Html$img,
 					_List_fromArray(
 						[
-							$elm$html$Html$Attributes$src('content/blog/bikes/speedwell_20130512_101429.jpg'),
+							$elm$html$Html$Attributes$src('/content/blog/bikes/speedwell_20130512_101429.jpg'),
 							$elm$html$Html$Attributes$alt('Original Wrights saddle, worn and with rusty rivets.')
 						]),
 					_List_Nil)
@@ -6294,7 +6294,7 @@ var $author$project$Page$Bikes$speedwellArticle = A2(
 					$elm$html$Html$img,
 					_List_fromArray(
 						[
-							$elm$html$Html$Attributes$src('content/blog/bikes/speedwell_20130512_100722.jpg'),
+							$elm$html$Html$Attributes$src('/content/blog/bikes/speedwell_20130512_100722.jpg'),
 							$elm$html$Html$Attributes$alt('Serial number of the Speedwell frame. Number reads 24875 which apparently indicates this was the 75th frame built in Feb, 1948.')
 						]),
 					_List_Nil)
@@ -6316,7 +6316,7 @@ var $author$project$Page$Bikes$speedwellArticle = A2(
 					$elm$html$Html$img,
 					_List_fromArray(
 						[
-							$elm$html$Html$Attributes$src('content/blog/bikes/speedwell_20130702.jpg'),
+							$elm$html$Html$Attributes$src('/content/blog/bikes/speedwell_20130702.jpg'),
 							$elm$html$Html$Attributes$alt('The Speedwell with the wheels re-built into aluminium rims, VO porteur handlebars and Soma porteur front rack.')
 						]),
 					_List_Nil)
@@ -6360,7 +6360,7 @@ var $author$project$Page$Bikes$speedwellArticle = A2(
 					$elm$html$Html$img,
 					_List_fromArray(
 						[
-							$elm$html$Html$Attributes$src('content/blog/bikes/speedwell_20180526_shifter.jpg'),
+							$elm$html$Html$Attributes$src('/content/blog/bikes/speedwell_20180526_shifter.jpg'),
 							$elm$html$Html$Attributes$alt('A more modern Sturmey Archer AW shifter to match the hub from the 70s.')
 						]),
 					_List_Nil)
@@ -6375,7 +6375,7 @@ var $author$project$Page$Bikes$speedwellArticle = A2(
 					$elm$html$Html$img,
 					_List_fromArray(
 						[
-							$elm$html$Html$Attributes$src('content/blog/bikes/speedwell_20180526_hub.jpg'),
+							$elm$html$Html$Attributes$src('/content/blog/bikes/speedwell_20180526_hub.jpg'),
 							$elm$html$Html$Attributes$alt('A Sturmey Archer AW 3-speed hub built in 1977.')
 						]),
 					_List_Nil)
@@ -6390,7 +6390,7 @@ var $author$project$Page$Bikes$speedwellArticle = A2(
 					$elm$html$Html$img,
 					_List_fromArray(
 						[
-							$elm$html$Html$Attributes$src('content/blog/bikes/speedwell_20180526_security.jpg'),
+							$elm$html$Html$Attributes$src('/content/blog/bikes/speedwell_20180526_security.jpg'),
 							$elm$html$Html$Attributes$alt('A spoke card from University Security warning that the bike hadn\'t been secured in an approved rack.')
 						]),
 					_List_Nil)
@@ -6419,7 +6419,7 @@ var $author$project$Page$Bikes$surlyArticle = A2(
 					$elm$html$Html$img,
 					_List_fromArray(
 						[
-							$elm$html$Html$Attributes$src('content/blog/bikes/surly_20190630.jpg'),
+							$elm$html$Html$Attributes$src('/content/blog/bikes/surly_20190630.jpg'),
 							$elm$html$Html$Attributes$alt('A fully loaded Surly Disc Trucker with leather VO saddle, red handlebar\ntape and Dia Compe bar-end shifters. Attached the front is a Surly front rack with a Wald\n137 basket on top holding a Swift Industries Sugarloaf bag. Hanging from the saddle is\nSwift Industries Zeitgeist saddle bag. Two Aventir brand panniers hang from the front rack')
 						]),
 					_List_Nil)
@@ -6615,8 +6615,7 @@ var $author$project$Page$Bikes$viewMenu = function (bike) {
 					!bike,
 					_List_fromArray(
 						[
-							$elm$html$Html$Events$onClick(0),
-							$elm$html$Html$Attributes$href('#/bikes')
+							$elm$html$Html$Events$onClick(0)
 						]),
 					_List_fromArray(
 						[
@@ -6627,8 +6626,7 @@ var $author$project$Page$Bikes$viewMenu = function (bike) {
 					bike === 1,
 					_List_fromArray(
 						[
-							$elm$html$Html$Events$onClick(1),
-							$elm$html$Html$Attributes$href('#/bikes')
+							$elm$html$Html$Events$onClick(1)
 						]),
 					_List_fromArray(
 						[
@@ -6639,8 +6637,7 @@ var $author$project$Page$Bikes$viewMenu = function (bike) {
 					bike === 2,
 					_List_fromArray(
 						[
-							$elm$html$Html$Events$onClick(2),
-							$elm$html$Html$Attributes$href('#/bikes')
+							$elm$html$Html$Events$onClick(2)
 						]),
 					_List_fromArray(
 						[
@@ -6651,8 +6648,7 @@ var $author$project$Page$Bikes$viewMenu = function (bike) {
 					bike === 3,
 					_List_fromArray(
 						[
-							$elm$html$Html$Events$onClick(3),
-							$elm$html$Html$Attributes$href('#/bikes')
+							$elm$html$Html$Events$onClick(3)
 						]),
 					_List_fromArray(
 						[
@@ -6663,8 +6659,7 @@ var $author$project$Page$Bikes$viewMenu = function (bike) {
 					bike === 4,
 					_List_fromArray(
 						[
-							$elm$html$Html$Events$onClick(4),
-							$elm$html$Html$Attributes$href('#/bikes')
+							$elm$html$Html$Events$onClick(4)
 						]),
 					_List_fromArray(
 						[
@@ -6675,8 +6670,7 @@ var $author$project$Page$Bikes$viewMenu = function (bike) {
 					bike === 5,
 					_List_fromArray(
 						[
-							$elm$html$Html$Events$onClick(5),
-							$elm$html$Html$Attributes$href('#/bikes')
+							$elm$html$Html$Events$onClick(5)
 						]),
 					_List_fromArray(
 						[
@@ -6687,8 +6681,7 @@ var $author$project$Page$Bikes$viewMenu = function (bike) {
 					bike === 6,
 					_List_fromArray(
 						[
-							$elm$html$Html$Events$onClick(6),
-							$elm$html$Html$Attributes$href('#/bikes')
+							$elm$html$Html$Events$onClick(6)
 						]),
 					_List_fromArray(
 						[
@@ -6699,8 +6692,7 @@ var $author$project$Page$Bikes$viewMenu = function (bike) {
 					bike === 7,
 					_List_fromArray(
 						[
-							$elm$html$Html$Events$onClick(7),
-							$elm$html$Html$Attributes$href('#/bikes')
+							$elm$html$Html$Events$onClick(7)
 						]),
 					_List_fromArray(
 						[
@@ -6766,7 +6758,7 @@ var $author$project$Page$Bikes$viewBike = function (bike) {
 																_List_Nil,
 																_List_fromArray(
 																	[
-																		$elm$html$Html$Attributes$href('/#/bikes')
+																		$elm$html$Html$Attributes$href('/bikes')
 																	]),
 																_List_fromArray(
 																	[
