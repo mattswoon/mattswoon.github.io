@@ -1,4 +1,0 @@
-#!/bin/sh
-
-elm make src/Page/Welcome.elm --output elm.js --optimize
-elm make src/Page/Bikes.elm --output bikes/elm.js --optimize
