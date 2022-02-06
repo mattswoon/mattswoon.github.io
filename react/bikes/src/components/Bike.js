@@ -483,6 +483,42 @@ of transit. I can now also ride to the pub, and not have to leave my bike there 
             src: "/content/blog/bikes/cargo_20211012.jpg",
             alt: "A tribe bikes bakfiets, or box bike. It's a tricycle with two wheels at the front, supporting a large wooden box."
         },
-        article: []
+        article: [
+            {
+                element: "paragraph",
+                text: `You know what, this is actually the first bike I've bought from a shop.`
+            },
+            {
+                element: "paragraph",
+                text: `I'd wanted a cargo bike for ages when I bought this one, but it's a hard thing to rationalise when you have a multitude
+of other bikes that already serve the majority of the purposes a cargo bike would. In particular I had a touring bike that could carry plenty of
+groceries.`
+            },
+            {
+                element: "paragraph",
+                text: `So when a new puppy came home with us I researched as many dog-carrying-capable cargo bikes I could. I settled on the
+tribe bikes baksfiet for a couple of reasons. Primarily it was the size of the box that convinced me. I'd considered long tail bikes like the
+models from yuba or the tern GSD, but I preferred having the ability to keep an eye on the pooch while we rode. Then there were two wheel models
+like the Riese and Mueller pack series, or a bullitt, and even considered one from Krankie, but I just couldn't justify the price for my first
+foray into cargo biking.`
+            },
+            {
+                element: "paragraph",
+                text: `The tribe bikes was about $1500 cheaper than the next cheapest option and you know what? That price difference does make sense.
+It uses cheaper components and a more basic construction than the other options.
+However, I'm not sure I need the extra utility the more expensive bikes get you. The Krankie and pack series give you suspension and the bullit and packs
+two wheel design, or Krankie's tilting system, mean you can go faster and stay stable around corners, but honestly, I bought this to carry a dog in the 
+front so we can go to the park so speed an agility aren't high on my priority list.`
+            },
+            {
+                element: "paragraph",
+                text: "I've also modded it to add a bar that bolts to the side, so we can enjoy cocktails in the park",
+            },
+            {
+                element: "image",
+                src: "/content/blog/bikes/cargo_bar_20220120.jpg",
+                alt: "The tribe bikes with the bar attached, serving negronis in the park"
+            }
+        ]
     },
 ]
