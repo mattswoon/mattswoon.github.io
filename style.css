@@ -1,0 +1,20 @@
+* {
+    font-family: Open Sans;
+}
+
+body, html {
+}
+
+h1 {
+    font-family: Rubik Doodle Shadow;
+    font-weight: Normal;
+}
+
+.header {
+    padding: 1px;
+    text-align: center;
+}
+
+.about-me {
+    text-align: center;
+}
