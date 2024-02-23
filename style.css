@@ -5,16 +5,72 @@
 body, html {
 }
 
-h1 {
-    font-family: Rubik Doodle Shadow;
-    font-weight: Normal;
-}
-
 .header {
     padding: 1px;
     text-align: center;
 }
 
+.header h1 {
+    font-family: Rubik Doodle Shadow;
+    font-weight: Normal;
+}
+
 .about-me {
     text-align: center;
+}
+
+.breadcrumbs {
+}
+
+.breadcrumbs ol {
+    display: flex;
+    flex-direction: row;
+}
+
+.breadcrumbs ol li {
+    margin-left: 1.2em;
+    padding-left: 0.2em;
+}
+
+.breadcrumbs ol li::marker {
+    content: "➔";
+}
+
+.breadcrumbs ol li:first-child::marker {
+    content: "";
+}
+
+.breadcrumbs ol li a {
+    color: black;
+    text-decoration: none;
+    transition: all 0.2s ease-in-out;
+}
+
+.breadcrumbs ol li a:hover {
+    color: purple;
+}
+
+.article {
+    display: flex;
+    flex-direction: column;
+}
+
+.article figure {
+    margin: 1em auto;
+    display: table;
+}
+
+.article figure figcaption {
+    text-align: center;
+    text-color: gray;
+    font-style: italic;
+    display: table-caption;
+    caption-side: bottom;
+}
+
+.article h1 {
+    text-align: center;
+}
+
+.article p {
 }
